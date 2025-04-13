@@ -13,7 +13,7 @@ namespace InventoryManagementSystem.Data
         public DatabaseHelper()
         {
             // Configure your connection string
-            connectionString = "server=localhost;user=root;database=inventory_db;port=3306;password=yourpassword";
+            connectionString = "server=localhost;user=root;database=inventory_db;port=3306;password=1234";
         }
 
         public MySqlConnection GetConnection()
