@@ -1,0 +1,43 @@
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Inventory Management System.exe.config
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Inventory Management System.exe
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Inventory Management System.pdb
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\BouncyCastle.Cryptography.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Google.Protobuf.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\K4os.Compression.LZ4.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\K4os.Hash.xxHash.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\MySql.Data.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Buffers.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.IO.Pipelines.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Memory.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Numerics.Vectors.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\ZstdSharp.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\BouncyCastle.Cryptography.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Google.Protobuf.pdb
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Google.Protobuf.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\K4os.Compression.LZ4.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\K4os.Hash.xxHash.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\MySql.Data.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Buffers.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.IO.Pipelines.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Memory.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Numerics.Vectors.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.csproj.AssemblyReference.cache
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Properties.Resources.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.csproj.GenerateResource.cache
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.csproj.CoreCompileInputs.cache
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventor.6904B46F.Up2Date
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.exe
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.pdb
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ItemForm.resources
