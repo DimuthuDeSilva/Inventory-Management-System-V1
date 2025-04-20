@@ -13,7 +13,7 @@ namespace InventoryManagementSystem.Data
         public DatabaseHelper()
         {
             // Configure your connection string
-            connectionString = "server=localhost;user=root;database=inventory_db;port=3306;password=1234";
+            connectionString = "server=127.0.0.1;user=root;database=inventory_management_system;password=Bachelor@2320380";
         }
 
         public MySqlConnection GetConnection()
@@ -66,6 +66,18 @@ namespace InventoryManagementSystem.Data
             {
                 MessageBox.Show($"Error initializing database: {ex.Message}");
             }
+            finally
+            {
+                // Ensure the connection is closed
+                using (var connection = GetConnection())
+                {
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
         }
     }
 }

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Inventory_Management_System.Forms
 {
-    public partial class ItemForm : Form
+    public partial class ApprovalFlowForm : Form
     {
-        public ItemForm()
+        public ApprovalFlowForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ApprovalFlowForm_Load(object sender, EventArgs e)
         {
 
         }

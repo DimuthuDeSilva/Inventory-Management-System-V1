@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Management_System.Forms
 {
-    partial class ItemForm
+    partial class ApprovalFlowForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,46 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.SuspendLayout();
             // 
-            // label1
+            // mySqlCommand1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(355, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Test";
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(307, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 43);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ItemForm
+            // ApprovalFlowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Name = "ItemForm";
-            this.Text = "ItemForm";
+            this.Name = "ApprovalFlowForm";
+            this.Text = "ApprovalFlowForm";
+            this.Load += new System.EventHandler(this.ApprovalFlowForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     }
 }
