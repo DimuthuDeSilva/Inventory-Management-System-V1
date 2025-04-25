@@ -40,4 +40,21 @@ D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Te
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventor.6904B46F.Up2Date
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.exe
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.pdb
-D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ItemForm.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.Login.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.Home.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ItemSetup.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.WareHouseSetup.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.CreatePO.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\itextsharp.dll
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\bin\Debug\itextsharp.xml
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.CreateGRN.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ApprovalFlowSetup.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ConfirmMRN.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.CreatePayment.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ConfirmGRN.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ApprovePO.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.CreateMRN.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.UserManagement.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.CreateMRreturn.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ConfirmMRreturn.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.StockOut.resources
