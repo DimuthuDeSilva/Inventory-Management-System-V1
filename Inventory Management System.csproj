@@ -133,6 +133,12 @@
     <Compile Include="Forms\CreateMRreturn.Designer.cs">
       <DependentUpon>CreateMRreturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReOrderLevelAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReOrderLevelAlert.Designer.cs">
+      <DependentUpon>ReOrderLevelAlert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StockOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,7 @@
     <Compile Include="Models\CreatePOModel.cs" />
     <Compile Include="Models\CreateGRNmodel.cs" />
     <Compile Include="Models\Items.cs" />
+    <Compile Include="Models\ReOrderLevelModel.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StockInModel.cs" />
     <Compile Include="Models\StockOutModel.cs" />
@@ -242,6 +249,7 @@
     <Compile Include="Services\CreateGRNService.cs" />
     <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\LoginService.cs" />
+    <Compile Include="Services\ReorderAlertService.cs" />
     <Compile Include="Services\StockInService.cs" />
     <Compile Include="Services\StockOutService.cs" />
     <Compile Include="Services\UserManagementService.cs" />
@@ -254,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CreateMRreturn.resx">
       <DependentUpon>CreateMRreturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReOrderLevelAlert.resx">
+      <DependentUpon>ReOrderLevelAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StockOut.resx">
       <DependentUpon>StockOut.cs</DependentUpon>

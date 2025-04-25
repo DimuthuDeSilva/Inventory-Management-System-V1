@@ -43,8 +43,6 @@ namespace Inventory_Management_System.Forms
             this.lblSOStatus = new System.Windows.Forms.Label();
             this.lblIssuedDate = new System.Windows.Forms.Label();
             this.lblMRNID = new System.Windows.Forms.Label();
-            this.txtStockOutID = new System.Windows.Forms.TextBox();
-            this.lblStockOutID = new System.Windows.Forms.Label();
             this.dgvSTouttList = new System.Windows.Forms.DataGridView();
             this.dtpIssuedDate = new System.Windows.Forms.DateTimePicker();
             this.txtItemName = new System.Windows.Forms.TextBox();
@@ -74,7 +72,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtSOSNotes.BackColor = System.Drawing.SystemColors.Control;
             this.txtSOSNotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSOSNotes.Location = new System.Drawing.Point(628, 428);
+            this.txtSOSNotes.Location = new System.Drawing.Point(628, 372);
             this.txtSOSNotes.Name = "txtSOSNotes";
             this.txtSOSNotes.Size = new System.Drawing.Size(242, 27);
             this.txtSOSNotes.TabIndex = 48;
@@ -83,7 +81,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtItemID.BackColor = System.Drawing.SystemColors.Control;
             this.txtItemID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemID.Location = new System.Drawing.Point(33, 422);
+            this.txtItemID.Location = new System.Drawing.Point(36, 372);
             this.txtItemID.Name = "txtItemID";
             this.txtItemID.ReadOnly = true;
             this.txtItemID.Size = new System.Drawing.Size(242, 27);
@@ -95,7 +93,7 @@ namespace Inventory_Management_System.Forms
             this.lblAPONotes.AutoSize = true;
             this.lblAPONotes.BackColor = System.Drawing.SystemColors.Control;
             this.lblAPONotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPONotes.Location = new System.Drawing.Point(630, 403);
+            this.lblAPONotes.Location = new System.Drawing.Point(630, 347);
             this.lblAPONotes.Name = "lblAPONotes";
             this.lblAPONotes.Size = new System.Drawing.Size(54, 21);
             this.lblAPONotes.TabIndex = 43;
@@ -106,7 +104,7 @@ namespace Inventory_Management_System.Forms
             this.lblItemID.AutoSize = true;
             this.lblItemID.BackColor = System.Drawing.SystemColors.Control;
             this.lblItemID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemID.Location = new System.Drawing.Point(35, 398);
+            this.lblItemID.Location = new System.Drawing.Point(38, 348);
             this.lblItemID.Name = "lblItemID";
             this.lblItemID.Size = new System.Drawing.Size(63, 21);
             this.lblItemID.TabIndex = 42;
@@ -127,7 +125,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtStatus.BackColor = System.Drawing.SystemColors.Control;
             this.txtStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(330, 426);
+            this.txtStatus.Location = new System.Drawing.Point(334, 372);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(242, 27);
@@ -147,7 +145,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtMRNID.BackColor = System.Drawing.SystemColors.Control;
             this.txtMRNID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRNID.Location = new System.Drawing.Point(33, 368);
+            this.txtMRNID.Location = new System.Drawing.Point(36, 318);
             this.txtMRNID.Name = "txtMRNID";
             this.txtMRNID.ReadOnly = true;
             this.txtMRNID.Size = new System.Drawing.Size(242, 27);
@@ -159,7 +157,7 @@ namespace Inventory_Management_System.Forms
             this.lblSOStatus.AutoSize = true;
             this.lblSOStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblSOStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSOStatus.Location = new System.Drawing.Point(332, 402);
+            this.lblSOStatus.Location = new System.Drawing.Point(336, 348);
             this.lblSOStatus.Name = "lblSOStatus";
             this.lblSOStatus.Size = new System.Drawing.Size(95, 21);
             this.lblSOStatus.TabIndex = 34;
@@ -170,7 +168,7 @@ namespace Inventory_Management_System.Forms
             this.lblIssuedDate.AutoSize = true;
             this.lblIssuedDate.BackColor = System.Drawing.SystemColors.Control;
             this.lblIssuedDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssuedDate.Location = new System.Drawing.Point(630, 350);
+            this.lblIssuedDate.Location = new System.Drawing.Point(336, 401);
             this.lblIssuedDate.Name = "lblIssuedDate";
             this.lblIssuedDate.Size = new System.Drawing.Size(93, 21);
             this.lblIssuedDate.TabIndex = 32;
@@ -181,33 +179,11 @@ namespace Inventory_Management_System.Forms
             this.lblMRNID.AutoSize = true;
             this.lblMRNID.BackColor = System.Drawing.SystemColors.Control;
             this.lblMRNID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNID.Location = new System.Drawing.Point(35, 344);
+            this.lblMRNID.Location = new System.Drawing.Point(38, 294);
             this.lblMRNID.Name = "lblMRNID";
             this.lblMRNID.Size = new System.Drawing.Size(68, 21);
             this.lblMRNID.TabIndex = 30;
             this.lblMRNID.Text = "MRN ID:";
-            // 
-            // txtStockOutID
-            // 
-            this.txtStockOutID.BackColor = System.Drawing.SystemColors.Control;
-            this.txtStockOutID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStockOutID.Location = new System.Drawing.Point(33, 314);
-            this.txtStockOutID.Name = "txtStockOutID";
-            this.txtStockOutID.ReadOnly = true;
-            this.txtStockOutID.Size = new System.Drawing.Size(242, 27);
-            this.txtStockOutID.TabIndex = 29;
-            this.txtStockOutID.TabStop = false;
-            // 
-            // lblStockOutID
-            // 
-            this.lblStockOutID.AutoSize = true;
-            this.lblStockOutID.BackColor = System.Drawing.SystemColors.Control;
-            this.lblStockOutID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockOutID.Location = new System.Drawing.Point(35, 290);
-            this.lblStockOutID.Name = "lblStockOutID";
-            this.lblStockOutID.Size = new System.Drawing.Size(99, 21);
-            this.lblStockOutID.TabIndex = 28;
-            this.lblStockOutID.Text = "Stock Out ID:";
             // 
             // dgvSTouttList
             // 
@@ -236,7 +212,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.dtpIssuedDate.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpIssuedDate.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpIssuedDate.Location = new System.Drawing.Point(628, 374);
+            this.dtpIssuedDate.Location = new System.Drawing.Point(334, 425);
             this.dtpIssuedDate.Name = "dtpIssuedDate";
             this.dtpIssuedDate.Size = new System.Drawing.Size(242, 25);
             this.dtpIssuedDate.TabIndex = 58;
@@ -245,7 +221,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtItemName.BackColor = System.Drawing.SystemColors.Control;
             this.txtItemName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemName.Location = new System.Drawing.Point(330, 318);
+            this.txtItemName.Location = new System.Drawing.Point(36, 426);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
             this.txtItemName.Size = new System.Drawing.Size(242, 27);
@@ -257,7 +233,7 @@ namespace Inventory_Management_System.Forms
             this.lblItemName.AutoSize = true;
             this.lblItemName.BackColor = System.Drawing.SystemColors.Control;
             this.lblItemName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemName.Location = new System.Drawing.Point(332, 294);
+            this.lblItemName.Location = new System.Drawing.Point(38, 402);
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(90, 21);
             this.lblItemName.TabIndex = 45;
@@ -281,17 +257,19 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtQuantity.BackColor = System.Drawing.SystemColors.Control;
             this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(330, 372);
+            this.txtQuantity.Location = new System.Drawing.Point(334, 318);
             this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.ReadOnly = true;
             this.txtQuantity.Size = new System.Drawing.Size(242, 27);
             this.txtQuantity.TabIndex = 64;
+            this.txtQuantity.TabStop = false;
             // 
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.BackColor = System.Drawing.SystemColors.Control;
             this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(332, 348);
+            this.lblQuantity.Location = new System.Drawing.Point(336, 294);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(73, 21);
             this.lblQuantity.TabIndex = 63;
@@ -347,8 +325,6 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.lblSOStatus);
             this.Controls.Add(this.lblIssuedDate);
             this.Controls.Add(this.lblMRNID);
-            this.Controls.Add(this.txtStockOutID);
-            this.Controls.Add(this.lblStockOutID);
             this.Controls.Add(this.dgvSTouttList);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -377,8 +353,6 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Label lblSOStatus;
         private System.Windows.Forms.Label lblIssuedDate;
         private System.Windows.Forms.Label lblMRNID;
-        private System.Windows.Forms.TextBox txtStockOutID;
-        private System.Windows.Forms.Label lblStockOutID;
         private System.Windows.Forms.DataGridView dgvSTouttList;
         private System.Windows.Forms.DateTimePicker dtpIssuedDate;
         private System.Windows.Forms.TextBox txtItemName;

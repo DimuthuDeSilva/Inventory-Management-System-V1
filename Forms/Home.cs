@@ -233,7 +233,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.addMRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMRNToolStripMenuItem.Name = "addMRNToolStripMenuItem";
-            this.addMRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.addMRNToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
             this.addMRNToolStripMenuItem.Text = "Add MRN";
             this.addMRNToolStripMenuItem.Click += new System.EventHandler(this.addMRNToolStripMenuItem_Click);
             // 
@@ -241,7 +241,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.confirmMRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmMRNToolStripMenuItem.Name = "confirmMRNToolStripMenuItem";
-            this.confirmMRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.confirmMRNToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
             this.confirmMRNToolStripMenuItem.Text = "Confirm MRN";
             this.confirmMRNToolStripMenuItem.Click += new System.EventHandler(this.confirmMRNToolStripMenuItem_Click);
             // 
@@ -249,7 +249,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.stockOutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockOutToolStripMenuItem.Name = "stockOutToolStripMenuItem";
-            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
             this.stockOutToolStripMenuItem.Text = "Stock Out";
             this.stockOutToolStripMenuItem.Click += new System.EventHandler(this.stockOutToolStripMenuItem_Click);
             // 
@@ -342,6 +342,7 @@ namespace Inventory_Management_System.Forms
             this.lowStockAlerToolStripMenuItem.Name = "lowStockAlerToolStripMenuItem";
             this.lowStockAlerToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.lowStockAlerToolStripMenuItem.Text = "Low Stock Alert";
+            this.lowStockAlerToolStripMenuItem.Click += new System.EventHandler(this.lowStockAlerToolStripMenuItem_Click);
             // 
             // mstHomeMenu
             // 
@@ -678,6 +679,19 @@ namespace Inventory_Management_System.Forms
                 createStock.Show();
             }
         }
-        
+
+        private void lowStockAlerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Department User")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                ReorderLevelAlert reorder = new ReorderLevelAlert();
+                this.Hide();
+                reorder.Show();
+            }
+        }
     }
 }
