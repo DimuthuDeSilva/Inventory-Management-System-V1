@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Management_System.Models;
+using Inventory_Management_System.Services;
 
 namespace Inventory_Management_System.Forms
 {
     public partial class Home : Form
     {
+        ApprovePOService approvePOService = new ApprovePOService();
+        ConfirmGRNservice confirmGRNservice = new ConfirmGRNservice();
+        ConfirmMRNservice confirmMRNservice = new ConfirmMRNservice();
         public Home()
         {
             InitializeComponent();
@@ -27,24 +32,10 @@ namespace Inventory_Management_System.Forms
             btn.Click += handler;
             this.Controls.Add(btn);
         }
-        private void OpenConfiguration(object sender, EventArgs e)
-        {
-            //ConfigurationForm configForm = new ConfigurationForm();
-            //configForm.ShowDialog();
-        }
-
-        private void OpenAddItem(object sender, EventArgs e)
-        {
-            //ItemSetupForm itemSetupForm = new ItemSetupForm();
-            //itemSetupForm.ShowDialog();
-        }
-
-        private Label lblWelcome;
 
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.approvalFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,21 +69,12 @@ namespace Inventory_Management_System.Forms
             this.lowStockAlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mstHomeMenu = new System.Windows.Forms.MenuStrip();
             this.pbxLandingPage = new System.Windows.Forms.PictureBox();
+            this.lblLoggedUser = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.mstHomeMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLandingPage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblWelcome.Location = new System.Drawing.Point(348, 154);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(691, 32);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "WELCOME TO INVENTORY MANAGEMENT SYSTEM";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // configurationToolStripMenuItem
             // 
@@ -121,6 +103,7 @@ namespace Inventory_Management_System.Forms
             this.approvalFlowToolStripMenuItem.Name = "approvalFlowToolStripMenuItem";
             this.approvalFlowToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.approvalFlowToolStripMenuItem.Text = "Approval Flow\t";
+            this.approvalFlowToolStripMenuItem.Click += new System.EventHandler(this.approvalFlowToolStripMenuItem_Click);
             // 
             // warehouseSetupToolStripMenuItem
             // 
@@ -128,6 +111,7 @@ namespace Inventory_Management_System.Forms
             this.warehouseSetupToolStripMenuItem.Name = "warehouseSetupToolStripMenuItem";
             this.warehouseSetupToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.warehouseSetupToolStripMenuItem.Text = "Warehouse Setup";
+            this.warehouseSetupToolStripMenuItem.Click += new System.EventHandler(this.warehouseSetupToolStripMenuItem_Click_1);
             // 
             // userManagementToolStripMenuItem
             // 
@@ -135,6 +119,7 @@ namespace Inventory_Management_System.Forms
             this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.userManagementToolStripMenuItem.Text = "User Management";
+            this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
             // 
             // purchaseOrderToolStripMenuItem
             // 
@@ -153,28 +138,30 @@ namespace Inventory_Management_System.Forms
             // 
             this.createPOToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createPOToolStripMenuItem.Name = "createPOToolStripMenuItem";
-            this.createPOToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.createPOToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.createPOToolStripMenuItem.Text = "Create PO";
+            this.createPOToolStripMenuItem.Click += new System.EventHandler(this.createPOToolStripMenuItem_Click);
             // 
             // updatePOToolStripMenuItem
             // 
             this.updatePOToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updatePOToolStripMenuItem.Name = "updatePOToolStripMenuItem";
-            this.updatePOToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.updatePOToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.updatePOToolStripMenuItem.Text = "Update PO";
             // 
             // approvePOToolStripMenuItem
             // 
             this.approvePOToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.approvePOToolStripMenuItem.Name = "approvePOToolStripMenuItem";
-            this.approvePOToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.approvePOToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.approvePOToolStripMenuItem.Text = "Approve PO";
+            this.approvePOToolStripMenuItem.Click += new System.EventHandler(this.approvePOToolStripMenuItem_Click);
             // 
             // cancelPOToolStripMenuItem
             // 
             this.cancelPOToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelPOToolStripMenuItem.Name = "cancelPOToolStripMenuItem";
-            this.cancelPOToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cancelPOToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.cancelPOToolStripMenuItem.Text = "Cancel PO";
             // 
             // goodReceivedNoteGRNToolStripMenuItem
@@ -193,21 +180,23 @@ namespace Inventory_Management_System.Forms
             // 
             this.addGRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addGRNToolStripMenuItem.Name = "addGRNToolStripMenuItem";
-            this.addGRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.addGRNToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.addGRNToolStripMenuItem.Text = "Add GRN\t";
+            this.addGRNToolStripMenuItem.Click += new System.EventHandler(this.addGRNToolStripMenuItem_Click);
             // 
             // confirmGRNToolStripMenuItem
             // 
             this.confirmGRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmGRNToolStripMenuItem.Name = "confirmGRNToolStripMenuItem";
-            this.confirmGRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.confirmGRNToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.confirmGRNToolStripMenuItem.Text = "Confirm GRN";
+            this.confirmGRNToolStripMenuItem.Click += new System.EventHandler(this.confirmGRNToolStripMenuItem_Click);
             // 
             // cancelGRNToolStripMenuItem
             // 
             this.cancelGRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelGRNToolStripMenuItem.Name = "cancelGRNToolStripMenuItem";
-            this.cancelGRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cancelGRNToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.cancelGRNToolStripMenuItem.Text = "Cancel GRN";
             // 
             // createPaymentToolStripMenuItem
@@ -226,6 +215,7 @@ namespace Inventory_Management_System.Forms
             this.createPaymentToolStripMenuItem1.Name = "createPaymentToolStripMenuItem1";
             this.createPaymentToolStripMenuItem1.Size = new System.Drawing.Size(186, 24);
             this.createPaymentToolStripMenuItem1.Text = "Create Payment";
+            this.createPaymentToolStripMenuItem1.Click += new System.EventHandler(this.createPaymentToolStripMenuItem1_Click);
             // 
             // materialRequestNoteMRNToolStripMenuItem
             // 
@@ -243,22 +233,25 @@ namespace Inventory_Management_System.Forms
             // 
             this.addMRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMRNToolStripMenuItem.Name = "addMRNToolStripMenuItem";
-            this.addMRNToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
+            this.addMRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.addMRNToolStripMenuItem.Text = "Add MRN";
+            this.addMRNToolStripMenuItem.Click += new System.EventHandler(this.addMRNToolStripMenuItem_Click);
             // 
             // confirmMRNToolStripMenuItem
             // 
             this.confirmMRNToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmMRNToolStripMenuItem.Name = "confirmMRNToolStripMenuItem";
-            this.confirmMRNToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
+            this.confirmMRNToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.confirmMRNToolStripMenuItem.Text = "Confirm MRN";
+            this.confirmMRNToolStripMenuItem.Click += new System.EventHandler(this.confirmMRNToolStripMenuItem_Click);
             // 
             // stockOutToolStripMenuItem
             // 
             this.stockOutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockOutToolStripMenuItem.Name = "stockOutToolStripMenuItem";
-            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
+            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.stockOutToolStripMenuItem.Text = "Stock Out";
+            this.stockOutToolStripMenuItem.Click += new System.EventHandler(this.stockOutToolStripMenuItem_Click);
             // 
             // materialRequestReturnMRRToolStripMenuItem
             // 
@@ -352,7 +345,11 @@ namespace Inventory_Management_System.Forms
             // 
             // mstHomeMenu
             // 
-            this.mstHomeMenu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mstHomeMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mstHomeMenu.BackColor = System.Drawing.Color.MidnightBlue;
+            this.mstHomeMenu.Dock = System.Windows.Forms.DockStyle.None;
             this.mstHomeMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mstHomeMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configurationToolStripMenuItem,
@@ -363,35 +360,81 @@ namespace Inventory_Management_System.Forms
             this.materialRequestReturnMRRToolStripMenuItem,
             this.reportsToolStripMenuItem,
             this.lowStockAlerToolStripMenuItem});
-            this.mstHomeMenu.Location = new System.Drawing.Point(0, 0);
+            this.mstHomeMenu.Location = new System.Drawing.Point(5, 6);
             this.mstHomeMenu.Name = "mstHomeMenu";
-            this.mstHomeMenu.Size = new System.Drawing.Size(1298, 28);
+            this.mstHomeMenu.Size = new System.Drawing.Size(1279, 28);
             this.mstHomeMenu.TabIndex = 2;
             this.mstHomeMenu.Text = "Home Menu";
             // 
             // pbxLandingPage
             // 
+            this.pbxLandingPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxLandingPage.BackgroundImage")));
             this.pbxLandingPage.Image = ((System.Drawing.Image)(resources.GetObject("pbxLandingPage.Image")));
-            this.pbxLandingPage.Location = new System.Drawing.Point(352, 224);
+            this.pbxLandingPage.Location = new System.Drawing.Point(339, 128);
             this.pbxLandingPage.Name = "pbxLandingPage";
-            this.pbxLandingPage.Size = new System.Drawing.Size(685, 263);
+            this.pbxLandingPage.Size = new System.Drawing.Size(685, 387);
             this.pbxLandingPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLandingPage.TabIndex = 3;
             this.pbxLandingPage.TabStop = false;
+            // 
+            // lblLoggedUser
+            // 
+            this.lblLoggedUser.AutoSize = true;
+            this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedUser.ForeColor = System.Drawing.Color.Navy;
+            this.lblLoggedUser.Location = new System.Drawing.Point(584, 87);
+            this.lblLoggedUser.Name = "lblLoggedUser";
+            this.lblLoggedUser.Size = new System.Drawing.Size(42, 21);
+            this.lblLoggedUser.TabIndex = 4;
+            this.lblLoggedUser.Text = "Hi....";
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.DimGray;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLogOut.Location = new System.Drawing.Point(1127, 101);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(80, 36);
+            this.btnLogOut.TabIndex = 57;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.DarkRed;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Location = new System.Drawing.Point(1127, 59);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(80, 36);
+            this.btnExit.TabIndex = 58;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1298, 633);
-            this.Controls.Add(this.pbxLandingPage);
-            this.Controls.Add(this.lblWelcome);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1439, 633);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.lblLoggedUser);
             this.Controls.Add(this.mstHomeMenu);
+            this.Controls.Add(this.pbxLandingPage);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Home";
-            this.Text = "Inventory Management System";
+            this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Home_Load);
             this.mstHomeMenu.ResumeLayout(false);
             this.mstHomeMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLandingPage)).EndInit();
@@ -399,6 +442,7 @@ namespace Inventory_Management_System.Forms
             this.PerformLayout();
 
         }
+
         private IContainer components;
         private ToolStripMenuItem configurationToolStripMenuItem;
         private ToolStripMenuItem itemSetupToolStripMenuItem;
@@ -436,10 +480,204 @@ namespace Inventory_Management_System.Forms
 
         private void itemSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ItemSetup updateItem = new ItemSetup();
-            this.Hide();
-            //updateItem.MdiParent = this;
-            updateItem.Show();
+            if (Session.Role != "Admin")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                ItemSetup itemSetup = new ItemSetup();
+                this.Hide();
+                //updateItem.MdiParent = this;
+                itemSetup.Show();
+            }
+            
         }
+        private void warehouseSetupToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (Session.Role != "Admin")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                WareHouseSetup warehouseSetup = new WareHouseSetup();
+                this.Hide();
+                warehouseSetup.Show();
+            }
+            
+        }
+
+        private void createPOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Department User")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                CreatePO createPO = new CreatePO();
+                this.Hide();
+                createPO.Show();
+            }
+            
+        }
+
+        private void approvePOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var checkaccess = approvePOService.GetAllPurchaseOrders();
+
+            if (checkaccess == null) // No access
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                ApprovePO approvePOform = new ApprovePO();
+                this.Hide();
+                approvePOform.Show();
+            }
+            
+        }
+
+        private Label lblLoggedUser;
+        private void Home_Load(object sender, EventArgs e)
+        {
+            lblLoggedUser.Text = $"Welcome, {Session.FullName}";
+        }
+
+        private void addGRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Department User")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                CreateGRN createGRN = new CreateGRN();
+                this.Hide();
+                createGRN.Show();
+            }
+            
+        }
+
+        private void confirmGRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var checkaccess = approvePOService.GetAllPurchaseOrders();
+
+            if (checkaccess == null) // No access
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                ConfirmGRN confirmGRNform = new ConfirmGRN();
+                this.Hide();
+                confirmGRNform.Show();
+            }          
+        }
+
+        private void approvalFlowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Admin")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                ApprovalFlowSetup approvalflowSetup = new ApprovalFlowSetup();
+                this.Hide();
+                approvalflowSetup.Show();
+            }
+
+        }
+
+        private Button btnExit;
+        private Button btnLogOut;
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.Show();
+        }
+
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Admin")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                UserManagement userManagement = new UserManagement();
+                this.Hide();
+                userManagement.Show();
+            }
+        }
+
+        private void createPaymentToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Department User")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                CreatePayment createPayment = new CreatePayment();
+                this.Hide();
+                createPayment.Show();
+            }
+                
+        }
+
+        private void addMRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.Role != "Branch User")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                CreateMRN createMRN = new CreateMRN();
+                this.Hide();
+                createMRN.Show();
+            }
+        }
+
+        private void confirmMRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var checkaccess = confirmMRNservice.GetAllToConfirmMRNs();
+
+            if (checkaccess == null) // No access
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                ConfirmMRN confirmMRNform = new ConfirmMRN();
+                this.Hide();
+                confirmMRNform.Show();
+            }
+        }
+
+        private void stockOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (Session.Role != "Department User")
+            {
+                MessageBox.Show("You don't have permission to access this page");
+            }
+            else
+            {
+                StockOut createStock = new StockOut();
+                this.Hide();
+                createStock.Show();
+            }
+        }
+        
     }
 }

@@ -22,7 +22,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM Items";
+                    string sql = "SELECT * FROM items";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -47,7 +47,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = @"INSERT INTO Items 
+                    string sql = @"INSERT INTO items 
                       (Name, Description, Quantity, ReorderLevel, UnitPrice, 
                        TotalCost, SupplierID, WarehouseID, IsActive)
                       VALUES 

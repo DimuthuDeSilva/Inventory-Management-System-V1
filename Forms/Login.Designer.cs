@@ -37,6 +37,7 @@
             this.lblLoginAccount = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.lblWelcome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
@@ -78,13 +79,13 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogin.BackColor = System.Drawing.Color.DarkBlue;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLogin.Location = new System.Drawing.Point(130, 302);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(224, 35);
+            this.btnLogin.Size = new System.Drawing.Size(224, 43);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -125,25 +126,40 @@
             this.pnlLogin.Controls.Add(this.txtUsername);
             this.pnlLogin.Controls.Add(this.lblLoginAccount);
             this.pnlLogin.Controls.Add(this.lblbUserName);
-            this.pnlLogin.Location = new System.Drawing.Point(421, 136);
+            this.pnlLogin.Location = new System.Drawing.Point(103, 80);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(478, 421);
             this.pnlLogin.TabIndex = 22;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblWelcome.Location = new System.Drawing.Point(112, 38);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(467, 24);
+            this.lblWelcome.TabIndex = 23;
+            this.lblWelcome.Text = "Welcome to Inventory Management System..!";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1298, 633);
+            this.ClientSize = new System.Drawing.Size(697, 571);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pnlLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Login";
             this.Text = "Login";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,5 +173,6 @@
         private System.Windows.Forms.Label lblLoginAccount;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlLogin;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }
