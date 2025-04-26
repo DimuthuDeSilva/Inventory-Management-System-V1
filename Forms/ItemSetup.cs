@@ -265,7 +265,7 @@ namespace Inventory_Management_System.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
     }

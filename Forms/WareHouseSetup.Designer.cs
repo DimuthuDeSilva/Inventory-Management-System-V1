@@ -31,7 +31,7 @@ namespace Inventory_Management_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnWHClear = new System.Windows.Forms.Button();
             this.btnWHUpdate = new System.Windows.Forms.Button();
             this.txtWareHouseStatus = new System.Windows.Forms.TextBox();
@@ -52,18 +52,18 @@ namespace Inventory_Management_System.Forms
             this.btnWHAdd = new System.Windows.Forms.Button();
             this.btnWHDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblLoggedUser = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWarehouseList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnWHClear
             // 
-            this.btnWHClear.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnWHClear.BackColor = System.Drawing.Color.Navy;
             this.btnWHClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWHClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWHClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnWHClear.Location = new System.Drawing.Point(1137, 534);
+            this.btnWHClear.Location = new System.Drawing.Point(555, 491);
             this.btnWHClear.Name = "btnWHClear";
             this.btnWHClear.Size = new System.Drawing.Size(90, 30);
             this.btnWHClear.TabIndex = 51;
@@ -73,11 +73,11 @@ namespace Inventory_Management_System.Forms
             // 
             // btnWHUpdate
             // 
-            this.btnWHUpdate.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnWHUpdate.BackColor = System.Drawing.Color.Navy;
             this.btnWHUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWHUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWHUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnWHUpdate.Location = new System.Drawing.Point(945, 534);
+            this.btnWHUpdate.Location = new System.Drawing.Point(363, 491);
             this.btnWHUpdate.Name = "btnWHUpdate";
             this.btnWHUpdate.Size = new System.Drawing.Size(90, 30);
             this.btnWHUpdate.TabIndex = 50;
@@ -89,18 +89,18 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtWareHouseStatus.BackColor = System.Drawing.SystemColors.Control;
             this.txtWareHouseStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWareHouseStatus.Location = new System.Drawing.Point(693, 135);
+            this.txtWareHouseStatus.Location = new System.Drawing.Point(606, 169);
             this.txtWareHouseStatus.Name = "txtWareHouseStatus";
-            this.txtWareHouseStatus.Size = new System.Drawing.Size(314, 27);
+            this.txtWareHouseStatus.Size = new System.Drawing.Size(242, 27);
             this.txtWareHouseStatus.TabIndex = 48;
             // 
             // txtWarehouseManagerID
             // 
             this.txtWarehouseManagerID.BackColor = System.Drawing.SystemColors.Control;
             this.txtWarehouseManagerID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseManagerID.Location = new System.Drawing.Point(262, 297);
+            this.txtWarehouseManagerID.Location = new System.Drawing.Point(339, 199);
             this.txtWarehouseManagerID.Name = "txtWarehouseManagerID";
-            this.txtWarehouseManagerID.Size = new System.Drawing.Size(314, 27);
+            this.txtWarehouseManagerID.Size = new System.Drawing.Size(242, 27);
             this.txtWarehouseManagerID.TabIndex = 46;
             // 
             // lblWareHouseStatus
@@ -108,7 +108,7 @@ namespace Inventory_Management_System.Forms
             this.lblWareHouseStatus.AutoSize = true;
             this.lblWareHouseStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblWareHouseStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWareHouseStatus.Location = new System.Drawing.Point(695, 111);
+            this.lblWareHouseStatus.Location = new System.Drawing.Point(608, 145);
             this.lblWareHouseStatus.Name = "lblWareHouseStatus";
             this.lblWareHouseStatus.Size = new System.Drawing.Size(139, 21);
             this.lblWareHouseStatus.TabIndex = 43;
@@ -119,7 +119,7 @@ namespace Inventory_Management_System.Forms
             this.lblManagerID.AutoSize = true;
             this.lblManagerID.BackColor = System.Drawing.SystemColors.Control;
             this.lblManagerID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManagerID.Location = new System.Drawing.Point(264, 273);
+            this.lblManagerID.Location = new System.Drawing.Point(341, 175);
             this.lblManagerID.Name = "lblManagerID";
             this.lblManagerID.Size = new System.Drawing.Size(94, 21);
             this.lblManagerID.TabIndex = 42;
@@ -129,36 +129,36 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtContactPhone.BackColor = System.Drawing.SystemColors.Control;
             this.txtContactPhone.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactPhone.Location = new System.Drawing.Point(693, 81);
+            this.txtContactPhone.Location = new System.Drawing.Point(606, 91);
             this.txtContactPhone.Name = "txtContactPhone";
-            this.txtContactPhone.Size = new System.Drawing.Size(314, 27);
+            this.txtContactPhone.Size = new System.Drawing.Size(242, 27);
             this.txtContactPhone.TabIndex = 39;
             // 
             // txtWarehouseCapacity
             // 
             this.txtWarehouseCapacity.BackColor = System.Drawing.SystemColors.Control;
             this.txtWarehouseCapacity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseCapacity.Location = new System.Drawing.Point(262, 243);
+            this.txtWarehouseCapacity.Location = new System.Drawing.Point(339, 145);
             this.txtWarehouseCapacity.Name = "txtWarehouseCapacity";
-            this.txtWarehouseCapacity.Size = new System.Drawing.Size(314, 27);
+            this.txtWarehouseCapacity.Size = new System.Drawing.Size(242, 27);
             this.txtWarehouseCapacity.TabIndex = 38;
             // 
             // txtWarehouseLocation
             // 
             this.txtWarehouseLocation.BackColor = System.Drawing.SystemColors.Control;
             this.txtWarehouseLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseLocation.Location = new System.Drawing.Point(262, 189);
+            this.txtWarehouseLocation.Location = new System.Drawing.Point(339, 91);
             this.txtWarehouseLocation.Name = "txtWarehouseLocation";
-            this.txtWarehouseLocation.Size = new System.Drawing.Size(314, 27);
+            this.txtWarehouseLocation.Size = new System.Drawing.Size(242, 27);
             this.txtWarehouseLocation.TabIndex = 37;
             // 
             // txtWarehouseName
             // 
             this.txtWarehouseName.BackColor = System.Drawing.SystemColors.Control;
             this.txtWarehouseName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseName.Location = new System.Drawing.Point(262, 135);
+            this.txtWarehouseName.Location = new System.Drawing.Point(74, 169);
             this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(314, 27);
+            this.txtWarehouseName.Size = new System.Drawing.Size(242, 27);
             this.txtWarehouseName.TabIndex = 35;
             // 
             // lblContactPhone
@@ -166,7 +166,7 @@ namespace Inventory_Management_System.Forms
             this.lblContactPhone.AutoSize = true;
             this.lblContactPhone.BackColor = System.Drawing.SystemColors.Control;
             this.lblContactPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContactPhone.Location = new System.Drawing.Point(695, 57);
+            this.lblContactPhone.Location = new System.Drawing.Point(608, 67);
             this.lblContactPhone.Name = "lblContactPhone";
             this.lblContactPhone.Size = new System.Drawing.Size(114, 21);
             this.lblContactPhone.TabIndex = 33;
@@ -177,7 +177,7 @@ namespace Inventory_Management_System.Forms
             this.lblCapacity.AutoSize = true;
             this.lblCapacity.BackColor = System.Drawing.SystemColors.Control;
             this.lblCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapacity.Location = new System.Drawing.Point(264, 219);
+            this.lblCapacity.Location = new System.Drawing.Point(341, 121);
             this.lblCapacity.Name = "lblCapacity";
             this.lblCapacity.Size = new System.Drawing.Size(72, 21);
             this.lblCapacity.TabIndex = 32;
@@ -188,7 +188,7 @@ namespace Inventory_Management_System.Forms
             this.lblLocation.AutoSize = true;
             this.lblLocation.BackColor = System.Drawing.SystemColors.Control;
             this.lblLocation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocation.Location = new System.Drawing.Point(264, 165);
+            this.lblLocation.Location = new System.Drawing.Point(341, 67);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(72, 21);
             this.lblLocation.TabIndex = 31;
@@ -199,7 +199,7 @@ namespace Inventory_Management_System.Forms
             this.lblWareHouseName.AutoSize = true;
             this.lblWareHouseName.BackColor = System.Drawing.SystemColors.Control;
             this.lblWareHouseName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWareHouseName.Location = new System.Drawing.Point(264, 111);
+            this.lblWareHouseName.Location = new System.Drawing.Point(76, 145);
             this.lblWareHouseName.Name = "lblWareHouseName";
             this.lblWareHouseName.Size = new System.Drawing.Size(55, 21);
             this.lblWareHouseName.TabIndex = 30;
@@ -209,9 +209,9 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtWarehouseID.BackColor = System.Drawing.SystemColors.Control;
             this.txtWarehouseID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseID.Location = new System.Drawing.Point(262, 81);
+            this.txtWarehouseID.Location = new System.Drawing.Point(74, 91);
             this.txtWarehouseID.Name = "txtWarehouseID";
-            this.txtWarehouseID.Size = new System.Drawing.Size(314, 27);
+            this.txtWarehouseID.Size = new System.Drawing.Size(242, 27);
             this.txtWarehouseID.TabIndex = 29;
             // 
             // lblWarehouseID
@@ -219,7 +219,7 @@ namespace Inventory_Management_System.Forms
             this.lblWarehouseID.AutoSize = true;
             this.lblWarehouseID.BackColor = System.Drawing.SystemColors.Control;
             this.lblWarehouseID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarehouseID.Location = new System.Drawing.Point(264, 57);
+            this.lblWarehouseID.Location = new System.Drawing.Point(76, 67);
             this.lblWarehouseID.Name = "lblWarehouseID";
             this.lblWarehouseID.Size = new System.Drawing.Size(110, 21);
             this.lblWarehouseID.TabIndex = 28;
@@ -227,24 +227,27 @@ namespace Inventory_Management_System.Forms
             // 
             // dgvWarehouseList
             // 
-            this.dgvWarehouseList.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dgvWarehouseList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvWarehouseList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvWarehouseList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvWarehouseList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvWarehouseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWarehouseList.Location = new System.Drawing.Point(25, 330);
+            this.dgvWarehouseList.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvWarehouseList.Location = new System.Drawing.Point(54, 264);
             this.dgvWarehouseList.Name = "dgvWarehouseList";
             this.dgvWarehouseList.ReadOnly = true;
             this.dgvWarehouseList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvWarehouseList.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvWarehouseList.Size = new System.Drawing.Size(1261, 187);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvWarehouseList.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvWarehouseList.Size = new System.Drawing.Size(817, 208);
             this.dgvWarehouseList.StandardTab = true;
             this.dgvWarehouseList.TabIndex = 0;
             this.dgvWarehouseList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWareHouseList_CellDoubleClick);
@@ -255,7 +258,7 @@ namespace Inventory_Management_System.Forms
             this.btnWHAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWHAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWHAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnWHAdd.Location = new System.Drawing.Point(849, 534);
+            this.btnWHAdd.Location = new System.Drawing.Point(267, 491);
             this.btnWHAdd.Name = "btnWHAdd";
             this.btnWHAdd.Size = new System.Drawing.Size(90, 30);
             this.btnWHAdd.TabIndex = 53;
@@ -265,11 +268,11 @@ namespace Inventory_Management_System.Forms
             // 
             // btnWHDelete
             // 
-            this.btnWHDelete.BackColor = System.Drawing.Color.DarkRed;
+            this.btnWHDelete.BackColor = System.Drawing.Color.Navy;
             this.btnWHDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWHDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWHDelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnWHDelete.Location = new System.Drawing.Point(1041, 534);
+            this.btnWHDelete.Location = new System.Drawing.Point(459, 491);
             this.btnWHDelete.Name = "btnWHDelete";
             this.btnWHDelete.Size = new System.Drawing.Size(90, 30);
             this.btnWHDelete.TabIndex = 54;
@@ -282,7 +285,7 @@ namespace Inventory_Management_System.Forms
             this.btnExit.BackColor = System.Drawing.Color.DarkRed;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(1226, 2);
+            this.btnExit.Location = new System.Drawing.Point(844, 2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(72, 31);
             this.btnExit.TabIndex = 57;
@@ -290,32 +293,30 @@ namespace Inventory_Management_System.Forms
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Location = new System.Drawing.Point(54, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(817, 194);
+            this.panel1.TabIndex = 67;
+            // 
             // lblLoggedUser
             // 
             this.lblLoggedUser.AutoSize = true;
-            this.lblLoggedUser.Location = new System.Drawing.Point(36, 23);
+            this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedUser.Location = new System.Drawing.Point(12, 9);
             this.lblLoggedUser.Name = "lblLoggedUser";
-            this.lblLoggedUser.Size = new System.Drawing.Size(0, 20);
-            this.lblLoggedUser.TabIndex = 58;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 15);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblLoggedUser.Size = new System.Drawing.Size(75, 15);
+            this.lblLoggedUser.TabIndex = 68;
+            this.lblLoggedUser.Text = "Current User:";
             // 
             // WareHouseSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1298, 633);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(919, 544);
             this.Controls.Add(this.lblLoggedUser);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnWHDelete);
@@ -337,6 +338,7 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.txtWarehouseID);
             this.Controls.Add(this.lblWarehouseID);
             this.Controls.Add(this.dgvWarehouseList);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -372,7 +374,7 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Button btnWHAdd;
         private System.Windows.Forms.Button btnWHDelete;
         private Button btnExit;
+        private Panel panel1;
         private Label lblLoggedUser;
-        private Label label1;
     }
 }

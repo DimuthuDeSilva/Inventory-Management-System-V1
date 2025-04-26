@@ -209,14 +209,9 @@ namespace Inventory_Management_System.Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            lblLoggedUser.Text = $"Current User : {Session.FullName}";
-            btnWHClear.PerformClick();
-        }
     }
 }

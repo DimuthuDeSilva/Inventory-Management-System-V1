@@ -168,6 +168,10 @@ namespace Inventory_Management_System.Forms
             txtGRNTotalCost.Clear();               
             dtpDateOfDelivery.Value = DateTime.Now;
 
+            txtGRNSupplierID.Enabled = false;
+            txtGRNSupplierName.Enabled = false;
+            txtGRNTotalCost.Enabled = false;
+
             btnGRNAdd.Enabled = true;
 
             dgvGRNList.DataSource = grnService.GetAllGRN().Tables[0];
@@ -211,16 +215,11 @@ namespace Inventory_Management_System.Forms
         private void btnGRNHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
         private void CreateGRN_Load(object sender, EventArgs e)
-        {
-            btnGRNReset.PerformClick();
-        }
-
-        private void lblLoggedUser_Click(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnGRNReset.PerformClick();

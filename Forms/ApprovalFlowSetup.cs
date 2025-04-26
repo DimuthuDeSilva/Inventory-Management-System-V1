@@ -28,7 +28,53 @@ namespace Inventory_Management_System.Forms
         {
             if (String.IsNullOrWhiteSpace(txtAFSFunctionName.Text))
             {
-                MessageBox.Show("Invalid Function Name");
+                MessageBox.Show("Function name is required", "Validation Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAFSFunctionName.Focus();
+                return false;
+            }
+
+            // Clean and standardize the input
+            var cleanedInput = txtAFSFunctionName.Text.Trim();
+            var allowedFunctions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                    {
+                        // Function names with possible variations
+                        { "Purchase Order Confirmation", "Purchase Order Confirmation" },
+                        { "PO Confirmation", "Purchase Order Confirmation" },
+                        { "Purchase Order", "Purchase Order Confirmation" },
+                        { "PO", "Purchase Order Confirmation" },
+
+                        { "Material Request Return Confirm", "Material Request Return Confirm" },
+                        { "MR Return Confirm", "Material Request Return Confirm" },
+                        { "Material Return Confirm", "Material Request Return Confirm" },
+                        { "MRR Confirm", "Material Request Return Confirm" },
+
+                        { "Material Request Note Confirm", "Material Request Note Confirm" },
+                        { "MR Note Confirm", "Material Request Note Confirm" },
+                        { "Material Note Confirm", "Material Request Note Confirm" },
+                        { "MRN Confirm", "Material Request Note Confirm" },
+
+                        { "GRN Confirmation", "GRN Confirmation" },
+                        { "GRN Confirm", "GRN Confirmation" },
+                        { "Goods Received Note Confirmation", "GRN Confirmation" },
+                        { "Goods Received Confirmation", "GRN Confirmation" }
+                    };
+
+            if (allowedFunctions.TryGetValue(cleanedInput, out string standardizedFunction))
+            {
+                // Update the textbox with standardized value if needed
+                txtAFSFunctionName.Text = standardizedFunction;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid function name:\n\n" +
+                               "- Purchase Order Confirmation (or PO Confirmation)\n" +
+                               "- Material Request Return Confirm (or MR Return Confirm)\n" +
+                               "- Material Request Note Confirm (or MR Note Confirm)\n" +
+                               "- GRN Confirmation (or GRN Confirm)",
+                               "Invalid Function Name",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
                 txtAFSFunctionName.Focus();
                 return false;
             }
@@ -82,6 +128,9 @@ namespace Inventory_Management_System.Forms
             txtAFSofCode.Clear();
             txtAFSofName.Clear();
             txtAFSFunctionName.Clear();
+
+            txtAFSLevel.Enabled = false;
+            txtAFSofName.Enabled = false;
 
             // Reset button states
             //btnAFSAdd.Enabled = true;
@@ -167,7 +216,7 @@ namespace Inventory_Management_System.Forms
 
         private void ApprovalFlowSetup_Load(object sender, EventArgs e)
         {
-
+            lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnAFSClear.PerformClick();
         }
 
@@ -175,15 +224,10 @@ namespace Inventory_Management_System.Forms
         {
 
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
-        private void lblLoggedUser_Click(object sender, EventArgs e)
-        {
-            lblLoggedUser.Text = $"Current User : {Session.FullName}";
-            btnAFSClear.PerformClick();
-        }
 
         //private void txtAFSFunctionName_KeyUp(object sender, KeyEventArgs e)
         //{

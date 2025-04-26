@@ -27,22 +27,22 @@ namespace Inventory_Management_System.Services
                     var userID = Session.UserID;
 
                     string sql = @"
-                            SELECT mrr.* 
-                            FROM materialrequestreturn mrr
-                            JOIN approvalflow af ON 
-                                (af.FunctionName = 'Material Request Return Confirm' AND 
-                                 af.UserID = @UserID)
-                            WHERE 
-                                mrr.Status = 'Pending' AND
-                                (
-                                    mrr.RequestedBy  = @UserID OR
-                                    EXISTS (
-                                        SELECT 1 FROM approvalflow 
-                                        WHERE FunctionName = 'Material Request Return Confirm' 
-                                        AND UserID = @UserID
-                                    )
-                                )
-                            ORDER BY mrr.CreatedDate DESC";
+                SELECT mrr.* 
+                FROM materialrequestreturn mrr
+                JOIN approvalflow af ON 
+                    (af.FunctionName = 'Material Request Return Confirm' AND 
+                     af.UserID = @UserID)
+                WHERE 
+                    mrr.Status = 'Pending' AND
+                    (
+                        mrr.RequestedBy = @UserID OR
+                        EXISTS (
+                            SELECT 1 FROM approvalflow 
+                            WHERE FunctionName = 'Material Request Return Confirm' 
+                            AND UserID = @UserID
+                        )
+                    )
+                ORDER BY mrr.CreatedDate DESC";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -54,13 +54,24 @@ namespace Inventory_Management_System.Services
                     // Additional access check if no records returned
                     if (ds.Tables[0].Rows.Count == 0)
                     {
-                        string checkAccessSql = "SELECT 1 FROM approvalflow WHERE UserID = @UserID";
+                        string checkAccessSql = @"SELECT 1 FROM approvalflow 
+                                       WHERE FunctionName = 'Material Request Return Confirm'
+                                       AND UserID = @UserID";
                         using (MySqlCommand accessCmd = new MySqlCommand(checkAccessSql, connection))
                         {
                             accessCmd.Parameters.AddWithValue("@UserID", userID);
                             if (accessCmd.ExecuteScalar() == null)
                             {
-                                return null; // Indicate no access
+                                // Check if user requested any MRRs (even if none are pending)
+                                string checkRequesterSql = "SELECT 1 FROM materialrequestreturn WHERE RequestedBy = @UserID LIMIT 1";
+                                using (MySqlCommand requesterCmd = new MySqlCommand(checkRequesterSql, connection))
+                                {
+                                    requesterCmd.Parameters.AddWithValue("@UserID", userID);
+                                    if (requesterCmd.ExecuteScalar() == null)
+                                    {
+                                        return null; // Indicate no access
+                                    }
+                                }
                             }
                         }
                     }
@@ -69,7 +80,7 @@ namespace Inventory_Management_System.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading Material Request Return: {ex.Message}");
+                MessageBox.Show($"Error loading Material Request Returns: {ex.Message}");
                 return new DataSet(); // Return empty dataset on error
             }
         }

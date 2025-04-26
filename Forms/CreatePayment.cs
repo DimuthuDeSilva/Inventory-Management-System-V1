@@ -62,6 +62,12 @@ namespace Inventory_Management_System.Forms
             dtpAPOOrderDate.Value = DateTime.Now;
             txtPOID.Clear();
 
+            txtpmntNumber.Enabled = false;
+            txtpmntSupplierID.Enabled = false;
+            txtxpmntAmount.Enabled = false;
+            txtPOID.Enabled = false;
+            dtpAPOOrderDate.Enabled = false;
+
             // Load data and handle access
             var paymentProcess = createPaymentService.GetApprovedGRNsWithPOID();
 
@@ -142,12 +148,13 @@ namespace Inventory_Management_System.Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
         private void ApprovePOForm_Load(object sender, EventArgs e)
         {
+            lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnPmntReset.PerformClick();
         }
 
@@ -197,11 +204,6 @@ namespace Inventory_Management_System.Forms
             btnPmntProcess.Enabled = true;
         }
 
-        private void lblLoggedUser_Click(object sender, EventArgs e)
-        {
-            lblLoggedUser.Text = $"Current User : {Session.FullName}";
-            btnPmntReset.PerformClick();
-        }
     }
     
 }

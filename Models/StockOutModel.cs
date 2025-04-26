@@ -13,7 +13,7 @@ namespace Inventory_Management_System.Models
         public int ItemID { get; set; }
         public string ItemName { get; set; }
         public int Quantity { get; set; }
-        public int? IssuedQuantity { get; set; }
+        public int IssuedQuantity { get; set; }
         public DateTime IssuedDate { get; set; } = DateTime.Now;
         public string IssuedBy { get; set; }
         public string Notes { get; set; }

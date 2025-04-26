@@ -58,16 +58,17 @@ namespace Inventory_Management_System.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblLoggedUser = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnClear.BackColor = System.Drawing.Color.Navy;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(1098, 585);
+            this.btnClear.Location = new System.Drawing.Point(594, 484);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(90, 30);
             this.btnClear.TabIndex = 51;
@@ -77,11 +78,11 @@ namespace Inventory_Management_System.Forms
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdate.BackColor = System.Drawing.Color.Navy;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(854, 585);
+            this.btnUpdate.Location = new System.Drawing.Point(350, 484);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(90, 30);
             this.btnUpdate.TabIndex = 50;
@@ -93,27 +94,27 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdWarehouseID.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdWarehouseID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdWarehouseID.Location = new System.Drawing.Point(722, 259);
+            this.txtUpdWarehouseID.Location = new System.Drawing.Point(601, 123);
             this.txtUpdWarehouseID.Name = "txtUpdWarehouseID";
-            this.txtUpdWarehouseID.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdWarehouseID.Size = new System.Drawing.Size(242, 27);
             this.txtUpdWarehouseID.TabIndex = 49;
             // 
             // txtUpdStatus
             // 
             this.txtUpdStatus.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdStatus.Location = new System.Drawing.Point(722, 313);
+            this.txtUpdStatus.Location = new System.Drawing.Point(601, 177);
             this.txtUpdStatus.Name = "txtUpdStatus";
-            this.txtUpdStatus.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdStatus.Size = new System.Drawing.Size(242, 27);
             this.txtUpdStatus.TabIndex = 48;
             // 
             // txtUpdSupplierID
             // 
             this.txtUpdSupplierID.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdSupplierID.Location = new System.Drawing.Point(291, 313);
+            this.txtUpdSupplierID.Location = new System.Drawing.Point(340, 123);
             this.txtUpdSupplierID.Name = "txtUpdSupplierID";
-            this.txtUpdSupplierID.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdSupplierID.Size = new System.Drawing.Size(242, 27);
             this.txtUpdSupplierID.TabIndex = 46;
             // 
             // lblUpdWarehouseID
@@ -121,7 +122,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdWarehouseID.AutoSize = true;
             this.lblUpdWarehouseID.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdWarehouseID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdWarehouseID.Location = new System.Drawing.Point(724, 235);
+            this.lblUpdWarehouseID.Location = new System.Drawing.Point(603, 99);
             this.lblUpdWarehouseID.Name = "lblUpdWarehouseID";
             this.lblUpdWarehouseID.Size = new System.Drawing.Size(110, 21);
             this.lblUpdWarehouseID.TabIndex = 45;
@@ -132,7 +133,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdStatus.AutoSize = true;
             this.lblUpdStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdStatus.Location = new System.Drawing.Point(724, 289);
+            this.lblUpdStatus.Location = new System.Drawing.Point(603, 153);
             this.lblUpdStatus.Name = "lblUpdStatus";
             this.lblUpdStatus.Size = new System.Drawing.Size(55, 21);
             this.lblUpdStatus.TabIndex = 43;
@@ -143,7 +144,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdSupplierID.AutoSize = true;
             this.lblUpdSupplierID.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdSupplierID.Location = new System.Drawing.Point(293, 289);
+            this.lblUpdSupplierID.Location = new System.Drawing.Point(342, 99);
             this.lblUpdSupplierID.Name = "lblUpdSupplierID";
             this.lblUpdSupplierID.Size = new System.Drawing.Size(90, 21);
             this.lblUpdSupplierID.TabIndex = 42;
@@ -154,7 +155,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdTotalCost.AutoSize = true;
             this.lblUpdTotalCost.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdTotalCost.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdTotalCost.Location = new System.Drawing.Point(724, 181);
+            this.lblUpdTotalCost.Location = new System.Drawing.Point(603, 45);
             this.lblUpdTotalCost.Name = "lblUpdTotalCost";
             this.lblUpdTotalCost.Size = new System.Drawing.Size(80, 21);
             this.lblUpdTotalCost.TabIndex = 41;
@@ -164,54 +165,54 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdUnitPrice.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdUnitPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdUnitPrice.Location = new System.Drawing.Point(722, 151);
+            this.txtUpdUnitPrice.Location = new System.Drawing.Point(340, 177);
             this.txtUpdUnitPrice.Name = "txtUpdUnitPrice";
-            this.txtUpdUnitPrice.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdUnitPrice.Size = new System.Drawing.Size(242, 27);
             this.txtUpdUnitPrice.TabIndex = 40;
             // 
             // txtUpdQuantity
             // 
             this.txtUpdQuantity.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdQuantity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdQuantity.Location = new System.Drawing.Point(722, 97);
+            this.txtUpdQuantity.Location = new System.Drawing.Point(340, 231);
             this.txtUpdQuantity.Name = "txtUpdQuantity";
-            this.txtUpdQuantity.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdQuantity.Size = new System.Drawing.Size(242, 27);
             this.txtUpdQuantity.TabIndex = 39;
             // 
             // txtUpdReorderLevel
             // 
             this.txtUpdReorderLevel.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdReorderLevel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdReorderLevel.Location = new System.Drawing.Point(291, 259);
+            this.txtUpdReorderLevel.Location = new System.Drawing.Point(340, 69);
             this.txtUpdReorderLevel.Name = "txtUpdReorderLevel";
-            this.txtUpdReorderLevel.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdReorderLevel.Size = new System.Drawing.Size(242, 27);
             this.txtUpdReorderLevel.TabIndex = 38;
             // 
             // txtUpdDescription
             // 
             this.txtUpdDescription.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdDescription.Location = new System.Drawing.Point(291, 205);
+            this.txtUpdDescription.Location = new System.Drawing.Point(76, 177);
             this.txtUpdDescription.Name = "txtUpdDescription";
-            this.txtUpdDescription.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdDescription.Size = new System.Drawing.Size(242, 27);
             this.txtUpdDescription.TabIndex = 37;
             // 
             // txtUpdTotalCost
             // 
             this.txtUpdTotalCost.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdTotalCost.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdTotalCost.Location = new System.Drawing.Point(722, 205);
+            this.txtUpdTotalCost.Location = new System.Drawing.Point(601, 69);
             this.txtUpdTotalCost.Name = "txtUpdTotalCost";
-            this.txtUpdTotalCost.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdTotalCost.Size = new System.Drawing.Size(242, 27);
             this.txtUpdTotalCost.TabIndex = 36;
             // 
             // txtUpdName
             // 
             this.txtUpdName.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdName.Location = new System.Drawing.Point(291, 151);
+            this.txtUpdName.Location = new System.Drawing.Point(76, 123);
             this.txtUpdName.Name = "txtUpdName";
-            this.txtUpdName.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdName.Size = new System.Drawing.Size(242, 27);
             this.txtUpdName.TabIndex = 35;
             // 
             // lblUpdUnitPrice
@@ -219,7 +220,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdUnitPrice.AutoSize = true;
             this.lblUpdUnitPrice.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdUnitPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdUnitPrice.Location = new System.Drawing.Point(724, 127);
+            this.lblUpdUnitPrice.Location = new System.Drawing.Point(341, 153);
             this.lblUpdUnitPrice.Name = "lblUpdUnitPrice";
             this.lblUpdUnitPrice.Size = new System.Drawing.Size(80, 21);
             this.lblUpdUnitPrice.TabIndex = 34;
@@ -230,7 +231,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdQuantity.AutoSize = true;
             this.lblUpdQuantity.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdQuantity.Location = new System.Drawing.Point(724, 73);
+            this.lblUpdQuantity.Location = new System.Drawing.Point(342, 207);
             this.lblUpdQuantity.Name = "lblUpdQuantity";
             this.lblUpdQuantity.Size = new System.Drawing.Size(73, 21);
             this.lblUpdQuantity.TabIndex = 33;
@@ -241,7 +242,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdReorderLevel.AutoSize = true;
             this.lblUpdReorderLevel.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdReorderLevel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdReorderLevel.Location = new System.Drawing.Point(293, 235);
+            this.lblUpdReorderLevel.Location = new System.Drawing.Point(342, 45);
             this.lblUpdReorderLevel.Name = "lblUpdReorderLevel";
             this.lblUpdReorderLevel.Size = new System.Drawing.Size(109, 21);
             this.lblUpdReorderLevel.TabIndex = 32;
@@ -252,7 +253,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdDescription.AutoSize = true;
             this.lblUpdDescription.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdDescription.Location = new System.Drawing.Point(293, 181);
+            this.lblUpdDescription.Location = new System.Drawing.Point(78, 153);
             this.lblUpdDescription.Name = "lblUpdDescription";
             this.lblUpdDescription.Size = new System.Drawing.Size(92, 21);
             this.lblUpdDescription.TabIndex = 31;
@@ -263,7 +264,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdName.AutoSize = true;
             this.lblUpdName.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdName.Location = new System.Drawing.Point(293, 127);
+            this.lblUpdName.Location = new System.Drawing.Point(78, 99);
             this.lblUpdName.Name = "lblUpdName";
             this.lblUpdName.Size = new System.Drawing.Size(55, 21);
             this.lblUpdName.TabIndex = 30;
@@ -273,9 +274,9 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdItemID.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdItemID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdItemID.Location = new System.Drawing.Point(291, 97);
+            this.txtUpdItemID.Location = new System.Drawing.Point(76, 69);
             this.txtUpdItemID.Name = "txtUpdItemID";
-            this.txtUpdItemID.Size = new System.Drawing.Size(336, 27);
+            this.txtUpdItemID.Size = new System.Drawing.Size(242, 27);
             this.txtUpdItemID.TabIndex = 29;
             // 
             // lblUpdItemID
@@ -283,7 +284,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdItemID.AutoSize = true;
             this.lblUpdItemID.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdItemID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdItemID.Location = new System.Drawing.Point(293, 73);
+            this.lblUpdItemID.Location = new System.Drawing.Point(78, 45);
             this.lblUpdItemID.Name = "lblUpdItemID";
             this.lblUpdItemID.Size = new System.Drawing.Size(59, 21);
             this.lblUpdItemID.TabIndex = 28;
@@ -297,7 +298,7 @@ namespace Inventory_Management_System.Forms
             this.dgvItemList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvItemList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItemList.Location = new System.Drawing.Point(109, 376);
+            this.dgvItemList.Location = new System.Drawing.Point(40, 273);
             this.dgvItemList.Name = "dgvItemList";
             this.dgvItemList.ReadOnly = true;
             this.dgvItemList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -309,7 +310,7 @@ namespace Inventory_Management_System.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvItemList.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvItemList.Size = new System.Drawing.Size(1079, 113);
+            this.dgvItemList.Size = new System.Drawing.Size(837, 185);
             this.dgvItemList.StandardTab = true;
             this.dgvItemList.TabIndex = 0;
             this.dgvItemList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemList_CellDoubleClick);
@@ -320,7 +321,7 @@ namespace Inventory_Management_System.Forms
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAdd.Location = new System.Drawing.Point(730, 585);
+            this.btnAdd.Location = new System.Drawing.Point(226, 484);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 30);
             this.btnAdd.TabIndex = 53;
@@ -330,11 +331,11 @@ namespace Inventory_Management_System.Forms
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDelete.BackColor = System.Drawing.Color.Navy;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelete.Location = new System.Drawing.Point(978, 585);
+            this.btnDelete.Location = new System.Drawing.Point(474, 484);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 30);
             this.btnDelete.TabIndex = 54;
@@ -348,7 +349,7 @@ namespace Inventory_Management_System.Forms
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(1225, -1);
+            this.btnExit.Location = new System.Drawing.Point(845, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(72, 31);
             this.btnExit.TabIndex = 56;
@@ -359,18 +360,27 @@ namespace Inventory_Management_System.Forms
             // lblLoggedUser
             // 
             this.lblLoggedUser.AutoSize = true;
-            this.lblLoggedUser.Location = new System.Drawing.Point(37, 39);
+            this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedUser.Location = new System.Drawing.Point(12, 9);
             this.lblLoggedUser.Name = "lblLoggedUser";
-            this.lblLoggedUser.Size = new System.Drawing.Size(56, 20);
-            this.lblLoggedUser.TabIndex = 57;
-            this.lblLoggedUser.Text = "label1";
+            this.lblLoggedUser.Size = new System.Drawing.Size(75, 15);
+            this.lblLoggedUser.TabIndex = 66;
+            this.lblLoggedUser.Text = "Current User:";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Location = new System.Drawing.Point(40, 35);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(837, 232);
+            this.panel1.TabIndex = 67;
             // 
             // ItemSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1295, 633);
+            this.ClientSize = new System.Drawing.Size(919, 544);
             this.Controls.Add(this.lblLoggedUser);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -398,12 +408,12 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.txtUpdItemID);
             this.Controls.Add(this.lblUpdItemID);
             this.Controls.Add(this.dgvItemList);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ItemSetup";
             this.Text = "Item Setup";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UpdateItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).EndInit();
             this.ResumeLayout(false);
@@ -440,5 +450,6 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblLoggedUser;
+        private System.Windows.Forms.Panel panel1;
     }
 }

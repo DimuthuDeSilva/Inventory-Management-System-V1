@@ -25,22 +25,22 @@ namespace Inventory_Management_System.Services
                     var userID = Session.UserID;
 
                     string sql = @"
-                            SELECT grn.* 
-                            FROM goodsreceivednotes grn
-                            JOIN approvalflow af ON 
-                                (af.FunctionName = 'GRN Confirmation' AND 
-                                 af.UserID = @UserID)
-                            WHERE 
-                                grn.Status = 'Pending' AND
-                                (
-                                    grn.CreatedBy = @UserID OR
-                                    EXISTS (
-                                        SELECT 1 FROM approvalflow 
-                                        WHERE FunctionName = 'GRN Confirmation' 
-                                        AND UserID = @UserID
-                                    )
-                                )
-                            ORDER BY grn.CreatedAt DESC";
+                SELECT grn.* 
+                FROM goodsreceivednotes grn
+                JOIN approvalflow af ON 
+                    (af.FunctionName = 'GRN Confirmation' AND 
+                     af.UserID = @UserID)
+                WHERE 
+                    grn.Status = 'Pending' AND
+                    (
+                        grn.CreatedBy = @UserID OR
+                        EXISTS (
+                            SELECT 1 FROM approvalflow 
+                            WHERE FunctionName = 'GRN Confirmation' 
+                            AND UserID = @UserID
+                        )
+                    )
+                ORDER BY grn.CreatedAt DESC";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -52,13 +52,24 @@ namespace Inventory_Management_System.Services
                     // Additional access check if no records returned
                     if (ds.Tables[0].Rows.Count == 0)
                     {
-                        string checkAccessSql = "SELECT 1 FROM approvalflow WHERE UserID = @UserID";
+                        string checkAccessSql = @"SELECT 1 FROM approvalflow 
+                                       WHERE FunctionName = 'GRN Confirmation'
+                                       AND UserID = @UserID";
                         using (MySqlCommand accessCmd = new MySqlCommand(checkAccessSql, connection))
                         {
                             accessCmd.Parameters.AddWithValue("@UserID", userID);
                             if (accessCmd.ExecuteScalar() == null)
                             {
-                                return null; // Indicate no access
+                                // Check if user created any GRNs (even if none are pending)
+                                string checkCreatorSql = "SELECT 1 FROM goodsreceivednotes WHERE CreatedBy = @UserID LIMIT 1";
+                                using (MySqlCommand creatorCmd = new MySqlCommand(checkCreatorSql, connection))
+                                {
+                                    creatorCmd.Parameters.AddWithValue("@UserID", userID);
+                                    if (creatorCmd.ExecuteScalar() == null)
+                                    {
+                                        return null; // Indicate no access
+                                    }
+                                }
                             }
                         }
                     }

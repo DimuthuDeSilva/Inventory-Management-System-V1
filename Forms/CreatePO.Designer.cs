@@ -58,9 +58,10 @@ namespace Inventory_Management_System.Forms
             this.dtpCPOOrderDate = new System.Windows.Forms.DateTimePicker();
             this.dtpCPOExDD = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblLoggedUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblLoggedUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOList)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCPOClear
@@ -69,7 +70,7 @@ namespace Inventory_Management_System.Forms
             this.btnCPOClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCPOClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCPOClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCPOClear.Location = new System.Drawing.Point(614, 457);
+            this.btnCPOClear.Location = new System.Drawing.Point(546, 486);
             this.btnCPOClear.Name = "btnCPOClear";
             this.btnCPOClear.Size = new System.Drawing.Size(90, 30);
             this.btnCPOClear.TabIndex = 51;
@@ -83,7 +84,7 @@ namespace Inventory_Management_System.Forms
             this.btnCPOUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCPOUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCPOUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCPOUpdate.Location = new System.Drawing.Point(422, 457);
+            this.btnCPOUpdate.Location = new System.Drawing.Point(354, 486);
             this.btnCPOUpdate.Name = "btnCPOUpdate";
             this.btnCPOUpdate.Size = new System.Drawing.Size(90, 30);
             this.btnCPOUpdate.TabIndex = 50;
@@ -95,7 +96,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtCPONumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
             this.txtCPONumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPONumberOfUnits.Location = new System.Drawing.Point(435, 166);
+            this.txtCPONumberOfUnits.Location = new System.Drawing.Point(294, 185);
             this.txtCPONumberOfUnits.Name = "txtCPONumberOfUnits";
             this.txtCPONumberOfUnits.Size = new System.Drawing.Size(242, 27);
             this.txtCPONumberOfUnits.TabIndex = 49;
@@ -104,7 +105,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtCPONotes.BackColor = System.Drawing.SystemColors.Control;
             this.txtCPONotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPONotes.Location = new System.Drawing.Point(715, 166);
+            this.txtCPONotes.Location = new System.Drawing.Point(562, 163);
             this.txtCPONotes.Name = "txtCPONotes";
             this.txtCPONotes.Size = new System.Drawing.Size(242, 27);
             this.txtCPONotes.TabIndex = 48;
@@ -113,7 +114,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtCPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
             this.txtCPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPOSupplierID.Location = new System.Drawing.Point(81, 166);
+            this.txtCPOSupplierID.Location = new System.Drawing.Point(25, 163);
             this.txtCPOSupplierID.Name = "txtCPOSupplierID";
             this.txtCPOSupplierID.Size = new System.Drawing.Size(242, 27);
             this.txtCPOSupplierID.TabIndex = 46;
@@ -123,7 +124,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPONumberOfUnits.AutoSize = true;
             this.lblCPONumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPONumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPONumberOfUnits.Location = new System.Drawing.Point(437, 142);
+            this.lblCPONumberOfUnits.Location = new System.Drawing.Point(296, 161);
             this.lblCPONumberOfUnits.Name = "lblCPONumberOfUnits";
             this.lblCPONumberOfUnits.Size = new System.Drawing.Size(132, 21);
             this.lblCPONumberOfUnits.TabIndex = 45;
@@ -134,7 +135,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPONotes.AutoSize = true;
             this.lblCPONotes.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPONotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPONotes.Location = new System.Drawing.Point(717, 142);
+            this.lblCPONotes.Location = new System.Drawing.Point(564, 139);
             this.lblCPONotes.Name = "lblCPONotes";
             this.lblCPONotes.Size = new System.Drawing.Size(54, 21);
             this.lblCPONotes.TabIndex = 43;
@@ -145,7 +146,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPOSupplierID.AutoSize = true;
             this.lblCPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPOSupplierID.Location = new System.Drawing.Point(83, 142);
+            this.lblCPOSupplierID.Location = new System.Drawing.Point(27, 139);
             this.lblCPOSupplierID.Name = "lblCPOSupplierID";
             this.lblCPOSupplierID.Size = new System.Drawing.Size(90, 21);
             this.lblCPOSupplierID.TabIndex = 42;
@@ -156,7 +157,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPOTotalAmount.AutoSize = true;
             this.lblCPOTotalAmount.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPOTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPOTotalAmount.Location = new System.Drawing.Point(717, 34);
+            this.lblCPOTotalAmount.Location = new System.Drawing.Point(564, 22);
             this.lblCPOTotalAmount.Name = "lblCPOTotalAmount";
             this.lblCPOTotalAmount.Size = new System.Drawing.Size(105, 21);
             this.lblCPOTotalAmount.TabIndex = 41;
@@ -166,7 +167,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtCPOCreatedBy.BackColor = System.Drawing.SystemColors.Control;
             this.txtCPOCreatedBy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPOCreatedBy.Location = new System.Drawing.Point(715, 112);
+            this.txtCPOCreatedBy.Location = new System.Drawing.Point(562, 103);
             this.txtCPOCreatedBy.Name = "txtCPOCreatedBy";
             this.txtCPOCreatedBy.Size = new System.Drawing.Size(242, 27);
             this.txtCPOCreatedBy.TabIndex = 40;
@@ -175,7 +176,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtCPOUnitPrice.BackColor = System.Drawing.SystemColors.Control;
             this.txtCPOUnitPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPOUnitPrice.Location = new System.Drawing.Point(435, 112);
+            this.txtCPOUnitPrice.Location = new System.Drawing.Point(294, 135);
             this.txtCPOUnitPrice.Name = "txtCPOUnitPrice";
             this.txtCPOUnitPrice.Size = new System.Drawing.Size(242, 27);
             this.txtCPOUnitPrice.TabIndex = 39;
@@ -184,7 +185,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtCPOTotalAmount.BackColor = System.Drawing.SystemColors.Control;
             this.txtCPOTotalAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPOTotalAmount.Location = new System.Drawing.Point(715, 58);
+            this.txtCPOTotalAmount.Location = new System.Drawing.Point(562, 46);
             this.txtCPOTotalAmount.Name = "txtCPOTotalAmount";
             this.txtCPOTotalAmount.Size = new System.Drawing.Size(242, 27);
             this.txtCPOTotalAmount.TabIndex = 36;
@@ -193,7 +194,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtPONumber.BackColor = System.Drawing.SystemColors.Control;
             this.txtPONumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPONumber.Location = new System.Drawing.Point(81, 112);
+            this.txtPONumber.Location = new System.Drawing.Point(25, 103);
             this.txtPONumber.Name = "txtPONumber";
             this.txtPONumber.Size = new System.Drawing.Size(242, 27);
             this.txtPONumber.TabIndex = 35;
@@ -203,7 +204,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPOCreatedBy.AutoSize = true;
             this.lblCPOCreatedBy.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPOCreatedBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPOCreatedBy.Location = new System.Drawing.Point(717, 88);
+            this.lblCPOCreatedBy.Location = new System.Drawing.Point(564, 79);
             this.lblCPOCreatedBy.Name = "lblCPOCreatedBy";
             this.lblCPOCreatedBy.Size = new System.Drawing.Size(88, 21);
             this.lblCPOCreatedBy.TabIndex = 34;
@@ -214,7 +215,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPOUnitPrice.AutoSize = true;
             this.lblCPOUnitPrice.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPOUnitPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPOUnitPrice.Location = new System.Drawing.Point(437, 88);
+            this.lblCPOUnitPrice.Location = new System.Drawing.Point(296, 111);
             this.lblCPOUnitPrice.Name = "lblCPOUnitPrice";
             this.lblCPOUnitPrice.Size = new System.Drawing.Size(80, 21);
             this.lblCPOUnitPrice.TabIndex = 33;
@@ -225,7 +226,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPOOrderDate.AutoSize = true;
             this.lblCPOOrderDate.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPOOrderDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPOOrderDate.Location = new System.Drawing.Point(83, 194);
+            this.lblCPOOrderDate.Location = new System.Drawing.Point(296, 10);
             this.lblCPOOrderDate.Name = "lblCPOOrderDate";
             this.lblCPOOrderDate.Size = new System.Drawing.Size(90, 21);
             this.lblCPOOrderDate.TabIndex = 32;
@@ -236,7 +237,7 @@ namespace Inventory_Management_System.Forms
             this.lblPONumber.AutoSize = true;
             this.lblPONumber.BackColor = System.Drawing.SystemColors.Control;
             this.lblPONumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPONumber.Location = new System.Drawing.Point(83, 88);
+            this.lblPONumber.Location = new System.Drawing.Point(27, 79);
             this.lblPONumber.Name = "lblPONumber";
             this.lblPONumber.Size = new System.Drawing.Size(96, 21);
             this.lblPONumber.TabIndex = 30;
@@ -246,7 +247,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtPOID.BackColor = System.Drawing.SystemColors.Control;
             this.txtPOID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPOID.Location = new System.Drawing.Point(81, 58);
+            this.txtPOID.Location = new System.Drawing.Point(25, 46);
             this.txtPOID.Name = "txtPOID";
             this.txtPOID.Size = new System.Drawing.Size(242, 27);
             this.txtPOID.TabIndex = 29;
@@ -256,7 +257,7 @@ namespace Inventory_Management_System.Forms
             this.lblPOID.AutoSize = true;
             this.lblPOID.BackColor = System.Drawing.SystemColors.Control;
             this.lblPOID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPOID.Location = new System.Drawing.Point(83, 34);
+            this.lblPOID.Location = new System.Drawing.Point(27, 22);
             this.lblPOID.Name = "lblPOID";
             this.lblPOID.Size = new System.Drawing.Size(53, 21);
             this.lblPOID.TabIndex = 28;
@@ -264,12 +265,15 @@ namespace Inventory_Management_System.Forms
             // 
             // dgvPOList
             // 
-            this.dgvPOList.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dgvPOList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPOList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPOList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvPOList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvPOList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPOList.Location = new System.Drawing.Point(71, 251);
+            this.dgvPOList.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvPOList.Location = new System.Drawing.Point(44, 277);
             this.dgvPOList.Name = "dgvPOList";
             this.dgvPOList.ReadOnly = true;
             this.dgvPOList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -281,7 +285,7 @@ namespace Inventory_Management_System.Forms
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvPOList.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPOList.Size = new System.Drawing.Size(896, 192);
+            this.dgvPOList.Size = new System.Drawing.Size(831, 192);
             this.dgvPOList.StandardTab = true;
             this.dgvPOList.TabIndex = 0;
             this.dgvPOList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPOList_CellDoubleClick);
@@ -292,7 +296,7 @@ namespace Inventory_Management_System.Forms
             this.btnCPOAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCPOAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCPOAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCPOAdd.Location = new System.Drawing.Point(326, 457);
+            this.btnCPOAdd.Location = new System.Drawing.Point(258, 486);
             this.btnCPOAdd.Name = "btnCPOAdd";
             this.btnCPOAdd.Size = new System.Drawing.Size(90, 30);
             this.btnCPOAdd.TabIndex = 53;
@@ -306,7 +310,7 @@ namespace Inventory_Management_System.Forms
             this.btnCPODelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCPODelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCPODelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCPODelete.Location = new System.Drawing.Point(518, 457);
+            this.btnCPODelete.Location = new System.Drawing.Point(450, 486);
             this.btnCPODelete.Name = "btnCPODelete";
             this.btnCPODelete.Size = new System.Drawing.Size(90, 30);
             this.btnCPODelete.TabIndex = 54;
@@ -319,7 +323,7 @@ namespace Inventory_Management_System.Forms
             this.lblCPOExDD.AutoSize = true;
             this.lblCPOExDD.BackColor = System.Drawing.SystemColors.Control;
             this.lblCPOExDD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPOExDD.Location = new System.Drawing.Point(437, 34);
+            this.lblCPOExDD.Location = new System.Drawing.Point(296, 59);
             this.lblCPOExDD.Name = "lblCPOExDD";
             this.lblCPOExDD.Size = new System.Drawing.Size(171, 21);
             this.lblCPOExDD.TabIndex = 56;
@@ -329,7 +333,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.dtpCPOOrderDate.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCPOOrderDate.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpCPOOrderDate.Location = new System.Drawing.Point(81, 216);
+            this.dtpCPOOrderDate.Location = new System.Drawing.Point(294, 34);
             this.dtpCPOOrderDate.Name = "dtpCPOOrderDate";
             this.dtpCPOOrderDate.Size = new System.Drawing.Size(242, 25);
             this.dtpCPOOrderDate.TabIndex = 58;
@@ -338,7 +342,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.dtpCPOExDD.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCPOExDD.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpCPOExDD.Location = new System.Drawing.Point(435, 58);
+            this.dtpCPOExDD.Location = new System.Drawing.Point(294, 83);
             this.dtpCPOExDD.Name = "dtpCPOExDD";
             this.dtpCPOExDD.Size = new System.Drawing.Size(242, 25);
             this.dtpCPOExDD.TabIndex = 59;
@@ -349,7 +353,7 @@ namespace Inventory_Management_System.Forms
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(968, -2);
+            this.button1.Location = new System.Drawing.Point(847, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(70, 31);
             this.button1.TabIndex = 61;
@@ -357,59 +361,58 @@ namespace Inventory_Management_System.Forms
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtCPOUnitPrice);
+            this.panel1.Controls.Add(this.lblCPOUnitPrice);
+            this.panel1.Controls.Add(this.lblCPONumberOfUnits);
+            this.panel1.Controls.Add(this.txtCPONumberOfUnits);
+            this.panel1.Controls.Add(this.lblCPOExDD);
+            this.panel1.Controls.Add(this.dtpCPOExDD);
+            this.panel1.Controls.Add(this.txtCPONotes);
+            this.panel1.Controls.Add(this.dtpCPOOrderDate);
+            this.panel1.Controls.Add(this.lblCPONotes);
+            this.panel1.Controls.Add(this.txtCPOSupplierID);
+            this.panel1.Controls.Add(this.lblCPOTotalAmount);
+            this.panel1.Controls.Add(this.lblCPOOrderDate);
+            this.panel1.Controls.Add(this.txtCPOCreatedBy);
+            this.panel1.Controls.Add(this.lblCPOSupplierID);
+            this.panel1.Controls.Add(this.txtCPOTotalAmount);
+            this.panel1.Controls.Add(this.lblCPOCreatedBy);
+            this.panel1.Controls.Add(this.lblPONumber);
+            this.panel1.Controls.Add(this.txtPONumber);
+            this.panel1.Controls.Add(this.txtPOID);
+            this.panel1.Controls.Add(this.lblPOID);
+            this.panel1.Location = new System.Drawing.Point(44, 38);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(831, 233);
+            this.panel1.TabIndex = 64;
+            // 
             // lblLoggedUser
             // 
             this.lblLoggedUser.AutoSize = true;
             this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoggedUser.Location = new System.Drawing.Point(10, 6);
             this.lblLoggedUser.Name = "lblLoggedUser";
-            this.lblLoggedUser.Size = new System.Drawing.Size(37, 15);
-            this.lblLoggedUser.TabIndex = 63;
-            this.lblLoggedUser.Text = "label1";
-            this.lblLoggedUser.Click += new System.EventHandler(this.lblLoggedUser_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Location = new System.Drawing.Point(71, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 217);
-            this.panel1.TabIndex = 64;
+            this.lblLoggedUser.Size = new System.Drawing.Size(75, 15);
+            this.lblLoggedUser.TabIndex = 66;
+            this.lblLoggedUser.Text = "Current User:";
             // 
             // CreatePO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1037, 507);
+            this.ClientSize = new System.Drawing.Size(919, 544);
             this.Controls.Add(this.lblLoggedUser);
             this.Controls.Add(this.btnCPODelete);
             this.Controls.Add(this.btnCPOAdd);
             this.Controls.Add(this.btnCPOClear);
             this.Controls.Add(this.btnCPOUpdate);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dtpCPOExDD);
-            this.Controls.Add(this.dtpCPOOrderDate);
-            this.Controls.Add(this.lblCPOExDD);
-            this.Controls.Add(this.txtCPONumberOfUnits);
-            this.Controls.Add(this.txtCPONotes);
-            this.Controls.Add(this.txtCPOSupplierID);
-            this.Controls.Add(this.lblCPONumberOfUnits);
-            this.Controls.Add(this.lblCPONotes);
-            this.Controls.Add(this.lblCPOSupplierID);
-            this.Controls.Add(this.lblCPOTotalAmount);
-            this.Controls.Add(this.txtCPOCreatedBy);
-            this.Controls.Add(this.txtCPOUnitPrice);
-            this.Controls.Add(this.txtCPOTotalAmount);
-            this.Controls.Add(this.txtPONumber);
-            this.Controls.Add(this.lblCPOCreatedBy);
-            this.Controls.Add(this.lblCPOUnitPrice);
-            this.Controls.Add(this.lblCPOOrderDate);
-            this.Controls.Add(this.lblPONumber);
-            this.Controls.Add(this.txtPOID);
-            this.Controls.Add(this.lblPOID);
-            this.Controls.Add(this.dgvPOList);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dgvPOList);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -418,6 +421,8 @@ namespace Inventory_Management_System.Forms
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CreatePO_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOList)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,7 +456,7 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.DateTimePicker dtpCPOOrderDate;
         private System.Windows.Forms.DateTimePicker dtpCPOExDD;
         private System.Windows.Forms.Button button1;
-        private Label lblLoggedUser;
         private Panel panel1;
+        private Label lblLoggedUser;
     }
 }

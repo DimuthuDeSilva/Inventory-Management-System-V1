@@ -228,16 +228,11 @@ namespace Inventory_Management_System.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
         private void CreatePO_Load_1(object sender, EventArgs e)
-        {
-            btnCPOClear.PerformClick();
-        }
-
-        private void lblLoggedUser_Click(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnCPOClear.PerformClick();

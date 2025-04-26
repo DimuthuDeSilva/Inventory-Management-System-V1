@@ -18,6 +18,7 @@ namespace Inventory_Management_System.Forms
     {
         Models.ApprovePO approvePO = new Models.ApprovePO();
         ApprovePOService approvePOService = new ApprovePOService();
+        PurchaseOrderInvoiceService myInvoice = new PurchaseOrderInvoiceService();
         public ApprovePO()
         {
             InitializeComponent();
@@ -25,13 +26,13 @@ namespace Inventory_Management_System.Forms
 
         private void btnAPOApprove_Click(object sender, EventArgs e)
         {
+            
             if (!int.TryParse(txtPOID.Text, out int poID) || poID <= 0)
             {
                 MessageBox.Show("Please enter a valid PO ID", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var notes = txtAPONotes.Text;
-
             var result = approvePOService.ConfirmPO(poID, notes);
 
             MessageBox.Show(
@@ -45,8 +46,21 @@ namespace Inventory_Management_System.Forms
             {
                 // Refresh the view or close the form
                 this.DialogResult = DialogResult.OK;
+                this.PrintInvoice(poID);
             }
             btnAPOClear.PerformClick();
+        }
+
+        private void PrintInvoice(int poID)
+        {
+            DataSet ds = myInvoice.GetPoInvoice(poID);
+
+            if (ds.Tables.Count > 0)
+            {
+                string filePath = $@"D:\PO Invoice\ApprovedPoInvoice_{poID}.pdf";
+                myInvoice.ExportPoInvoiceToPdf(poID, filePath);
+                MessageBox.Show("PDF exported successfully to:\n" + filePath);
+            }
         }
 
 
@@ -64,19 +78,20 @@ namespace Inventory_Management_System.Forms
             dtpAPOExDD.Value = DateTime.Now.AddDays(7);
             txtAPONotes.Clear();
 
+            txtAPONumber.Enabled = false;
+            txtAPOSupplierID.Enabled = false;
+            txtAPOTotalAmount.Enabled = false;
+            txtAPOCreatedBy.Enabled = false;
+            txtAPONumberOfUnits.Enabled = false;
+            txtAPOUnitPrice.Enabled = false;
+            txtAPOUnitPrice.Enabled = false;
+            txtAPOUnitPrice.Enabled = false;
+
             //btnAPOAdd.Enabled = true;
             btnAPOApprove.Enabled = false;
 
             // Load data and handle access
             var purchaseOrders = approvePOService.GetAllPurchaseOrders();
-
-            if (purchaseOrders == null) // No access
-            {
-                MessageBox.Show("You don't have permission to access this page");
-                this.Close();
-                new Home().Show();
-                return;
-            }
 
             if (purchaseOrders.Tables[0].Rows.Count == 0)
             {
@@ -153,16 +168,11 @@ namespace Inventory_Management_System.Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
         private void ApprovePOForm_Load(object sender, EventArgs e)
-        {
-            btnAPOClear.PerformClick();
-        }
-
-        private void lblLoggedUser_Click(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnAPOClear.PerformClick();

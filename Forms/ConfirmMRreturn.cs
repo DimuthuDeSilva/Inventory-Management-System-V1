@@ -96,7 +96,7 @@ namespace Inventory_Management_System.Forms
             {
                 MessageBox.Show("You don't have permission to access this page");
                 this.Close();
-                new Home().Show();
+                new LandingPage().Show();
                 return;
             }
 
@@ -111,16 +111,11 @@ namespace Inventory_Management_System.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
         private void CreatePO_Load_1(object sender, EventArgs e)
-        {
-            btnMRRClear.PerformClick();
-        }
-
-        private void lblLoggedUser_Click(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnMRRClear.PerformClick();

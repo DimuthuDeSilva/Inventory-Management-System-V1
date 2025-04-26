@@ -14,24 +14,23 @@ using Inventory_Management_System.Services;
 
 namespace Inventory_Management_System.Forms
 {
-    public partial class StockOut : Form
+    public partial class StockIn : Form
     {
-        StockOutModel myStockoutmodel = new StockOutModel();
-        StockOutService myStockoutService = new StockOutService();
+        StockInModel myStockinmodel = new StockInModel();
+        StockInService myStockinService = new StockInService();
 
-        public StockOut()
+        public StockIn()
         {
             InitializeComponent();
         }
 
-
         private bool ValidateStockReleaseInputs()
         {
             // Validate MRNID (must be a positive number)
-            if (!int.TryParse(txtMRNID.Text, out int mrnId) || mrnId <= 0)
+            if (!int.TryParse(txtMRRID.Text, out int mrnId) || mrnId <= 0)
             {
                 MessageBox.Show("Please enter a valid MRN ID (positive number)");
-                txtMRNID.Focus();
+                txtMRRID.Focus();
                 return false;
             }
 
@@ -75,38 +74,38 @@ namespace Inventory_Management_System.Forms
             }
 
             // Validate IssuedBy (cannot be empty)
-            if (string.IsNullOrWhiteSpace(dtpIssuedDate.Text))
+            if (string.IsNullOrWhiteSpace(dtpReceivedDate.Text))
             {
                 MessageBox.Show("Please enter your name as Issued By");
-                dtpIssuedDate.Focus();
+                dtpReceivedDate.Focus();
                 return false;
             }
 
             // All validations passed
             return true;
         }
-        private void btnSTOutProcess_Click(object sender, EventArgs e)
+        private void btnSTinProcess_Click(object sender, EventArgs e)
         {
             if (!ValidateStockReleaseInputs()) return;
 
             try
             {
-                myStockoutmodel.MRNID = Convert.ToInt32(txtMRNID.Text);
-                myStockoutmodel.ItemID = Convert.ToInt32(txtItemID.Text);
-                myStockoutmodel.ItemName = txtItemName.Text.ToString();
-                myStockoutmodel.Quantity = Convert.ToInt32(txtQuantity.Text);
-                myStockoutmodel.IssuedQuantity = Convert.ToInt32(txtIssuedQuantity.Text);
-                myStockoutmodel.IssuedBy = Session.CurrentUser?.Username;
-                myStockoutmodel.Notes = txtSOSNotes.Text.ToString();
-                myStockoutmodel.Status = "Issued"; // Default status when releasing stock
+                myStockinmodel.MRRID = Convert.ToInt32(txtMRRID.Text);
+                myStockinmodel.ItemID = Convert.ToInt32(txtItemID.Text);
+                myStockinmodel.ItemName = txtItemName.Text.ToString();
+                myStockinmodel.Quantity = Convert.ToInt32(txtQuantity.Text);
+                myStockinmodel.ReceivedQuantity = Convert.ToInt32(txtIssuedQuantity.Text);
+                myStockinmodel.ReceivedBy = Session.CurrentUser?.Username;
+                myStockinmodel.Notes = txtMRRNotes.Text.ToString();
+                myStockinmodel.Status = "Received"; // Default status when receiving stock
 
-                myStockoutService.StockOutProcess(myStockoutmodel);
-                MessageBox.Show("Stock released successfully!");
+                myStockinService.StockInProcess(myStockinmodel);
+                MessageBox.Show("Stock received successfully!");
                 btnRESET.PerformClick();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error releasing stock: {ex.Message}");
+                MessageBox.Show($"Error receiving stock: {ex.Message}");
             }
         }
 
@@ -118,63 +117,58 @@ namespace Inventory_Management_System.Forms
             home.Show();
         }
 
+        private void StockIn_Load(object sender, EventArgs e)
+        {
+            lblLoggedUser.Text = $"Current User : {Session.FullName}";
+            btnRESET.PerformClick();
+        }
+
         private void btnRESET_Click(object sender, EventArgs e)
         {
-            txtMRNID.Clear();
+            txtMRRID.Clear();
             txtItemID.Clear();
             txtItemName.Clear();
             txtQuantity.Clear();
-            txtStatus.Clear();
+            txtMRRStatus.Clear();
             txtIssuedQuantity.Clear();
-            dtpIssuedDate.Value = DateTime.Now;
-            txtSOSNotes.Clear();
-
-            txtMRNID.Enabled = false;
-            txtItemID.Enabled = false;
-            txtItemName.Enabled = false;
-            txtQuantity.Enabled = false;
+            dtpReceivedDate.Value = DateTime.Now;
+            txtMRRNotes.Clear();
 
             // Load data and handle access
-            var stockOutprocess = myStockoutService.GetApprovedMRNsWithMRNID();
+            var stockinprocess = myStockinService.GetApprovedMRRsWithMRRID();
 
-            dgvSTouttList.DataSource = stockOutprocess.Tables[0];
+            dgvStockIntList.DataSource = stockinprocess.Tables[0];
         }
 
-        private void dgvSTouttList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSTintList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            DataRowView row = (DataRowView)dgvSTouttList.Rows[e.RowIndex].DataBoundItem;
+            DataRowView row = (DataRowView)dgvStockIntList.Rows[e.RowIndex].DataBoundItem;
 
             // Define property for textbox or Model data
-            myStockoutmodel.MRNID = Convert.ToInt32(row["MRNID"]);
-            myStockoutmodel.ItemID = Convert.ToInt32(row["ItemID"]);
-            myStockoutmodel.MRNID = Convert.ToInt32(row["MRNID"]);
-            myStockoutmodel.NumberOfUnits = Convert.ToInt32(row["NumberOfUnits"]);
+            myStockinmodel.MRRID = Convert.ToInt32(row["MRRID"]);
+            myStockinmodel.ItemID = Convert.ToInt32(row["ItemID"]);
+            myStockinmodel.MRRID = Convert.ToInt32(row["MRRID"]);
+            myStockinmodel.NumberOfUnits = Convert.ToInt32(row["NumberOfUnits"]);
             //myStockoutmodel.IssuedQuantity = Convert.ToInt32(row["IssuedQuantity"]);
-            myStockoutmodel.ItemName = row["ItemName"].ToString();
-            myStockoutmodel.Status = row["Status"].ToString();
-            myStockoutmodel.Notes = row["Notes"].ToString();
+            myStockinmodel.ItemName = row["ItemName"].ToString();
+            myStockinmodel.Status = row["Status"].ToString();
+            myStockinmodel.Notes = row["Notes"].ToString();
             //myStockoutmodel.IssuedDate = Convert.ToDateTime(row["IssuedDate"]);
 
             // Map to UI controls
-            txtMRNID.Text = myStockoutmodel.MRNID.ToString();
-            txtItemID.Text = myStockoutmodel.ItemID.ToString();
-            txtItemName.Text = myStockoutmodel.ItemName.ToString();
-            txtQuantity.Text = myStockoutmodel.NumberOfUnits.ToString();
-            txtStatus.Text = myStockoutmodel.Status.ToString();
+            txtMRRID.Text = myStockinmodel.MRRID.ToString();
+            txtItemID.Text = myStockinmodel.ItemID.ToString();
+            txtItemName.Text = myStockinmodel.ItemName.ToString();
+            txtQuantity.Text = myStockinmodel.NumberOfUnits.ToString();
+            txtMRRStatus.Text = myStockinmodel.Status.ToString();
             //txtIssuedQuantity.Text = myStockoutmodel.IssuedQuantity.ToString();
             //dtpIssuedDate.Value = myStockoutmodel.IssuedDate;
-            txtSOSNotes.Text = myStockoutmodel.Notes.ToString();
+            txtMRRNotes.Text = myStockinmodel.Notes.ToString();
 
             //btnAPOAdd.Enabled = false;
             btnRESET.Enabled = true;
-        }
-
-        private void StockOut_Load_1(object sender, EventArgs e)
-        {
-            lblLoggedUser.Text = $"Current User : {Session.FullName}";
-            btnSTOutReset.PerformClick();
         }
     }
     

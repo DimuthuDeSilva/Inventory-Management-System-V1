@@ -249,16 +249,11 @@ namespace Inventory_Management_System.Forms
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
         private void UserManagementForm_Load_1(object sender, EventArgs e)
-        {
-            btnUMClear.PerformClick();
-        }
-
-        private void lblLoggedUser_Click(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnUMClear.PerformClick();

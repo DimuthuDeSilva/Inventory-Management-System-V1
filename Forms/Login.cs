@@ -124,7 +124,7 @@ namespace Inventory_Management_System.Forms
 
                     // Show main form
                     this.Hide();
-                    var mainForm = new Home();
+                    var mainForm = new LandingPage();
                     mainForm.FormClosed += (s, args) => this.Close();
                     mainForm.Show();
                 }

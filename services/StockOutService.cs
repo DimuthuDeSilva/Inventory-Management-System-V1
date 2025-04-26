@@ -74,7 +74,7 @@ namespace Inventory_Management_System.Services
                                 cmd.Parameters.AddWithValue("@ItemID", myStockout.ItemID);
                                 cmd.Parameters.AddWithValue("@ItemName", myStockout.ItemName ?? string.Empty);
                                 cmd.Parameters.AddWithValue("@Quantity", myStockout.Quantity);
-                                cmd.Parameters.AddWithValue("@IssuedQuantity", myStockout.IssuedQuantity ?? 0); // Default to 0 if null
+                                cmd.Parameters.AddWithValue("@IssuedQuantity", myStockout.IssuedQuantity); // Default to 0 if null
                                 cmd.Parameters.AddWithValue("@IssuedDate", myStockout.IssuedDate);
                                 cmd.Parameters.AddWithValue("@IssuedBy", myStockout.IssuedBy ?? string.Empty);
                                 cmd.Parameters.AddWithValue("@Notes", myStockout.Notes ?? string.Empty);
@@ -96,7 +96,7 @@ namespace Inventory_Management_System.Services
 
                             using (MySqlCommand inventoryCmd = new MySqlCommand(updateInventorySql, connection, transaction))
                             {
-                                inventoryCmd.Parameters.AddWithValue("@IssuedQuantity", myStockout.IssuedQuantity ?? 0);
+                                inventoryCmd.Parameters.AddWithValue("@IssuedQuantity", myStockout.IssuedQuantity);
                                 inventoryCmd.Parameters.AddWithValue("@ItemID", myStockout.ItemID);
 
                                 int inventoryRowsAffected = inventoryCmd.ExecuteNonQuery();

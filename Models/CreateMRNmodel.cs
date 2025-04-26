@@ -18,10 +18,6 @@ namespace Inventory_Management_System.Models
         public string ApprovedBy { get; set; } // Nullable as it can be NULL in DB
         public string Notes { get; set; }      // Nullable as it can be NULL in DB
         public DateTime CreatedDate { get; set; } = DateTime.Now; // Default to current time
-    }
-    public class ItemstoCreateMRN
-    {
-        public int ItemID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }

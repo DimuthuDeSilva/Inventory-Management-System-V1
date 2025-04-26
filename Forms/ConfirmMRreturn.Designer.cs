@@ -44,12 +44,13 @@ namespace Inventory_Management_System.Forms
             this.dgvMRRList = new System.Windows.Forms.DataGridView();
             this.btnMRRConfirm = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblLoggedUser = new System.Windows.Forms.Label();
             this.txtMRRdepartment = new System.Windows.Forms.TextBox();
             this.lblMRNdepartment = new System.Windows.Forms.Label();
             this.btnMRRReject = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblLoggedUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMRRList)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMRRClear
@@ -58,7 +59,7 @@ namespace Inventory_Management_System.Forms
             this.btnMRRClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMRRClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMRRClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMRRClear.Location = new System.Drawing.Point(454, 430);
+            this.btnMRRClear.Location = new System.Drawing.Point(444, 430);
             this.btnMRRClear.Name = "btnMRRClear";
             this.btnMRRClear.Size = new System.Drawing.Size(93, 30);
             this.btnMRRClear.TabIndex = 51;
@@ -70,7 +71,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtMRRNumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
             this.txtMRRNumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRRNumberOfUnits.Location = new System.Drawing.Point(426, 79);
+            this.txtMRRNumberOfUnits.Location = new System.Drawing.Point(368, 66);
             this.txtMRRNumberOfUnits.Name = "txtMRRNumberOfUnits";
             this.txtMRRNumberOfUnits.ReadOnly = true;
             this.txtMRRNumberOfUnits.Size = new System.Drawing.Size(242, 27);
@@ -81,7 +82,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtMRRNotes.BackColor = System.Drawing.SystemColors.Control;
             this.txtMRRNotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRRNotes.Location = new System.Drawing.Point(426, 133);
+            this.txtMRRNotes.Location = new System.Drawing.Point(368, 120);
             this.txtMRRNotes.Name = "txtMRRNotes";
             this.txtMRRNotes.Size = new System.Drawing.Size(242, 27);
             this.txtMRRNotes.TabIndex = 48;
@@ -91,7 +92,7 @@ namespace Inventory_Management_System.Forms
             this.lblMRNNumberOfUnits.AutoSize = true;
             this.lblMRNNumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
             this.lblMRNNumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNNumberOfUnits.Location = new System.Drawing.Point(428, 55);
+            this.lblMRNNumberOfUnits.Location = new System.Drawing.Point(370, 42);
             this.lblMRNNumberOfUnits.Name = "lblMRNNumberOfUnits";
             this.lblMRNNumberOfUnits.Size = new System.Drawing.Size(132, 21);
             this.lblMRNNumberOfUnits.TabIndex = 45;
@@ -102,7 +103,7 @@ namespace Inventory_Management_System.Forms
             this.lblMRNNotes.AutoSize = true;
             this.lblMRNNotes.BackColor = System.Drawing.SystemColors.Control;
             this.lblMRNNotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNNotes.Location = new System.Drawing.Point(428, 109);
+            this.lblMRNNotes.Location = new System.Drawing.Point(370, 96);
             this.lblMRNNotes.Name = "lblMRNNotes";
             this.lblMRNNotes.Size = new System.Drawing.Size(54, 21);
             this.lblMRNNotes.TabIndex = 43;
@@ -112,7 +113,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtMRRItemName.BackColor = System.Drawing.SystemColors.Control;
             this.txtMRRItemName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRRItemName.Location = new System.Drawing.Point(112, 133);
+            this.txtMRRItemName.Location = new System.Drawing.Point(101, 133);
             this.txtMRRItemName.Name = "txtMRRItemName";
             this.txtMRRItemName.ReadOnly = true;
             this.txtMRRItemName.Size = new System.Drawing.Size(242, 27);
@@ -124,7 +125,7 @@ namespace Inventory_Management_System.Forms
             this.lblMRNItemName.AutoSize = true;
             this.lblMRNItemName.BackColor = System.Drawing.SystemColors.Control;
             this.lblMRNItemName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNItemName.Location = new System.Drawing.Point(114, 109);
+            this.lblMRNItemName.Location = new System.Drawing.Point(103, 109);
             this.lblMRNItemName.Name = "lblMRNItemName";
             this.lblMRNItemName.Size = new System.Drawing.Size(90, 21);
             this.lblMRNItemName.TabIndex = 30;
@@ -134,7 +135,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtMRRItemID.BackColor = System.Drawing.SystemColors.Control;
             this.txtMRRItemID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRRItemID.Location = new System.Drawing.Point(112, 79);
+            this.txtMRRItemID.Location = new System.Drawing.Point(51, 38);
             this.txtMRRItemID.Name = "txtMRRItemID";
             this.txtMRRItemID.ReadOnly = true;
             this.txtMRRItemID.Size = new System.Drawing.Size(242, 27);
@@ -146,7 +147,7 @@ namespace Inventory_Management_System.Forms
             this.lblMRNItemID.AutoSize = true;
             this.lblMRNItemID.BackColor = System.Drawing.SystemColors.Control;
             this.lblMRNItemID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNItemID.Location = new System.Drawing.Point(114, 55);
+            this.lblMRNItemID.Location = new System.Drawing.Point(103, 55);
             this.lblMRNItemID.Name = "lblMRNItemID";
             this.lblMRNItemID.Size = new System.Drawing.Size(63, 21);
             this.lblMRNItemID.TabIndex = 28;
@@ -159,7 +160,7 @@ namespace Inventory_Management_System.Forms
             this.dgvMRRList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvMRRList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvMRRList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMRRList.Location = new System.Drawing.Point(19, 228);
+            this.dgvMRRList.Location = new System.Drawing.Point(50, 228);
             this.dgvMRRList.Name = "dgvMRRList";
             this.dgvMRRList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -170,7 +171,7 @@ namespace Inventory_Management_System.Forms
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvMRRList.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMRRList.Size = new System.Drawing.Size(734, 191);
+            this.dgvMRRList.Size = new System.Drawing.Size(665, 191);
             this.dgvMRRList.StandardTab = true;
             this.dgvMRRList.TabIndex = 0;
             this.dgvMRRList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMRNList_CellContentClick);
@@ -181,7 +182,7 @@ namespace Inventory_Management_System.Forms
             this.btnMRRConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMRRConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMRRConfirm.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMRRConfirm.Location = new System.Drawing.Point(219, 430);
+            this.btnMRRConfirm.Location = new System.Drawing.Point(209, 430);
             this.btnMRRConfirm.Name = "btnMRRConfirm";
             this.btnMRRConfirm.Size = new System.Drawing.Size(94, 30);
             this.btnMRRConfirm.TabIndex = 53;
@@ -203,22 +204,11 @@ namespace Inventory_Management_System.Forms
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblLoggedUser
-            // 
-            this.lblLoggedUser.AutoSize = true;
-            this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedUser.Location = new System.Drawing.Point(16, 10);
-            this.lblLoggedUser.Name = "lblLoggedUser";
-            this.lblLoggedUser.Size = new System.Drawing.Size(37, 15);
-            this.lblLoggedUser.TabIndex = 63;
-            this.lblLoggedUser.Text = "label1";
-            this.lblLoggedUser.Click += new System.EventHandler(this.lblLoggedUser_Click);
-            // 
             // txtMRRdepartment
             // 
             this.txtMRRdepartment.BackColor = System.Drawing.SystemColors.Control;
             this.txtMRRdepartment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRRdepartment.Location = new System.Drawing.Point(112, 187);
+            this.txtMRRdepartment.Location = new System.Drawing.Point(101, 187);
             this.txtMRRdepartment.Name = "txtMRRdepartment";
             this.txtMRRdepartment.ReadOnly = true;
             this.txtMRRdepartment.Size = new System.Drawing.Size(242, 27);
@@ -230,7 +220,7 @@ namespace Inventory_Management_System.Forms
             this.lblMRNdepartment.AutoSize = true;
             this.lblMRNdepartment.BackColor = System.Drawing.SystemColors.Control;
             this.lblMRNdepartment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNdepartment.Location = new System.Drawing.Point(114, 163);
+            this.lblMRNdepartment.Location = new System.Drawing.Point(103, 163);
             this.lblMRNdepartment.Name = "lblMRNdepartment";
             this.lblMRNdepartment.Size = new System.Drawing.Size(96, 21);
             this.lblMRNdepartment.TabIndex = 42;
@@ -242,7 +232,7 @@ namespace Inventory_Management_System.Forms
             this.btnMRRReject.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMRRReject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMRRReject.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMRRReject.Location = new System.Drawing.Point(339, 430);
+            this.btnMRRReject.Location = new System.Drawing.Point(329, 430);
             this.btnMRRReject.Name = "btnMRRReject";
             this.btnMRRReject.Size = new System.Drawing.Size(96, 30);
             this.btnMRRReject.TabIndex = 50;
@@ -253,10 +243,25 @@ namespace Inventory_Management_System.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Location = new System.Drawing.Point(100, 41);
+            this.panel1.Controls.Add(this.txtMRRItemID);
+            this.panel1.Controls.Add(this.txtMRRNumberOfUnits);
+            this.panel1.Controls.Add(this.lblMRNNotes);
+            this.panel1.Controls.Add(this.lblMRNNumberOfUnits);
+            this.panel1.Controls.Add(this.txtMRRNotes);
+            this.panel1.Location = new System.Drawing.Point(50, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 181);
+            this.panel1.Size = new System.Drawing.Size(665, 181);
             this.panel1.TabIndex = 64;
+            // 
+            // lblLoggedUser
+            // 
+            this.lblLoggedUser.AutoSize = true;
+            this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedUser.Location = new System.Drawing.Point(12, 9);
+            this.lblLoggedUser.Name = "lblLoggedUser";
+            this.lblLoggedUser.Size = new System.Drawing.Size(75, 15);
+            this.lblLoggedUser.TabIndex = 66;
+            this.lblLoggedUser.Text = "Current User:";
             // 
             // ConfirmMRreturn
             // 
@@ -269,15 +274,10 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.btnMRRClear);
             this.Controls.Add(this.btnMRRReject);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtMRRNumberOfUnits);
-            this.Controls.Add(this.txtMRRNotes);
             this.Controls.Add(this.txtMRRdepartment);
-            this.Controls.Add(this.lblMRNNumberOfUnits);
-            this.Controls.Add(this.lblMRNNotes);
             this.Controls.Add(this.lblMRNdepartment);
             this.Controls.Add(this.txtMRRItemName);
             this.Controls.Add(this.lblMRNItemName);
-            this.Controls.Add(this.txtMRRItemID);
             this.Controls.Add(this.lblMRNItemID);
             this.Controls.Add(this.dgvMRRList);
             this.Controls.Add(this.panel1);
@@ -288,6 +288,8 @@ namespace Inventory_Management_System.Forms
             this.Text = "Confirm Material Request Return";
             this.Load += new System.EventHandler(this.CreatePO_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMRRList)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,10 +309,10 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.DataGridView dgvMRRList;
         private System.Windows.Forms.Button btnMRRConfirm;
         private System.Windows.Forms.Button button1;
-        private Label lblLoggedUser;
         private TextBox txtMRRdepartment;
         private Label lblMRNdepartment;
         private Button btnMRRReject;
         private Panel panel1;
+        private Label lblLoggedUser;
     }
 }

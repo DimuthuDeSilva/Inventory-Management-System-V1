@@ -19,7 +19,6 @@ namespace Inventory_Management_System.Forms
     {
         CreateMRNmodel myMRN = new CreateMRNmodel();
         CreateMRNService myMRNservice = new CreateMRNService();
-        ItemstoCreateMRN myitems = new ItemstoCreateMRN();
 
         public CreateMRN()
         {
@@ -105,20 +104,20 @@ namespace Inventory_Management_System.Forms
             DataRowView row = (DataRowView)dgvMRNList.Rows[e.RowIndex].DataBoundItem;
 
             // Map data from row to createPayment object
-            myitems.ItemID = Convert.ToInt32(row["ItemID"]);
-            myitems.Name = row["Name"].ToString();
-            myitems.Description = row["Description"].ToString();
-            myitems.Quantity = Convert.ToInt32(row["Quantity"]);
-            myitems.ReorderLevel = Convert.ToInt32(row["ReorderLevel"]);
-            myitems.UnitPrice = Convert.ToDecimal(row["UnitPrice"]);
-            myitems.TotalCost = Convert.ToDecimal(row["TotalCost"]);
-            myitems.SupplierID = Convert.ToInt32(row["SupplierID"]);
-            myitems.WarehouseID = Convert.ToInt32(row["WarehouseID"]);
-            myitems.IsActive = Convert.ToBoolean(row["IsActive"]);
+            myMRN.ItemID = Convert.ToInt32(row["ItemID"]);
+            myMRN.Name = row["Name"].ToString();
+            myMRN.Description = row["Description"].ToString();
+            myMRN.Quantity = Convert.ToInt32(row["NumberOfUnits"]);
+            myMRN.ReorderLevel = Convert.ToInt32(row["ReorderLevel"]);
+            myMRN.UnitPrice = Convert.ToDecimal(row["UnitPrice"]);
+            myMRN.TotalCost = Convert.ToDecimal(row["TotalCost"]);
+            myMRN.SupplierID = Convert.ToInt32(row["SupplierID"]);
+            myMRN.WarehouseID = Convert.ToInt32(row["WarehouseID"]);
+            myMRN.IsActive = Convert.ToBoolean(row["IsActive"]);
 
             // Populate form fields
-            txtItemID.Text = myitems.ItemID.ToString();
-            txtItemName.Text = myitems.Name.ToString();
+            txtItemID.Text = myMRN.ItemID.ToString();
+            txtItemName.Text = myMRN.Name.ToString();
             txtMRNdepartment.Text = myMRN.Department.ToString();
             txtMRNNumberOfUnits.Text = myMRN.NumberOfUnits.ToString();
             txtMRNNotes.Text = myMRN.Notes ?? "";
@@ -130,7 +129,7 @@ namespace Inventory_Management_System.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 

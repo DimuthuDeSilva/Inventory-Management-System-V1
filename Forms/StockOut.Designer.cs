@@ -30,7 +30,7 @@ namespace Inventory_Management_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSTOutProcess = new System.Windows.Forms.Button();
             this.txtSOSNotes = new System.Windows.Forms.TextBox();
             this.txtItemID = new System.Windows.Forms.TextBox();
@@ -52,7 +52,9 @@ namespace Inventory_Management_System.Forms
             this.lblQuantity = new System.Windows.Forms.Label();
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.btnRESET = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSTouttList)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSTOutProcess
@@ -60,7 +62,7 @@ namespace Inventory_Management_System.Forms
             this.btnSTOutProcess.BackColor = System.Drawing.Color.Navy;
             this.btnSTOutProcess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSTOutProcess.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSTOutProcess.Location = new System.Drawing.Point(651, 481);
+            this.btnSTOutProcess.Location = new System.Drawing.Point(627, 179);
             this.btnSTOutProcess.Name = "btnSTOutProcess";
             this.btnSTOutProcess.Size = new System.Drawing.Size(98, 30);
             this.btnSTOutProcess.TabIndex = 50;
@@ -187,25 +189,29 @@ namespace Inventory_Management_System.Forms
             // 
             // dgvSTouttList
             // 
+            this.dgvSTouttList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSTouttList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSTouttList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvSTouttList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvSTouttList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSTouttList.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvSTouttList.Location = new System.Drawing.Point(26, 54);
             this.dgvSTouttList.Name = "dgvSTouttList";
             this.dgvSTouttList.ReadOnly = true;
             this.dgvSTouttList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvSTouttList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvSTouttList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSTouttList.Size = new System.Drawing.Size(857, 218);
             this.dgvSTouttList.StandardTab = true;
             this.dgvSTouttList.TabIndex = 0;
-            this.dgvSTouttList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSTouttList_CellContentClick);
             this.dgvSTouttList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSTouttList_CellDoubleClick);
             // 
             // dtpIssuedDate
@@ -245,7 +251,7 @@ namespace Inventory_Management_System.Forms
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(803, 12);
+            this.btnExit.Location = new System.Drawing.Point(829, 7);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 36);
             this.btnExit.TabIndex = 60;
@@ -281,17 +287,16 @@ namespace Inventory_Management_System.Forms
             this.lblLoggedUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoggedUser.Location = new System.Drawing.Point(12, 12);
             this.lblLoggedUser.Name = "lblLoggedUser";
-            this.lblLoggedUser.Size = new System.Drawing.Size(37, 15);
+            this.lblLoggedUser.Size = new System.Drawing.Size(75, 15);
             this.lblLoggedUser.TabIndex = 65;
-            this.lblLoggedUser.Text = "label1";
-            this.lblLoggedUser.Click += new System.EventHandler(this.lblLoggedUser_Click);
+            this.lblLoggedUser.Text = "Current User:";
             // 
             // btnRESET
             // 
             this.btnRESET.BackColor = System.Drawing.Color.Navy;
             this.btnRESET.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRESET.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRESET.Location = new System.Drawing.Point(755, 481);
+            this.btnRESET.Location = new System.Drawing.Point(731, 179);
             this.btnRESET.Name = "btnRESET";
             this.btnRESET.Size = new System.Drawing.Size(98, 30);
             this.btnRESET.TabIndex = 66;
@@ -299,19 +304,27 @@ namespace Inventory_Management_System.Forms
             this.btnRESET.UseVisualStyleBackColor = false;
             this.btnRESET.Click += new System.EventHandler(this.btnRESET_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnRESET);
+            this.panel1.Controls.Add(this.btnSTOutProcess);
+            this.panel1.Location = new System.Drawing.Point(26, 278);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(857, 231);
+            this.panel1.TabIndex = 67;
+            // 
             // StockOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(919, 544);
-            this.Controls.Add(this.btnRESET);
             this.Controls.Add(this.lblLoggedUser);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dtpIssuedDate);
-            this.Controls.Add(this.btnSTOutProcess);
             this.Controls.Add(this.txtItemName);
             this.Controls.Add(this.txtSOSNotes);
             this.Controls.Add(this.txtItemID);
@@ -326,13 +339,15 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.lblIssuedDate);
             this.Controls.Add(this.lblMRNID);
             this.Controls.Add(this.dgvSTouttList);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StockOut";
             this.Text = "Create Payment ";
-            this.Load += new System.EventHandler(this.StockOut_Load);
+            this.Load += new System.EventHandler(this.StockOut_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSTouttList)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +377,6 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Label lblLoggedUser;
         private System.Windows.Forms.Button btnRESET;
+        private System.Windows.Forms.Panel panel1;
     }
 }

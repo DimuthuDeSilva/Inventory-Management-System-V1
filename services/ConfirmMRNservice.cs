@@ -27,22 +27,22 @@ namespace Inventory_Management_System.Services
                     var userID = Session.UserID;
 
                     string sql = @"
-                            SELECT mrn.* 
-                            FROM materialrequestnotes mrn
-                            JOIN approvalflow af ON 
-                                (af.FunctionName = 'Material Request Note Confirm' AND 
-                                 af.UserID = @UserID)
-                            WHERE 
-                                mrn.Status = 'Pending' AND
-                                (
-                                    mrn.RequestedBy  = @UserID OR
-                                    EXISTS (
-                                        SELECT 1 FROM approvalflow 
-                                        WHERE FunctionName = 'Material Request Note Confirm' 
-                                        AND UserID = @UserID
-                                    )
-                                )
-                            ORDER BY mrn.CreatedDate DESC";
+                SELECT mrn.* 
+                FROM materialrequestnotes mrn
+                JOIN approvalflow af ON 
+                    (af.FunctionName = 'Material Request Note Confirm' AND 
+                     af.UserID = @UserID)
+                WHERE 
+                    mrn.Status = 'Pending' AND
+                    (
+                        mrn.RequestedBy = @UserID OR
+                        EXISTS (
+                            SELECT 1 FROM approvalflow 
+                            WHERE FunctionName = 'Material Request Note Confirm' 
+                            AND UserID = @UserID
+                        )
+                    )
+                ORDER BY mrn.CreatedDate DESC";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -54,13 +54,24 @@ namespace Inventory_Management_System.Services
                     // Additional access check if no records returned
                     if (ds.Tables[0].Rows.Count == 0)
                     {
-                        string checkAccessSql = "SELECT 1 FROM approvalflow WHERE UserID = @UserID";
+                        string checkAccessSql = @"SELECT 1 FROM approvalflow 
+                                       WHERE FunctionName = 'Material Request Note Confirm'
+                                       AND UserID = @UserID";
                         using (MySqlCommand accessCmd = new MySqlCommand(checkAccessSql, connection))
                         {
                             accessCmd.Parameters.AddWithValue("@UserID", userID);
                             if (accessCmd.ExecuteScalar() == null)
                             {
-                                return null; // Indicate no access
+                                // Check if user requested any MRNs (even if none are pending)
+                                string checkRequesterSql = "SELECT 1 FROM materialrequestnotes WHERE RequestedBy = @UserID LIMIT 1";
+                                using (MySqlCommand requesterCmd = new MySqlCommand(checkRequesterSql, connection))
+                                {
+                                    requesterCmd.Parameters.AddWithValue("@UserID", userID);
+                                    if (requesterCmd.ExecuteScalar() == null)
+                                    {
+                                        return null; // Indicate no access
+                                    }
+                                }
                             }
                         }
                     }

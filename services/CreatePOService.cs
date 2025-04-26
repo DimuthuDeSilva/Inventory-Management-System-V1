@@ -22,7 +22,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM PurchaseOrders";
+                    string sql = "SELECT * FROM PurchaseOrders WHERE Status != 'Deleted'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -250,7 +250,7 @@ namespace Inventory_Management_System.Services
                     connection.Open();
 
                     // First delete related PO items (if needed)
-                    string deleteItemsSql = "DELETE FROM POItems WHERE POID = @POID";
+                    string deleteItemsSql = "UPDATE `purchaseorders` SET `Status` = 'Deleted' WHERE `POID` = @POID;";
                     using (MySqlCommand deleteItemsCmd = new MySqlCommand(deleteItemsSql, connection))
                     {
                         deleteItemsCmd.Parameters.AddWithValue("@POID", myItem.POID);
@@ -258,17 +258,17 @@ namespace Inventory_Management_System.Services
                     }
 
                     // Then delete the purchase order
-                    string deleteOrderSql = "DELETE FROM PurchaseOrders WHERE POID = @POID";
-                    using (MySqlCommand cmd = new MySqlCommand(deleteOrderSql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@POID", myItem.POID);
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                    //string deleteOrderSql = "DELETE FROM PurchaseOrders WHERE POID = @POID";
+                    //using (MySqlCommand cmd = new MySqlCommand(deleteOrderSql, connection))
+                    //{
+                    //    cmd.Parameters.AddWithValue("@POID", myItem.POID);
+                    //    int rowsAffected = cmd.ExecuteNonQuery();
             
-                        if (rowsAffected == 0)
-                        {
-                            MessageBox.Show("No purchase order found with the specified ID.");
-                        }
-                    }
+                    //    if (rowsAffected == 0)
+                    //    {
+                    //        MessageBox.Show("No purchase order found with the specified ID.");
+                    //    }
+                    //}
                 }
                 }
                 catch (MySqlException ex)

@@ -73,7 +73,7 @@ namespace Inventory_Management_System.Forms
             {
                 MessageBox.Show("You don't have permission to access this page");
                 this.Close();
-                new Home().Show();
+                new LandingPage().Show();
                 return;
             }
 
@@ -146,20 +146,16 @@ namespace Inventory_Management_System.Forms
 
         private void ConfirmGRNform_Load(object sender, EventArgs e)
         {
+            lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btncfmGRNClear.PerformClick();
         }
 
         private void btncfmGRNExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            Home home = new Home();
+            LandingPage home = new LandingPage();
             home.Show();
         }
 
-        private void lblLoggedUser_Click(object sender, EventArgs e)
-        {
-            lblLoggedUser.Text = $"Current User : {Session.FullName}";
-            btncfmGRNClear.PerformClick();
-        }
     }
 }
