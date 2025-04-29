@@ -168,8 +168,7 @@ namespace Inventory_Management_System.Forms
             txtGRNTotalCost.Clear();               
             dtpDateOfDelivery.Value = DateTime.Now;
 
-            txtGRNSupplierID.Enabled = false;
-            txtGRNSupplierName.Enabled = false;
+  
             txtGRNTotalCost.Enabled = false;
 
             btnGRNAdd.Enabled = true;

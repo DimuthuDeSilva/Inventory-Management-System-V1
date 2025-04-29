@@ -48,21 +48,15 @@ namespace Inventory_Management_System.Services
                     connection.Open();
 
                     string sql = @"INSERT INTO items 
-                      (Name, Description, Quantity, ReorderLevel, UnitPrice, 
-                       TotalCost, SupplierID, WarehouseID, IsActive)
+                      (Name, Description, ReorderLevel, WarehouseID, IsActive)
                       VALUES 
-                      (@Name, @Description, @Quantity, @ReorderLevel, @UnitPrice, 
-                       @TotalCost, @SupplierID, @WarehouseID, @IsActive)";
+                      (@Name, @Description, @ReorderLevel, @WarehouseID, @IsActive)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@Name", myItem.Name);
                         cmd.Parameters.AddWithValue("@Description", myItem.Description);
-                        cmd.Parameters.AddWithValue("@Quantity", myItem.Quantity);
                         cmd.Parameters.AddWithValue("@ReorderLevel", myItem.ReorderLevel);
-                        cmd.Parameters.AddWithValue("@UnitPrice", myItem.UnitPrice);
-                        cmd.Parameters.AddWithValue("@TotalCost", myItem.TotalCost);
-                        cmd.Parameters.AddWithValue("@SupplierID", myItem.SupplierID);
                         cmd.Parameters.AddWithValue("@WarehouseID", myItem.WarehouseID);
                         cmd.Parameters.AddWithValue("@IsActive", myItem.IsActive);
 
@@ -87,11 +81,7 @@ namespace Inventory_Management_System.Services
                     string sql = @"UPDATE Items 
                            SET Name = @Name,
                                Description = @Description,
-                               Quantity = @Quantity,
                                ReorderLevel = @ReorderLevel,
-                               UnitPrice = @UnitPrice,
-                               TotalCost = @TotalCost,
-                               SupplierID = @SupplierID,
                                WarehouseID = @WarehouseID,
                                IsActive = @IsActive
                            WHERE ItemID = @ItemID";
@@ -101,11 +91,7 @@ namespace Inventory_Management_System.Services
                         cmd.Parameters.AddWithValue("@ItemID", myItem.ItemID);
                         cmd.Parameters.AddWithValue("@Name", myItem.Name);
                         cmd.Parameters.AddWithValue("@Description", myItem.Description);
-                        cmd.Parameters.AddWithValue("@Quantity", myItem.Quantity);
                         cmd.Parameters.AddWithValue("@ReorderLevel", myItem.ReorderLevel);
-                        cmd.Parameters.AddWithValue("@UnitPrice", myItem.UnitPrice);
-                        cmd.Parameters.AddWithValue("@TotalCost", myItem.TotalCost);
-                        cmd.Parameters.AddWithValue("@SupplierID", myItem.SupplierID);
                         cmd.Parameters.AddWithValue("@WarehouseID", myItem.WarehouseID);
                         cmd.Parameters.AddWithValue("@IsActive", myItem.IsActive);
 
@@ -127,7 +113,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = "DELETE FROM Items WHERE ItemID = @ItemID";
+                    string sql = "UPDATE Items SET IsActive = 0 WHERE ItemID = @ItemID";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

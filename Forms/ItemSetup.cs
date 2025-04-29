@@ -22,22 +22,22 @@ namespace Inventory_Management_System.Forms
         public ItemSetup()
         {
             InitializeComponent();
-            txtUpdUnitPrice.TextChanged += CalculateTotalCost;
-            txtUpdQuantity.TextChanged += CalculateTotalCost;
+            //txtUpdUnitPrice.TextChanged += CalculateTotalCost;
+            //txtUpdQuantity.TextChanged += CalculateTotalCost;
         }
-        private void CalculateTotalCost(object sender, EventArgs e)
-        {
-            if (decimal.TryParse(txtUpdUnitPrice.Text, out decimal unitPrice) &&
-                int.TryParse(txtUpdQuantity.Text, out int Quantity))
-            {
-                decimal totalCost = unitPrice * Quantity;
-                txtUpdTotalCost.Text = totalCost.ToString();
-            }
-            else
-            {
-                txtUpdTotalCost.Text = "0";
-            }
-        }
+        //private void CalculateTotalCost(object sender, EventArgs e)
+        //{
+        //    if (decimal.TryParse(txtUpdUnitPrice.Text, out decimal unitPrice) &&
+        //        int.TryParse(txtUpdQuantity.Text, out int Quantity))
+        //    {
+        //        decimal totalCost = unitPrice * Quantity;
+        //        txtUpdTotalCost.Text = totalCost.ToString();
+        //    }
+        //    else
+        //    {
+        //        txtUpdTotalCost.Text = "0";
+        //    }
+        //}
 
         private bool ValidateInputs()
         {
@@ -57,13 +57,13 @@ namespace Inventory_Management_System.Forms
                 return false;
             }
 
-            // Quantity validation (must be non-negative integer)
-            if (!int.TryParse(txtUpdQuantity.Text, out int quantity) || quantity < 0)
-            {
-                MessageBox.Show("Quantity must be a non-negative whole number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUpdQuantity.Focus();
-                return false;
-            }
+            //// Quantity validation (must be non-negative integer)
+            //if (!int.TryParse(txtUpdQuantity.Text, out int quantity) || quantity < 0)
+            //{
+            //    MessageBox.Show("Quantity must be a non-negative whole number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtUpdQuantity.Focus();
+            //    return false;
+            //}
 
             // ReorderLevel validation (must be non-negative integer)
             if (!int.TryParse(txtUpdReorderLevel.Text, out int reorderLevel) || reorderLevel < 0)
@@ -73,29 +73,29 @@ namespace Inventory_Management_System.Forms
                 return false;
             }
 
-            // UnitPrice validation (must be positive decimal)
-            if (!decimal.TryParse(txtUpdUnitPrice.Text, out decimal unitPrice) || unitPrice <= 0)
-            {
-                MessageBox.Show("Unit Price must be a positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUpdUnitPrice.Focus();
-                return false;
-            }
+            //// UnitPrice validation (must be positive decimal)
+            //if (!decimal.TryParse(txtUpdUnitPrice.Text, out decimal unitPrice) || unitPrice <= 0)
+            //{
+            //    MessageBox.Show("Unit Price must be a positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtUpdUnitPrice.Focus();
+            //    return false;
+            //}
 
-            // TotalCost validation (must be positive decimal)
-            if (!decimal.TryParse(txtUpdTotalCost.Text, out decimal totalCost) || totalCost <= 0)
-            {
-                MessageBox.Show("Total Cost must be a positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUpdTotalCost.Focus();
-                return false;
-            }
+            //// TotalCost validation (must be positive decimal)
+            //if (!decimal.TryParse(txtUpdTotalCost.Text, out decimal totalCost) || totalCost <= 0)
+            //{
+            //    MessageBox.Show("Total Cost must be a positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtUpdTotalCost.Focus();
+            //    return false;
+            //}
 
-            // SupplierID validation (must be positive integer)
-            if (!int.TryParse(txtUpdSupplierID.Text, out int supplierId) || supplierId <= 0)
-            {
-                MessageBox.Show("Supplier ID must be a valid positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUpdSupplierID.Focus();
-                return false;
-            }
+            //// SupplierID validation (must be positive integer)
+            //if (!int.TryParse(txtUpdSupplierID.Text, out int supplierId) || supplierId <= 0)
+            //{
+            //    MessageBox.Show("Supplier ID must be a valid positive number", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtUpdSupplierID.Focus();
+            //    return false;
+            //}
 
             // WarehouseID validation (must be positive integer)
             if (!int.TryParse(txtUpdWarehouseID.Text, out int warehouseId) || warehouseId <= 0)
@@ -124,11 +124,7 @@ namespace Inventory_Management_System.Forms
             {
                 myItem.Name = txtUpdName.Text;
                 myItem.Description = txtUpdDescription.Text;
-                myItem.Quantity = Convert.ToInt32(txtUpdQuantity.Text);
                 myItem.ReorderLevel = Convert.ToInt32(txtUpdReorderLevel.Text);
-                myItem.UnitPrice = Convert.ToDecimal(txtUpdUnitPrice.Text);
-                myItem.TotalCost = Convert.ToDecimal(txtUpdTotalCost.Text);
-                myItem.SupplierID = Convert.ToInt32(txtUpdSupplierID.Text);
                 myItem.WarehouseID = Convert.ToInt32(txtUpdWarehouseID.Text);
                 myItem.IsActive = ParseStatusInput(txtUpdStatus.Text);
 
@@ -146,11 +142,7 @@ namespace Inventory_Management_System.Forms
         {
             txtUpdName.Clear();
             txtUpdDescription.Clear();
-            txtUpdQuantity.Clear();
             txtUpdReorderLevel.Clear();
-            txtUpdUnitPrice.Clear();
-            txtUpdTotalCost.Clear();
-            txtUpdSupplierID.Clear();
             txtUpdWarehouseID.Clear();
             txtUpdStatus.Clear();
             txtUpdItemID.Clear();
@@ -160,10 +152,10 @@ namespace Inventory_Management_System.Forms
             btnUpdate.Enabled = false;
             //btnDelete.Enabled = false;
 
-            if (Session.Role != null && Session.Role == "Manager")
-            {
-                btnAdd.Visible = false;
-            }
+            //if (Session.Role != null && Session.Role == "Manager")
+            //{
+            //    btnAdd.Visible = false;
+            //}
 
             txtUpdItemID.Enabled = false;
 
@@ -196,11 +188,7 @@ namespace Inventory_Management_System.Forms
             {
                 myItem.Name = txtUpdName.Text;
                 myItem.Description = txtUpdDescription.Text;
-                myItem.Quantity = Convert.ToInt32(txtUpdQuantity.Text);
                 myItem.ReorderLevel = Convert.ToInt32(txtUpdReorderLevel.Text);
-                myItem.UnitPrice = Convert.ToDecimal(txtUpdUnitPrice.Text);
-                myItem.TotalCost = Convert.ToDecimal(txtUpdTotalCost.Text);
-                myItem.SupplierID = Convert.ToInt32(txtUpdSupplierID.Text);
                 myItem.WarehouseID = Convert.ToInt32(txtUpdWarehouseID.Text);
                 myItem.IsActive = ParseStatusInput(txtUpdStatus.Text);
 
@@ -223,22 +211,14 @@ namespace Inventory_Management_System.Forms
                 myItem.ItemID = Convert.ToInt32(row["ItemID"]);
                 myItem.Name = row["Name"].ToString();
                 myItem.Description = row["Description"].ToString();
-                myItem.Quantity = Convert.ToInt32(row["Quantity"]);
                 myItem.ReorderLevel = Convert.ToInt32(row["ReorderLevel"]);
-                myItem.UnitPrice = Convert.ToDecimal(row["UnitPrice"]);
-                myItem.TotalCost = Convert.ToDecimal(row["TotalCost"]);
-                myItem.SupplierID = Convert.ToInt32(row["SupplierID"]);
                 myItem.WarehouseID = Convert.ToInt32(row["WarehouseID"]);
                 myItem.IsActive = Convert.ToBoolean(row["IsActive"]);
 
                 txtUpdItemID.Text = myItem.ItemID.ToString();
                 txtUpdName.Text = myItem.Name;
                 txtUpdDescription.Text = myItem.Description;
-                txtUpdQuantity.Text = myItem.Quantity.ToString();
                 txtUpdReorderLevel.Text = myItem.ReorderLevel.ToString();
-                txtUpdUnitPrice.Text = myItem.UnitPrice.ToString("N2");
-                txtUpdTotalCost.Text = myItem.TotalCost.ToString("N2");
-                txtUpdSupplierID.Text = myItem.SupplierID.ToString();
                 txtUpdWarehouseID.Text = myItem.WarehouseID.ToString();
                 txtUpdStatus.Text = myItem.IsActive.ToString();
 

@@ -32,7 +32,7 @@ namespace Inventory_Management_System.Forms
                 MessageBox.Show("Please enter a valid PO ID", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var notes = txtAPONotes.Text;
+            var notes = txtCPONotes.Text;
             var result = approvePOService.ConfirmPO(poID, notes);
 
             MessageBox.Show(
@@ -66,26 +66,33 @@ namespace Inventory_Management_System.Forms
 
         private void btnAPOClear_Click(object sender, EventArgs e)
         {
-         
-            txtAPONumber.Clear();
-            txtAPONotes.Clear();
-            txtAPOSupplierID.Clear();
-            txtAPOTotalAmount.Clear();
-            txtAPOCreatedBy.Clear();
-            txtAPOUnitPrice.Clear();
-            txtAPONumberOfUnits.Clear();
-            dtpAPOOrderDate.Value = DateTime.Now;
-            dtpAPOExDD.Value = DateTime.Now.AddDays(7);
-            txtAPONotes.Clear();
 
-            txtAPONumber.Enabled = false;
-            txtAPOSupplierID.Enabled = false;
-            txtAPOTotalAmount.Enabled = false;
-            txtAPOCreatedBy.Enabled = false;
-            txtAPONumberOfUnits.Enabled = false;
-            txtAPOUnitPrice.Enabled = false;
-            txtAPOUnitPrice.Enabled = false;
-            txtAPOUnitPrice.Enabled = false;
+            txtItemID.Clear();
+            txtItemName.Clear();
+            txtPOID.Clear();
+            txtCPOUnitPrice.Clear();
+            txtCPONotes.Clear();
+            txtCPOSupplierID.Clear();
+            txtSupplierName.Clear();
+            txtCPOTotalAmount.Clear();
+            txtCPONumberOfUnits.Clear();
+
+            // Reset date pickers
+            dtpCPOOrderDate.Value = DateTime.Now;
+            dtpCPOExDD.Value = DateTime.Now.AddDays(7);
+
+            txtPOID.Enabled = false;
+            txtCPOSupplierID.Enabled = false;
+            txtCPOTotalAmount.Enabled = false;
+            txtCPOCreatedBy.Enabled = false;
+            txtCPONumberOfUnits.Enabled = false;
+            txtItemID.Enabled = false;
+            txtItemName.Enabled = false;
+            txtSupplierName.Enabled = false;
+            txtCPONotes.Enabled = false;
+            dtpCPOExDD.Enabled = false;
+            dtpCPOOrderDate.Enabled = false;
+            txtCPOUnitPrice.Enabled = false;
 
             //btnAPOAdd.Enabled = true;
             btnAPOApprove.Enabled = false;
@@ -107,36 +114,39 @@ namespace Inventory_Management_System.Forms
 
             DataRowView row = (DataRowView)dgvAPOList.Rows[e.RowIndex].DataBoundItem;
 
+            // Set approvePO properties from selected row
             approvePO.POID = Convert.ToInt32(row["POID"]);
-            approvePO.PONumber = row["PONumber"].ToString();
+            approvePO.ItemID = Convert.ToInt32(row["ItemID"]);
+            approvePO.ItemName = row["ItemName"].ToString();
             approvePO.SupplierID = Convert.ToInt32(row["SupplierID"]);
+            approvePO.SupplierName = row["SupplierName"].ToString();
             approvePO.OrderDate = Convert.ToDateTime(row["OrderDate"]);
             approvePO.ExpectedDeliveryDate = row["ExpectedDeliveryDate"] != DBNull.Value ?
-                                          Convert.ToDateTime(row["ExpectedDeliveryDate"]) : (DateTime?)null;
+                                           Convert.ToDateTime(row["ExpectedDeliveryDate"]) : (DateTime?)null;
             approvePO.Status = row["Status"].ToString();
             approvePO.UnitPrice = Convert.ToDecimal(row["UnitPrice"]);
             approvePO.NumberOfUnits = Convert.ToInt32(row["NumberOfUnits"]);
             approvePO.TotalAmount = Convert.ToDecimal(row["TotalAmount"]);
             approvePO.CreatedBy = Convert.ToInt32(row["CreatedBy"]);
             approvePO.ApprovedBy = row["ApprovedBy"] != DBNull.Value ?
-                                 Convert.ToInt32(row["ApprovedBy"]) : (int?)null;
+                                  Convert.ToInt32(row["ApprovedBy"]) : (int?)null;
             approvePO.Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : null;
 
             // Populate form fields
             txtPOID.Text = approvePO.POID.ToString();
-            txtAPONumber.Text = approvePO.PONumber;
-            txtAPOSupplierID.Text = approvePO.SupplierID.ToString();
-            dtpAPOOrderDate.Value = approvePO.OrderDate;
-            dtpAPOExDD.Value = approvePO.ExpectedDeliveryDate ?? DateTime.Now.AddDays(7);
-            txtAPOTotalAmount.Text = approvePO.TotalAmount.ToString("N2");
-            txtAPOCreatedBy.Text = approvePO.CreatedBy.ToString();
-            txtAPOUnitPrice.Text = approvePO.UnitPrice.ToString();
-            txtAPONumberOfUnits.Text = approvePO.NumberOfUnits.ToString();
-            txtAPONotes.Text = approvePO.Notes ?? "";
-            txtAPOStatus.Text = approvePO.Status;
+            txtItemID.Text = approvePO.ItemID.ToString();  // Changed from PONumber to ItemID
+            txtItemName.Text = approvePO.ItemName;
+            txtCPOSupplierID.Text = approvePO.SupplierID.ToString();
+            txtSupplierName.Text = approvePO.SupplierName;
+            dtpCPOOrderDate.Value = approvePO.OrderDate;
+            dtpCPOExDD.Value = approvePO.ExpectedDeliveryDate ?? DateTime.Now.AddDays(7);
+            txtCPOTotalAmount.Text = approvePO.TotalAmount.ToString("N2");
+            txtCPOUnitPrice.Text = approvePO.UnitPrice.ToString("N2");
+            txtCPONumberOfUnits.Text = approvePO.NumberOfUnits.ToString();
+            txtCPONotes.Text = approvePO.Notes ?? "";
 
-            //btnAPOAdd.Enabled = false;
-            btnAPOApprove.Enabled = true;
+            // Set button state
+            btnAPOApprove.Enabled = (approvePO.Status == "Pending");  // Only enable if status is Pending
         }
 
         private void btnAPOReject_Click(object sender, EventArgs e)

@@ -50,9 +50,9 @@ namespace Inventory_Management_System.Forms
             //txtSOSNotes.Clear();
 
             // Load data and handle access
-            var stockOutprocess = myreorderService.GetAllReOrderAlerts();
+            var reorderAlert = myreorderService.GetAllReOrderAlerts();
 
-            dgvROLDtList.DataSource = stockOutprocess.Tables[0];
+            dgvROLDtList.DataSource = reorderAlert.Tables[0];
         }
 
         private void dgvSTouttList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -80,17 +80,13 @@ namespace Inventory_Management_System.Forms
             txtItemStatus.Text = myreorderModel.IsActive.ToString();
             txtROLDAvlQntity.Text = myreorderModel.Quantity.ToString();
             txtlblWarehouseID.Text = myreorderModel.WarehouseID.ToString();
-
-
-
-            //btnAPOAdd.Enabled = false;
-            btnRESET.Enabled = true;
         }
 
         private void ReorderLevelAlert_Load(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
             btnRESET.PerformClick();
+            btnRESET.Visible = false ;
         }
     }
     

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStockReport = new System.Windows.Forms.DataGridView();
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
@@ -43,6 +43,10 @@
             // 
             // dgvStockReport
             // 
+            this.dgvStockReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvStockReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStockReport.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvStockReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvStockReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -50,31 +54,33 @@
             this.dgvStockReport.Name = "dgvStockReport";
             this.dgvStockReport.ReadOnly = true;
             this.dgvStockReport.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvStockReport.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvStockReport.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStockReport.Size = new System.Drawing.Size(873, 333);
             this.dgvStockReport.TabIndex = 0;
             // 
             // dtpToDate
             // 
             this.dtpToDate.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.dtpToDate.Location = new System.Drawing.Point(535, 69);
+            this.dtpToDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpToDate.Location = new System.Drawing.Point(529, 69);
             this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpToDate.Size = new System.Drawing.Size(238, 25);
             this.dtpToDate.TabIndex = 1;
             // 
             // dtpFromDate
             // 
             this.dtpFromDate.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.dtpFromDate.Location = new System.Drawing.Point(191, 72);
+            this.dtpFromDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFromDate.Location = new System.Drawing.Point(161, 69);
             this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpFromDate.Size = new System.Drawing.Size(238, 25);
             this.dtpFromDate.TabIndex = 2;
             // 
             // btnSearch
@@ -83,7 +89,7 @@
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(750, 60);
+            this.btnSearch.Location = new System.Drawing.Point(773, 62);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(104, 39);
             this.btnSearch.TabIndex = 3;
@@ -97,7 +103,7 @@
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(750, 462);
+            this.btnClear.Location = new System.Drawing.Point(795, 461);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(104, 34);
             this.btnClear.TabIndex = 4;
@@ -111,7 +117,7 @@
             this.lblToDate.BackColor = System.Drawing.Color.Navy;
             this.lblToDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblToDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblToDate.Location = new System.Drawing.Point(459, 69);
+            this.lblToDate.Location = new System.Drawing.Point(451, 72);
             this.lblToDate.Name = "lblToDate";
             this.lblToDate.Size = new System.Drawing.Size(74, 20);
             this.lblToDate.TabIndex = 5;
@@ -137,7 +143,7 @@
             this.lblFromDate.BackColor = System.Drawing.Color.Navy;
             this.lblFromDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFromDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFromDate.Location = new System.Drawing.Point(91, 72);
+            this.lblFromDate.Location = new System.Drawing.Point(59, 72);
             this.lblFromDate.Name = "lblFromDate";
             this.lblFromDate.Size = new System.Drawing.Size(98, 20);
             this.lblFromDate.TabIndex = 58;
@@ -169,7 +175,7 @@
             this.Controls.Add(this.dtpToDate);
             this.Controls.Add(this.dgvStockReport);
             this.Name = "StockReport";
-            this.Text = "StockReport";
+            this.Text = "Inventory Stock Report";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

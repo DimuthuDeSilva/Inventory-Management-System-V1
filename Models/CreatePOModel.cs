@@ -9,8 +9,10 @@ namespace Inventory_Management_System.Models
     public class CreatePOModel
     {
         public int POID { get; set; }
-        public string PONumber { get; set; }
+        public int ItemID { get; set; }
+        public string ItemName { get; set; }
         public int SupplierID { get; set; }
+        public string SupplierName { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime? ExpectedDeliveryDate { get; set; }
         public decimal UnitPrice { get; set; }
@@ -21,18 +23,6 @@ namespace Inventory_Management_System.Models
         public string Status { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public int NumberOfUnits { get; set; }
-        //public List<POItem> Items { get; set; } = new List<POItem>();
+       
     }
-
-    //public class POItem
-    //{
-    //    public int POItemID { get; set; }
-    //    public int POID { get; set; }
-    //    public int ItemID { get; set; }
-    //    public int Quantity { get; set; }
-    //    public decimal UnitPrice { get; set; }
-    //    public decimal TotalCost { get; set; }
-    //    public int WarehouseID { get; set; }
-    //    public bool IsActive { get; set; } = true;
-    //}
 }

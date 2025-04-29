@@ -30,8 +30,7 @@ namespace Inventory_Management_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnROLDProcess = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtItemID = new System.Windows.Forms.TextBox();
             this.lblItemID = new System.Windows.Forms.Label();
             this.txtItemStatus = new System.Windows.Forms.TextBox();
@@ -42,29 +41,16 @@ namespace Inventory_Management_System.Forms
             this.btnExit = new System.Windows.Forms.Button();
             this.txtReorderLevelAlert = new System.Windows.Forms.TextBox();
             this.lblReOrderLevel = new System.Windows.Forms.Label();
-            this.btnRESET = new System.Windows.Forms.Button();
             this.lblAvlQuantity = new System.Windows.Forms.Label();
             this.lblWarehouseID = new System.Windows.Forms.Label();
             this.txtlblWarehouseID = new System.Windows.Forms.TextBox();
             this.txtROLDAvlQntity = new System.Windows.Forms.TextBox();
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRESET = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvROLDtList)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnROLDProcess
-            // 
-            this.btnROLDProcess.BackColor = System.Drawing.Color.Navy;
-            this.btnROLDProcess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnROLDProcess.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnROLDProcess.Location = new System.Drawing.Point(331, 171);
-            this.btnROLDProcess.Name = "btnROLDProcess";
-            this.btnROLDProcess.Size = new System.Drawing.Size(98, 30);
-            this.btnROLDProcess.TabIndex = 50;
-            this.btnROLDProcess.Text = "PROCESS";
-            this.btnROLDProcess.UseVisualStyleBackColor = false;
-            this.btnROLDProcess.Click += new System.EventHandler(this.btnSTOutProcess_Click);
             // 
             // txtItemID
             // 
@@ -92,7 +78,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtItemStatus.BackColor = System.Drawing.SystemColors.Control;
             this.txtItemStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemStatus.Location = new System.Drawing.Point(589, 45);
+            this.txtItemStatus.Location = new System.Drawing.Point(311, 45);
             this.txtItemStatus.Name = "txtItemStatus";
             this.txtItemStatus.ReadOnly = true;
             this.txtItemStatus.Size = new System.Drawing.Size(242, 27);
@@ -104,7 +90,7 @@ namespace Inventory_Management_System.Forms
             this.lblROLItemStatus.AutoSize = true;
             this.lblROLItemStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblROLItemStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblROLItemStatus.Location = new System.Drawing.Point(591, 21);
+            this.lblROLItemStatus.Location = new System.Drawing.Point(313, 21);
             this.lblROLItemStatus.Name = "lblROLItemStatus";
             this.lblROLItemStatus.Size = new System.Drawing.Size(90, 21);
             this.lblROLItemStatus.TabIndex = 34;
@@ -124,14 +110,14 @@ namespace Inventory_Management_System.Forms
             this.dgvROLDtList.Name = "dgvROLDtList";
             this.dgvROLDtList.ReadOnly = true;
             this.dgvROLDtList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvROLDtList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvROLDtList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvROLDtList.Size = new System.Drawing.Size(857, 218);
             this.dgvROLDtList.StandardTab = true;
             this.dgvROLDtList.TabIndex = 0;
@@ -177,34 +163,23 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtReorderLevelAlert.BackColor = System.Drawing.SystemColors.Control;
             this.txtReorderLevelAlert.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReorderLevelAlert.Location = new System.Drawing.Point(311, 45);
+            this.txtReorderLevelAlert.Location = new System.Drawing.Point(589, 45);
             this.txtReorderLevelAlert.Name = "txtReorderLevelAlert";
+            this.txtReorderLevelAlert.ReadOnly = true;
             this.txtReorderLevelAlert.Size = new System.Drawing.Size(242, 27);
             this.txtReorderLevelAlert.TabIndex = 64;
+            this.txtReorderLevelAlert.TabStop = false;
             // 
             // lblReOrderLevel
             // 
             this.lblReOrderLevel.AutoSize = true;
             this.lblReOrderLevel.BackColor = System.Drawing.SystemColors.Control;
             this.lblReOrderLevel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReOrderLevel.Location = new System.Drawing.Point(313, 21);
+            this.lblReOrderLevel.Location = new System.Drawing.Point(591, 21);
             this.lblReOrderLevel.Name = "lblReOrderLevel";
             this.lblReOrderLevel.Size = new System.Drawing.Size(116, 21);
             this.lblReOrderLevel.TabIndex = 63;
             this.lblReOrderLevel.Text = "Re Order Level:";
-            // 
-            // btnRESET
-            // 
-            this.btnRESET.BackColor = System.Drawing.Color.Navy;
-            this.btnRESET.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRESET.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRESET.Location = new System.Drawing.Point(435, 171);
-            this.btnRESET.Name = "btnRESET";
-            this.btnRESET.Size = new System.Drawing.Size(98, 30);
-            this.btnRESET.TabIndex = 66;
-            this.btnRESET.Text = "RESET";
-            this.btnRESET.UseVisualStyleBackColor = false;
-            this.btnRESET.Click += new System.EventHandler(this.btnRESET_Click);
             // 
             // lblAvlQuantity
             // 
@@ -263,11 +238,10 @@ namespace Inventory_Management_System.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.btnROLDProcess);
+            this.panel1.Controls.Add(this.btnRESET);
             this.panel1.Controls.Add(this.txtReorderLevelAlert);
             this.panel1.Controls.Add(this.lblReOrderLevel);
             this.panel1.Controls.Add(this.txtROLDAvlQntity);
-            this.panel1.Controls.Add(this.btnRESET);
             this.panel1.Controls.Add(this.txtItemID);
             this.panel1.Controls.Add(this.txtlblWarehouseID);
             this.panel1.Controls.Add(this.lblItemID);
@@ -281,6 +255,16 @@ namespace Inventory_Management_System.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(857, 230);
             this.panel1.TabIndex = 72;
+            // 
+            // btnRESET
+            // 
+            this.btnRESET.Location = new System.Drawing.Point(673, 179);
+            this.btnRESET.Name = "btnRESET";
+            this.btnRESET.Size = new System.Drawing.Size(75, 30);
+            this.btnRESET.TabIndex = 71;
+            this.btnRESET.Text = "Reset";
+            this.btnRESET.UseVisualStyleBackColor = true;
+            this.btnRESET.Click += new System.EventHandler(this.btnRESET_Click);
             // 
             // ReorderLevelAlert
             // 
@@ -307,9 +291,6 @@ namespace Inventory_Management_System.Forms
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSTOutReset;
-        private System.Windows.Forms.Button btnROLDProcess;
         private System.Windows.Forms.TextBox txtItemID;
         private System.Windows.Forms.Label lblItemID;
         private System.Windows.Forms.TextBox txtItemStatus;
@@ -320,12 +301,12 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtReorderLevelAlert;
         private System.Windows.Forms.Label lblReOrderLevel;
-        private System.Windows.Forms.Button btnRESET;
         private System.Windows.Forms.Label lblAvlQuantity;
         private System.Windows.Forms.Label lblWarehouseID;
         private System.Windows.Forms.TextBox txtlblWarehouseID;
         private System.Windows.Forms.TextBox txtROLDAvlQntity;
         private System.Windows.Forms.Label lblLoggedUser;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnRESET;
     }
 }

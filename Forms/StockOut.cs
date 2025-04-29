@@ -174,7 +174,7 @@ namespace Inventory_Management_System.Forms
         private void StockOut_Load_1(object sender, EventArgs e)
         {
             lblLoggedUser.Text = $"Current User : {Session.FullName}";
-            btnSTOutReset.PerformClick();
+            btnRESET.PerformClick();
         }
     }
     

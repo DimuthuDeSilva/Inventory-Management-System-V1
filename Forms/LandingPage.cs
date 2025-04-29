@@ -1,12 +1,4 @@
 ﻿using System;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_Management_System.Models;
 using Inventory_Management_System.Services;
@@ -260,7 +252,8 @@ namespace Inventory_Management_System.Forms
 
         private void lblInventoryReport_Click(object sender, EventArgs e)
         {
-            if (Session.Role != "Branch User")
+            if (Session.Role != "Department User" &&
+                Session.Role != "Head of Department")
             {
                 MessageBox.Show("You don't have permission to access this page");
             }
@@ -271,20 +264,23 @@ namespace Inventory_Management_System.Forms
                 myReport.Show();
             }
         }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void btnLogOut_Click(object sender, EventArgs e)
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
         {
             Login login = new Login();
             this.Hide();
             login.Show();
         }
-        private Label lblHomeLoggedUser;
-        private void Home_Load(object sender, EventArgs e)
+
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
-            lblHomeLoggedUser.Text = Session.FullName;
+            Application.Exit();
+        }
+
+        private Label lblLandLoggedUser;
+        private void LandingPage_Load(object sender, EventArgs e)
+        {
+            lblLandLoggedUser.Text = Session.FullName;
         }
     }
 }

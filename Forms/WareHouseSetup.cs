@@ -9,8 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Inventory_Management_System.Data;
 using Inventory_Management_System.Models;
 using Inventory_Management_System.Services;
+using MySql.Data.MySqlClient;
 
 namespace Inventory_Management_System.Forms
 {
@@ -53,9 +55,50 @@ namespace Inventory_Management_System.Forms
                 return false;
             }
 
-            if (String.IsNullOrWhiteSpace(txtContactPhone.Text) || txtContactPhone.Text.Length < 10)
+            // Additional validation to check if manager exists and has correct role
+            string sql = "SELECT COUNT(1) FROM users WHERE UserID = @ManagerID AND Role = 'Head of Department' AND IsActive = 1";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(SqlHelper.connectionstring()))
+                {
+                    
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@ManagerID", managerId);
+                        connection.Open();
+                        int managerExists = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (managerExists == 0)
+                        {
+                            MessageBox.Show("Invalid manager ID or the user is not an active HOD");
+                            txtWarehouseManagerID.Focus();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error validating manager: " + ex.Message);
+                return false;
+            }
+
+            // Remove all non-digit characters first
+            string cleanPhone = new string(txtContactPhone.Text.Where(char.IsDigit).ToArray());
+
+            if (string.IsNullOrWhiteSpace(cleanPhone) || cleanPhone.Length < 10)
             {
                 MessageBox.Show("Please enter a valid phone number (at least 10 digits)");
+                txtContactPhone.Focus();
+                return false;
+            }
+
+            // Optional: Validate specific phone number formats
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtContactPhone.Text,
+                @"^[+\d\s\-\(\)]{10,}$")) // Allows +, digits, spaces, hyphens, parentheses
+            {
+                MessageBox.Show("Please enter a valid phone number format");
                 txtContactPhone.Focus();
                 return false;
             }
@@ -121,6 +164,7 @@ namespace Inventory_Management_System.Forms
             txtWarehouseCapacity.Clear();
             txtWarehouseManagerID.Clear();
             txtWareHouseStatus.Clear();
+            txtWarehouseID.Clear();
 
             // Reset button states
             btnWHAdd.Enabled = true;

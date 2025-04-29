@@ -33,32 +33,34 @@ namespace Inventory_Management_System.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAPOClear = new System.Windows.Forms.Button();
             this.btnAPOApprove = new System.Windows.Forms.Button();
-            this.txtAPONotes = new System.Windows.Forms.TextBox();
-            this.txtAPOSupplierID = new System.Windows.Forms.TextBox();
-            this.lblAPONotes = new System.Windows.Forms.Label();
-            this.lblAPOSupplierID = new System.Windows.Forms.Label();
-            this.lblAPOTotalAmount = new System.Windows.Forms.Label();
-            this.txtAPOCreatedBy = new System.Windows.Forms.TextBox();
-            this.txtAPOStatus = new System.Windows.Forms.TextBox();
-            this.txtAPOTotalAmount = new System.Windows.Forms.TextBox();
-            this.txtAPONumber = new System.Windows.Forms.TextBox();
-            this.lblAPOCreatedBy = new System.Windows.Forms.Label();
-            this.lblAPOStatus = new System.Windows.Forms.Label();
-            this.lblAPOOrderDate = new System.Windows.Forms.Label();
-            this.lblAPONumber = new System.Windows.Forms.Label();
-            this.txtPOID = new System.Windows.Forms.TextBox();
-            this.lblPOID = new System.Windows.Forms.Label();
             this.dgvAPOList = new System.Windows.Forms.DataGridView();
             this.btnAPOReject = new System.Windows.Forms.Button();
-            this.lblAPOExDD = new System.Windows.Forms.Label();
-            this.dtpAPOOrderDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpAPOExDD = new System.Windows.Forms.DateTimePicker();
-            this.txtAPOUnitPrice = new System.Windows.Forms.TextBox();
-            this.lblAPOUnitPrice = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.txtAPONumberOfUnits = new System.Windows.Forms.TextBox();
-            this.lblAPONumberOfUnits = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPOID = new System.Windows.Forms.TextBox();
+            this.txtSupplierName = new System.Windows.Forms.TextBox();
+            this.lblSupplierName = new System.Windows.Forms.Label();
+            this.lblItemName = new System.Windows.Forms.Label();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.txtCPOUnitPrice = new System.Windows.Forms.TextBox();
+            this.lblCPOUnitPrice = new System.Windows.Forms.Label();
+            this.lblCPONumberOfUnits = new System.Windows.Forms.Label();
+            this.txtCPONumberOfUnits = new System.Windows.Forms.TextBox();
+            this.lblCPOExDD = new System.Windows.Forms.Label();
+            this.dtpCPOExDD = new System.Windows.Forms.DateTimePicker();
+            this.txtCPONotes = new System.Windows.Forms.TextBox();
+            this.dtpCPOOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.lblCPONotes = new System.Windows.Forms.Label();
+            this.txtCPOSupplierID = new System.Windows.Forms.TextBox();
+            this.lblCPOTotalAmount = new System.Windows.Forms.Label();
+            this.lblCPOOrderDate = new System.Windows.Forms.Label();
+            this.txtCPOCreatedBy = new System.Windows.Forms.TextBox();
+            this.lblCPOSupplierID = new System.Windows.Forms.Label();
+            this.txtCPOTotalAmount = new System.Windows.Forms.TextBox();
+            this.lblCPOCreatedBy = new System.Windows.Forms.Label();
+            this.lblItemID = new System.Windows.Forms.Label();
+            this.txtItemID = new System.Windows.Forms.TextBox();
+            this.lblPOID = new System.Windows.Forms.Label();
             this.lblLoggedUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAPOList)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,169 +91,6 @@ namespace Inventory_Management_System.Forms
             this.btnAPOApprove.Text = "APPROVE";
             this.btnAPOApprove.UseVisualStyleBackColor = false;
             this.btnAPOApprove.Click += new System.EventHandler(this.btnAPOApprove_Click);
-            // 
-            // txtAPONotes
-            // 
-            this.txtAPONotes.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPONotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPONotes.Location = new System.Drawing.Point(566, 213);
-            this.txtAPONotes.Name = "txtAPONotes";
-            this.txtAPONotes.Size = new System.Drawing.Size(242, 27);
-            this.txtAPONotes.TabIndex = 48;
-            // 
-            // txtAPOSupplierID
-            // 
-            this.txtAPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPOSupplierID.Location = new System.Drawing.Point(68, 373);
-            this.txtAPOSupplierID.Name = "txtAPOSupplierID";
-            this.txtAPOSupplierID.ReadOnly = true;
-            this.txtAPOSupplierID.Size = new System.Drawing.Size(242, 27);
-            this.txtAPOSupplierID.TabIndex = 46;
-            this.txtAPOSupplierID.TabStop = false;
-            // 
-            // lblAPONotes
-            // 
-            this.lblAPONotes.AutoSize = true;
-            this.lblAPONotes.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPONotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPONotes.Location = new System.Drawing.Point(568, 189);
-            this.lblAPONotes.Name = "lblAPONotes";
-            this.lblAPONotes.Size = new System.Drawing.Size(54, 21);
-            this.lblAPONotes.TabIndex = 43;
-            this.lblAPONotes.Text = "Notes:";
-            // 
-            // lblAPOSupplierID
-            // 
-            this.lblAPOSupplierID.AutoSize = true;
-            this.lblAPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOSupplierID.Location = new System.Drawing.Point(70, 349);
-            this.lblAPOSupplierID.Name = "lblAPOSupplierID";
-            this.lblAPOSupplierID.Size = new System.Drawing.Size(90, 21);
-            this.lblAPOSupplierID.TabIndex = 42;
-            this.lblAPOSupplierID.Text = "Supplier ID:";
-            // 
-            // lblAPOTotalAmount
-            // 
-            this.lblAPOTotalAmount.AutoSize = true;
-            this.lblAPOTotalAmount.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOTotalAmount.Location = new System.Drawing.Point(568, 27);
-            this.lblAPOTotalAmount.Name = "lblAPOTotalAmount";
-            this.lblAPOTotalAmount.Size = new System.Drawing.Size(105, 21);
-            this.lblAPOTotalAmount.TabIndex = 41;
-            this.lblAPOTotalAmount.Text = "Total Amount:";
-            // 
-            // txtAPOCreatedBy
-            // 
-            this.txtAPOCreatedBy.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPOCreatedBy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPOCreatedBy.Location = new System.Drawing.Point(566, 105);
-            this.txtAPOCreatedBy.Name = "txtAPOCreatedBy";
-            this.txtAPOCreatedBy.ReadOnly = true;
-            this.txtAPOCreatedBy.Size = new System.Drawing.Size(242, 27);
-            this.txtAPOCreatedBy.TabIndex = 40;
-            this.txtAPOCreatedBy.TabStop = false;
-            // 
-            // txtAPOStatus
-            // 
-            this.txtAPOStatus.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPOStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPOStatus.Location = new System.Drawing.Point(566, 159);
-            this.txtAPOStatus.Name = "txtAPOStatus";
-            this.txtAPOStatus.ReadOnly = true;
-            this.txtAPOStatus.Size = new System.Drawing.Size(242, 27);
-            this.txtAPOStatus.TabIndex = 39;
-            this.txtAPOStatus.TabStop = false;
-            // 
-            // txtAPOTotalAmount
-            // 
-            this.txtAPOTotalAmount.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPOTotalAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPOTotalAmount.Location = new System.Drawing.Point(566, 51);
-            this.txtAPOTotalAmount.Name = "txtAPOTotalAmount";
-            this.txtAPOTotalAmount.ReadOnly = true;
-            this.txtAPOTotalAmount.Size = new System.Drawing.Size(242, 27);
-            this.txtAPOTotalAmount.TabIndex = 36;
-            this.txtAPOTotalAmount.TabStop = false;
-            // 
-            // txtAPONumber
-            // 
-            this.txtAPONumber.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPONumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPONumber.Location = new System.Drawing.Point(68, 319);
-            this.txtAPONumber.Name = "txtAPONumber";
-            this.txtAPONumber.ReadOnly = true;
-            this.txtAPONumber.Size = new System.Drawing.Size(242, 27);
-            this.txtAPONumber.TabIndex = 35;
-            this.txtAPONumber.TabStop = false;
-            // 
-            // lblAPOCreatedBy
-            // 
-            this.lblAPOCreatedBy.AutoSize = true;
-            this.lblAPOCreatedBy.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOCreatedBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOCreatedBy.Location = new System.Drawing.Point(568, 81);
-            this.lblAPOCreatedBy.Name = "lblAPOCreatedBy";
-            this.lblAPOCreatedBy.Size = new System.Drawing.Size(88, 21);
-            this.lblAPOCreatedBy.TabIndex = 34;
-            this.lblAPOCreatedBy.Text = "Created By:";
-            // 
-            // lblAPOStatus
-            // 
-            this.lblAPOStatus.AutoSize = true;
-            this.lblAPOStatus.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOStatus.Location = new System.Drawing.Point(568, 135);
-            this.lblAPOStatus.Name = "lblAPOStatus";
-            this.lblAPOStatus.Size = new System.Drawing.Size(55, 21);
-            this.lblAPOStatus.TabIndex = 33;
-            this.lblAPOStatus.Text = "Status:";
-            // 
-            // lblAPOOrderDate
-            // 
-            this.lblAPOOrderDate.AutoSize = true;
-            this.lblAPOOrderDate.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOOrderDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOOrderDate.Location = new System.Drawing.Point(70, 403);
-            this.lblAPOOrderDate.Name = "lblAPOOrderDate";
-            this.lblAPOOrderDate.Size = new System.Drawing.Size(90, 21);
-            this.lblAPOOrderDate.TabIndex = 32;
-            this.lblAPOOrderDate.Text = "Order Date:";
-            // 
-            // lblAPONumber
-            // 
-            this.lblAPONumber.AutoSize = true;
-            this.lblAPONumber.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPONumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPONumber.Location = new System.Drawing.Point(70, 295);
-            this.lblAPONumber.Name = "lblAPONumber";
-            this.lblAPONumber.Size = new System.Drawing.Size(96, 21);
-            this.lblAPONumber.TabIndex = 30;
-            this.lblAPONumber.Text = "PO Number:";
-            // 
-            // txtPOID
-            // 
-            this.txtPOID.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPOID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPOID.Location = new System.Drawing.Point(68, 265);
-            this.txtPOID.Name = "txtPOID";
-            this.txtPOID.ReadOnly = true;
-            this.txtPOID.Size = new System.Drawing.Size(242, 27);
-            this.txtPOID.TabIndex = 29;
-            this.txtPOID.TabStop = false;
-            // 
-            // lblPOID
-            // 
-            this.lblPOID.AutoSize = true;
-            this.lblPOID.BackColor = System.Drawing.SystemColors.Control;
-            this.lblPOID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPOID.Location = new System.Drawing.Point(70, 241);
-            this.lblPOID.Name = "lblPOID";
-            this.lblPOID.Size = new System.Drawing.Size(53, 21);
-            this.lblPOID.TabIndex = 28;
-            this.lblPOID.Text = "PO ID:";
             // 
             // dgvAPOList
             // 
@@ -293,59 +132,6 @@ namespace Inventory_Management_System.Forms
             this.btnAPOReject.UseVisualStyleBackColor = false;
             this.btnAPOReject.Click += new System.EventHandler(this.btnAPOReject_Click);
             // 
-            // lblAPOExDD
-            // 
-            this.lblAPOExDD.AutoSize = true;
-            this.lblAPOExDD.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOExDD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOExDD.Location = new System.Drawing.Point(345, 242);
-            this.lblAPOExDD.Name = "lblAPOExDD";
-            this.lblAPOExDD.Size = new System.Drawing.Size(171, 21);
-            this.lblAPOExDD.TabIndex = 56;
-            this.lblAPOExDD.Text = "Expected Delivery Date:";
-            // 
-            // dtpAPOOrderDate
-            // 
-            this.dtpAPOOrderDate.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAPOOrderDate.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAPOOrderDate.Location = new System.Drawing.Point(68, 427);
-            this.dtpAPOOrderDate.Name = "dtpAPOOrderDate";
-            this.dtpAPOOrderDate.Size = new System.Drawing.Size(242, 25);
-            this.dtpAPOOrderDate.TabIndex = 58;
-            this.dtpAPOOrderDate.TabStop = false;
-            // 
-            // dtpAPOExDD
-            // 
-            this.dtpAPOExDD.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAPOExDD.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAPOExDD.Location = new System.Drawing.Point(343, 266);
-            this.dtpAPOExDD.Name = "dtpAPOExDD";
-            this.dtpAPOExDD.Size = new System.Drawing.Size(242, 25);
-            this.dtpAPOExDD.TabIndex = 59;
-            this.dtpAPOExDD.TabStop = false;
-            // 
-            // txtAPOUnitPrice
-            // 
-            this.txtAPOUnitPrice.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPOUnitPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPOUnitPrice.Location = new System.Drawing.Point(343, 333);
-            this.txtAPOUnitPrice.Name = "txtAPOUnitPrice";
-            this.txtAPOUnitPrice.ReadOnly = true;
-            this.txtAPOUnitPrice.Size = new System.Drawing.Size(242, 27);
-            this.txtAPOUnitPrice.TabIndex = 49;
-            this.txtAPOUnitPrice.TabStop = false;
-            // 
-            // lblAPOUnitPrice
-            // 
-            this.lblAPOUnitPrice.AutoSize = true;
-            this.lblAPOUnitPrice.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPOUnitPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOUnitPrice.Location = new System.Drawing.Point(345, 309);
-            this.lblAPOUnitPrice.Name = "lblAPOUnitPrice";
-            this.lblAPOUnitPrice.Size = new System.Drawing.Size(80, 21);
-            this.lblAPOUnitPrice.TabIndex = 45;
-            this.lblAPOUnitPrice.Text = "Unit Price:";
-            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.DarkRed;
@@ -360,46 +146,298 @@ namespace Inventory_Management_System.Forms
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // txtAPONumberOfUnits
-            // 
-            this.txtAPONumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPONumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAPONumberOfUnits.Location = new System.Drawing.Point(343, 396);
-            this.txtAPONumberOfUnits.Name = "txtAPONumberOfUnits";
-            this.txtAPONumberOfUnits.ReadOnly = true;
-            this.txtAPONumberOfUnits.Size = new System.Drawing.Size(242, 27);
-            this.txtAPONumberOfUnits.TabIndex = 64;
-            this.txtAPONumberOfUnits.TabStop = false;
-            // 
-            // lblAPONumberOfUnits
-            // 
-            this.lblAPONumberOfUnits.AutoSize = true;
-            this.lblAPONumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPONumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPONumberOfUnits.Location = new System.Drawing.Point(345, 372);
-            this.lblAPONumberOfUnits.Name = "lblAPONumberOfUnits";
-            this.lblAPONumberOfUnits.Size = new System.Drawing.Size(132, 21);
-            this.lblAPONumberOfUnits.TabIndex = 63;
-            this.lblAPONumberOfUnits.Text = "Number Of Units:";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtPOID);
+            this.panel1.Controls.Add(this.txtSupplierName);
+            this.panel1.Controls.Add(this.lblSupplierName);
+            this.panel1.Controls.Add(this.lblItemName);
+            this.panel1.Controls.Add(this.txtItemName);
+            this.panel1.Controls.Add(this.txtCPOUnitPrice);
+            this.panel1.Controls.Add(this.lblCPOUnitPrice);
+            this.panel1.Controls.Add(this.lblCPONumberOfUnits);
+            this.panel1.Controls.Add(this.txtCPONumberOfUnits);
+            this.panel1.Controls.Add(this.lblCPOExDD);
+            this.panel1.Controls.Add(this.dtpCPOExDD);
+            this.panel1.Controls.Add(this.txtCPONotes);
+            this.panel1.Controls.Add(this.dtpCPOOrderDate);
+            this.panel1.Controls.Add(this.lblCPONotes);
+            this.panel1.Controls.Add(this.txtCPOSupplierID);
+            this.panel1.Controls.Add(this.lblCPOTotalAmount);
+            this.panel1.Controls.Add(this.lblCPOOrderDate);
+            this.panel1.Controls.Add(this.txtCPOCreatedBy);
+            this.panel1.Controls.Add(this.lblCPOSupplierID);
+            this.panel1.Controls.Add(this.txtCPOTotalAmount);
+            this.panel1.Controls.Add(this.lblCPOCreatedBy);
+            this.panel1.Controls.Add(this.lblItemID);
+            this.panel1.Controls.Add(this.txtItemID);
+            this.panel1.Controls.Add(this.lblPOID);
             this.panel1.Controls.Add(this.btnAPOReject);
             this.panel1.Controls.Add(this.btnAPOApprove);
             this.panel1.Controls.Add(this.btnAPOClear);
-            this.panel1.Controls.Add(this.txtAPOTotalAmount);
-            this.panel1.Controls.Add(this.lblAPOStatus);
-            this.panel1.Controls.Add(this.lblAPOCreatedBy);
-            this.panel1.Controls.Add(this.txtAPOStatus);
-            this.panel1.Controls.Add(this.txtAPOCreatedBy);
-            this.panel1.Controls.Add(this.txtAPONotes);
-            this.panel1.Controls.Add(this.lblAPOTotalAmount);
-            this.panel1.Controls.Add(this.lblAPONotes);
             this.panel1.Location = new System.Drawing.Point(47, 213);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(832, 321);
             this.panel1.TabIndex = 67;
+            // 
+            // txtPOID
+            // 
+            this.txtPOID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPOID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOID.Location = new System.Drawing.Point(31, 50);
+            this.txtPOID.Name = "txtPOID";
+            this.txtPOID.ReadOnly = true;
+            this.txtPOID.Size = new System.Drawing.Size(242, 27);
+            this.txtPOID.TabIndex = 87;
+            this.txtPOID.TabStop = false;
+            // 
+            // txtSupplierName
+            // 
+            this.txtSupplierName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierName.Location = new System.Drawing.Point(297, 52);
+            this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.ReadOnly = true;
+            this.txtSupplierName.Size = new System.Drawing.Size(242, 27);
+            this.txtSupplierName.TabIndex = 86;
+            // 
+            // lblSupplierName
+            // 
+            this.lblSupplierName.AutoSize = true;
+            this.lblSupplierName.BackColor = System.Drawing.SystemColors.Control;
+            this.lblSupplierName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplierName.Location = new System.Drawing.Point(299, 28);
+            this.lblSupplierName.Name = "lblSupplierName";
+            this.lblSupplierName.Size = new System.Drawing.Size(117, 21);
+            this.lblSupplierName.TabIndex = 85;
+            this.lblSupplierName.Text = "Supplier Name:";
+            // 
+            // lblItemName
+            // 
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.BackColor = System.Drawing.SystemColors.Control;
+            this.lblItemName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemName.Location = new System.Drawing.Point(33, 134);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(90, 21);
+            this.lblItemName.TabIndex = 83;
+            this.lblItemName.Text = "Item Name:";
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtItemName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Location = new System.Drawing.Point(31, 158);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.ReadOnly = true;
+            this.txtItemName.Size = new System.Drawing.Size(242, 27);
+            this.txtItemName.TabIndex = 84;
+            this.txtItemName.TabStop = false;
+            // 
+            // txtCPOUnitPrice
+            // 
+            this.txtCPOUnitPrice.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPOUnitPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPOUnitPrice.Location = new System.Drawing.Point(297, 214);
+            this.txtCPOUnitPrice.Name = "txtCPOUnitPrice";
+            this.txtCPOUnitPrice.ReadOnly = true;
+            this.txtCPOUnitPrice.Size = new System.Drawing.Size(242, 27);
+            this.txtCPOUnitPrice.TabIndex = 71;
+            this.txtCPOUnitPrice.TabStop = false;
+            // 
+            // lblCPOUnitPrice
+            // 
+            this.lblCPOUnitPrice.AutoSize = true;
+            this.lblCPOUnitPrice.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPOUnitPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPOUnitPrice.Location = new System.Drawing.Point(299, 190);
+            this.lblCPOUnitPrice.Name = "lblCPOUnitPrice";
+            this.lblCPOUnitPrice.Size = new System.Drawing.Size(80, 21);
+            this.lblCPOUnitPrice.TabIndex = 67;
+            this.lblCPOUnitPrice.Text = "Unit Price:";
+            // 
+            // lblCPONumberOfUnits
+            // 
+            this.lblCPONumberOfUnits.AutoSize = true;
+            this.lblCPONumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPONumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPONumberOfUnits.Location = new System.Drawing.Point(566, 28);
+            this.lblCPONumberOfUnits.Name = "lblCPONumberOfUnits";
+            this.lblCPONumberOfUnits.Size = new System.Drawing.Size(132, 21);
+            this.lblCPONumberOfUnits.TabIndex = 76;
+            this.lblCPONumberOfUnits.Text = "Number Of Units:";
+            // 
+            // txtCPONumberOfUnits
+            // 
+            this.txtCPONumberOfUnits.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPONumberOfUnits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPONumberOfUnits.Location = new System.Drawing.Point(564, 52);
+            this.txtCPONumberOfUnits.Name = "txtCPONumberOfUnits";
+            this.txtCPONumberOfUnits.ReadOnly = true;
+            this.txtCPONumberOfUnits.Size = new System.Drawing.Size(242, 27);
+            this.txtCPONumberOfUnits.TabIndex = 79;
+            // 
+            // lblCPOExDD
+            // 
+            this.lblCPOExDD.AutoSize = true;
+            this.lblCPOExDD.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPOExDD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPOExDD.Location = new System.Drawing.Point(299, 136);
+            this.lblCPOExDD.Name = "lblCPOExDD";
+            this.lblCPOExDD.Size = new System.Drawing.Size(171, 21);
+            this.lblCPOExDD.TabIndex = 80;
+            this.lblCPOExDD.Text = "Expected Delivery Date:";
+            // 
+            // dtpCPOExDD
+            // 
+            this.dtpCPOExDD.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCPOExDD.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCPOExDD.Location = new System.Drawing.Point(297, 160);
+            this.dtpCPOExDD.Name = "dtpCPOExDD";
+            this.dtpCPOExDD.Size = new System.Drawing.Size(242, 25);
+            this.dtpCPOExDD.TabIndex = 82;
+            this.dtpCPOExDD.TabStop = false;
+            // 
+            // txtCPONotes
+            // 
+            this.txtCPONotes.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPONotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPONotes.Location = new System.Drawing.Point(564, 214);
+            this.txtCPONotes.Name = "txtCPONotes";
+            this.txtCPONotes.Size = new System.Drawing.Size(242, 27);
+            this.txtCPONotes.TabIndex = 78;
+            // 
+            // dtpCPOOrderDate
+            // 
+            this.dtpCPOOrderDate.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCPOOrderDate.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCPOOrderDate.Location = new System.Drawing.Point(297, 106);
+            this.dtpCPOOrderDate.Name = "dtpCPOOrderDate";
+            this.dtpCPOOrderDate.Size = new System.Drawing.Size(242, 25);
+            this.dtpCPOOrderDate.TabIndex = 81;
+            this.dtpCPOOrderDate.TabStop = false;
+            // 
+            // lblCPONotes
+            // 
+            this.lblCPONotes.AutoSize = true;
+            this.lblCPONotes.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPONotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPONotes.Location = new System.Drawing.Point(566, 190);
+            this.lblCPONotes.Name = "lblCPONotes";
+            this.lblCPONotes.Size = new System.Drawing.Size(54, 21);
+            this.lblCPONotes.TabIndex = 75;
+            this.lblCPONotes.Text = "Notes:";
+            // 
+            // txtCPOSupplierID
+            // 
+            this.txtCPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPOSupplierID.Location = new System.Drawing.Point(31, 212);
+            this.txtCPOSupplierID.Name = "txtCPOSupplierID";
+            this.txtCPOSupplierID.ReadOnly = true;
+            this.txtCPOSupplierID.Size = new System.Drawing.Size(242, 27);
+            this.txtCPOSupplierID.TabIndex = 77;
+            this.txtCPOSupplierID.TabStop = false;
+            // 
+            // lblCPOTotalAmount
+            // 
+            this.lblCPOTotalAmount.AutoSize = true;
+            this.lblCPOTotalAmount.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPOTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPOTotalAmount.Location = new System.Drawing.Point(566, 82);
+            this.lblCPOTotalAmount.Name = "lblCPOTotalAmount";
+            this.lblCPOTotalAmount.Size = new System.Drawing.Size(105, 21);
+            this.lblCPOTotalAmount.TabIndex = 73;
+            this.lblCPOTotalAmount.Text = "Total Amount:";
+            // 
+            // lblCPOOrderDate
+            // 
+            this.lblCPOOrderDate.AutoSize = true;
+            this.lblCPOOrderDate.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPOOrderDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPOOrderDate.Location = new System.Drawing.Point(299, 82);
+            this.lblCPOOrderDate.Name = "lblCPOOrderDate";
+            this.lblCPOOrderDate.Size = new System.Drawing.Size(90, 21);
+            this.lblCPOOrderDate.TabIndex = 66;
+            this.lblCPOOrderDate.Text = "Order Date:";
+            // 
+            // txtCPOCreatedBy
+            // 
+            this.txtCPOCreatedBy.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPOCreatedBy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPOCreatedBy.Location = new System.Drawing.Point(564, 160);
+            this.txtCPOCreatedBy.Name = "txtCPOCreatedBy";
+            this.txtCPOCreatedBy.ReadOnly = true;
+            this.txtCPOCreatedBy.Size = new System.Drawing.Size(242, 27);
+            this.txtCPOCreatedBy.TabIndex = 72;
+            this.txtCPOCreatedBy.TabStop = false;
+            // 
+            // lblCPOSupplierID
+            // 
+            this.lblCPOSupplierID.AutoSize = true;
+            this.lblCPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPOSupplierID.Location = new System.Drawing.Point(33, 188);
+            this.lblCPOSupplierID.Name = "lblCPOSupplierID";
+            this.lblCPOSupplierID.Size = new System.Drawing.Size(90, 21);
+            this.lblCPOSupplierID.TabIndex = 74;
+            this.lblCPOSupplierID.Text = "Supplier ID:";
+            // 
+            // txtCPOTotalAmount
+            // 
+            this.txtCPOTotalAmount.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPOTotalAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPOTotalAmount.Location = new System.Drawing.Point(564, 106);
+            this.txtCPOTotalAmount.Name = "txtCPOTotalAmount";
+            this.txtCPOTotalAmount.ReadOnly = true;
+            this.txtCPOTotalAmount.Size = new System.Drawing.Size(242, 27);
+            this.txtCPOTotalAmount.TabIndex = 70;
+            this.txtCPOTotalAmount.TabStop = false;
+            // 
+            // lblCPOCreatedBy
+            // 
+            this.lblCPOCreatedBy.AutoSize = true;
+            this.lblCPOCreatedBy.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPOCreatedBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPOCreatedBy.Location = new System.Drawing.Point(566, 136);
+            this.lblCPOCreatedBy.Name = "lblCPOCreatedBy";
+            this.lblCPOCreatedBy.Size = new System.Drawing.Size(88, 21);
+            this.lblCPOCreatedBy.TabIndex = 68;
+            this.lblCPOCreatedBy.Text = "Created By:";
+            // 
+            // lblItemID
+            // 
+            this.lblItemID.AutoSize = true;
+            this.lblItemID.BackColor = System.Drawing.SystemColors.Control;
+            this.lblItemID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemID.Location = new System.Drawing.Point(33, 80);
+            this.lblItemID.Name = "lblItemID";
+            this.lblItemID.Size = new System.Drawing.Size(63, 21);
+            this.lblItemID.TabIndex = 65;
+            this.lblItemID.Text = "Item ID:";
+            // 
+            // txtItemID
+            // 
+            this.txtItemID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtItemID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemID.Location = new System.Drawing.Point(31, 104);
+            this.txtItemID.Name = "txtItemID";
+            this.txtItemID.ReadOnly = true;
+            this.txtItemID.Size = new System.Drawing.Size(242, 27);
+            this.txtItemID.TabIndex = 69;
+            this.txtItemID.TabStop = false;
+            // 
+            // lblPOID
+            // 
+            this.lblPOID.AutoSize = true;
+            this.lblPOID.BackColor = System.Drawing.SystemColors.Control;
+            this.lblPOID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPOID.Location = new System.Drawing.Point(33, 26);
+            this.lblPOID.Name = "lblPOID";
+            this.lblPOID.Size = new System.Drawing.Size(53, 21);
+            this.lblPOID.TabIndex = 64;
+            this.lblPOID.Text = "PO ID:";
             // 
             // lblLoggedUser
             // 
@@ -418,21 +456,7 @@ namespace Inventory_Management_System.Forms
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(919, 544);
             this.Controls.Add(this.lblLoggedUser);
-            this.Controls.Add(this.txtAPONumberOfUnits);
-            this.Controls.Add(this.lblAPONumberOfUnits);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.dtpAPOExDD);
-            this.Controls.Add(this.dtpAPOOrderDate);
-            this.Controls.Add(this.lblAPOExDD);
-            this.Controls.Add(this.txtAPOUnitPrice);
-            this.Controls.Add(this.txtAPOSupplierID);
-            this.Controls.Add(this.lblAPOUnitPrice);
-            this.Controls.Add(this.lblAPOSupplierID);
-            this.Controls.Add(this.txtAPONumber);
-            this.Controls.Add(this.lblAPOOrderDate);
-            this.Controls.Add(this.lblAPONumber);
-            this.Controls.Add(this.txtPOID);
-            this.Controls.Add(this.lblPOID);
             this.Controls.Add(this.dgvAPOList);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -453,32 +477,34 @@ namespace Inventory_Management_System.Forms
 
         private System.Windows.Forms.Button btnAPOClear;
         private System.Windows.Forms.Button btnAPOApprove;
-        private System.Windows.Forms.TextBox txtAPONotes;
-        private System.Windows.Forms.TextBox txtAPOSupplierID;
-        private System.Windows.Forms.Label lblAPONotes;
-        private System.Windows.Forms.Label lblAPOSupplierID;
-        private System.Windows.Forms.Label lblAPOTotalAmount;
-        private System.Windows.Forms.TextBox txtAPOCreatedBy;
-        private System.Windows.Forms.TextBox txtAPOStatus;
-        private System.Windows.Forms.TextBox txtAPOTotalAmount;
-        private System.Windows.Forms.TextBox txtAPONumber;
-        private System.Windows.Forms.Label lblAPOCreatedBy;
-        private System.Windows.Forms.Label lblAPOStatus;
-        private System.Windows.Forms.Label lblAPOOrderDate;
-        private System.Windows.Forms.Label lblAPONumber;
-        private System.Windows.Forms.TextBox txtPOID;
-        private System.Windows.Forms.Label lblPOID;
         private System.Windows.Forms.DataGridView dgvAPOList;
         private System.Windows.Forms.Button btnAPOReject;
-        private System.Windows.Forms.Label lblAPOExDD;
-        private System.Windows.Forms.DateTimePicker dtpAPOOrderDate;
-        private System.Windows.Forms.DateTimePicker dtpAPOExDD;
-        private System.Windows.Forms.TextBox txtAPOUnitPrice;
-        private System.Windows.Forms.Label lblAPOUnitPrice;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.TextBox txtAPONumberOfUnits;
-        private System.Windows.Forms.Label lblAPONumberOfUnits;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblLoggedUser;
+        private System.Windows.Forms.TextBox txtSupplierName;
+        private System.Windows.Forms.Label lblSupplierName;
+        private System.Windows.Forms.Label lblItemName;
+        private System.Windows.Forms.TextBox txtItemName;
+        private System.Windows.Forms.TextBox txtCPOUnitPrice;
+        private System.Windows.Forms.Label lblCPOUnitPrice;
+        private System.Windows.Forms.Label lblCPONumberOfUnits;
+        private System.Windows.Forms.TextBox txtCPONumberOfUnits;
+        private System.Windows.Forms.Label lblCPOExDD;
+        private System.Windows.Forms.DateTimePicker dtpCPOExDD;
+        private System.Windows.Forms.TextBox txtCPONotes;
+        private System.Windows.Forms.DateTimePicker dtpCPOOrderDate;
+        private System.Windows.Forms.Label lblCPONotes;
+        private System.Windows.Forms.TextBox txtCPOSupplierID;
+        private System.Windows.Forms.Label lblCPOTotalAmount;
+        private System.Windows.Forms.Label lblCPOOrderDate;
+        private System.Windows.Forms.TextBox txtCPOCreatedBy;
+        private System.Windows.Forms.Label lblCPOSupplierID;
+        private System.Windows.Forms.TextBox txtCPOTotalAmount;
+        private System.Windows.Forms.Label lblCPOCreatedBy;
+        private System.Windows.Forms.Label lblItemID;
+        private System.Windows.Forms.TextBox txtItemID;
+        private System.Windows.Forms.Label lblPOID;
+        private System.Windows.Forms.TextBox txtPOID;
     }
 }

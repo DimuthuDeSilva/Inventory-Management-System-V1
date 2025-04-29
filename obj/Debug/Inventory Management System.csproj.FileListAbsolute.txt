@@ -41,7 +41,6 @@ D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Te
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.exe
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory Management System.pdb
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.Login.resources
-D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.Home.resources
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ItemSetup.resources
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.WareHouseSetup.resources
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.CreatePO.resources
@@ -61,3 +60,4 @@ D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Te
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.ReorderLevelAlert.resources
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.StockIn.resources
 D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.StockReport.resources
+D:\Dimuthu De Silva - (BIT)\BIT - UoM - 23S2 - e2320380\Semester 02 - 24S1\C# Testings\Inventory Management System\Inventory Management System\obj\Debug\Inventory_Management_System.Forms.LandingPage.resources

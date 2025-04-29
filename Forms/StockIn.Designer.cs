@@ -355,7 +355,6 @@ namespace Inventory_Management_System.Forms
 
         #endregion
 
-        private System.Windows.Forms.Button btnSTOutReset;
         private System.Windows.Forms.Button btnSTinProcess;
         private System.Windows.Forms.TextBox txtMRRNotes;
         private System.Windows.Forms.TextBox txtItemID;

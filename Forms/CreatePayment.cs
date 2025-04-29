@@ -66,7 +66,7 @@ namespace Inventory_Management_System.Forms
             txtpmntSupplierID.Enabled = false;
             txtxpmntAmount.Enabled = false;
             txtPOID.Enabled = false;
-            dtpAPOOrderDate.Enabled = false;
+ 
 
             // Load data and handle access
             var paymentProcess = createPaymentService.GetApprovedGRNsWithPOID();

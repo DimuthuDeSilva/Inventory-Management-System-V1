@@ -30,24 +30,16 @@ namespace Inventory_Management_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtUpdWarehouseID = new System.Windows.Forms.TextBox();
             this.txtUpdStatus = new System.Windows.Forms.TextBox();
-            this.txtUpdSupplierID = new System.Windows.Forms.TextBox();
             this.lblUpdWarehouseID = new System.Windows.Forms.Label();
             this.lblUpdStatus = new System.Windows.Forms.Label();
-            this.lblUpdSupplierID = new System.Windows.Forms.Label();
-            this.lblUpdTotalCost = new System.Windows.Forms.Label();
-            this.txtUpdUnitPrice = new System.Windows.Forms.TextBox();
-            this.txtUpdQuantity = new System.Windows.Forms.TextBox();
             this.txtUpdReorderLevel = new System.Windows.Forms.TextBox();
             this.txtUpdDescription = new System.Windows.Forms.TextBox();
-            this.txtUpdTotalCost = new System.Windows.Forms.TextBox();
             this.txtUpdName = new System.Windows.Forms.TextBox();
-            this.lblUpdUnitPrice = new System.Windows.Forms.Label();
-            this.lblUpdQuantity = new System.Windows.Forms.Label();
             this.lblUpdReorderLevel = new System.Windows.Forms.Label();
             this.lblUpdDescription = new System.Windows.Forms.Label();
             this.lblUpdName = new System.Windows.Forms.Label();
@@ -60,6 +52,7 @@ namespace Inventory_Management_System.Forms
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClear
@@ -94,7 +87,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdWarehouseID.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdWarehouseID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdWarehouseID.Location = new System.Drawing.Point(601, 123);
+            this.txtUpdWarehouseID.Location = new System.Drawing.Point(561, 75);
             this.txtUpdWarehouseID.Name = "txtUpdWarehouseID";
             this.txtUpdWarehouseID.Size = new System.Drawing.Size(242, 27);
             this.txtUpdWarehouseID.TabIndex = 49;
@@ -103,26 +96,17 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdStatus.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdStatus.Location = new System.Drawing.Point(601, 177);
+            this.txtUpdStatus.Location = new System.Drawing.Point(561, 155);
             this.txtUpdStatus.Name = "txtUpdStatus";
             this.txtUpdStatus.Size = new System.Drawing.Size(242, 27);
             this.txtUpdStatus.TabIndex = 48;
-            // 
-            // txtUpdSupplierID
-            // 
-            this.txtUpdSupplierID.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUpdSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdSupplierID.Location = new System.Drawing.Point(340, 123);
-            this.txtUpdSupplierID.Name = "txtUpdSupplierID";
-            this.txtUpdSupplierID.Size = new System.Drawing.Size(242, 27);
-            this.txtUpdSupplierID.TabIndex = 46;
             // 
             // lblUpdWarehouseID
             // 
             this.lblUpdWarehouseID.AutoSize = true;
             this.lblUpdWarehouseID.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdWarehouseID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdWarehouseID.Location = new System.Drawing.Point(603, 99);
+            this.lblUpdWarehouseID.Location = new System.Drawing.Point(563, 51);
             this.lblUpdWarehouseID.Name = "lblUpdWarehouseID";
             this.lblUpdWarehouseID.Size = new System.Drawing.Size(110, 21);
             this.lblUpdWarehouseID.TabIndex = 45;
@@ -133,57 +117,17 @@ namespace Inventory_Management_System.Forms
             this.lblUpdStatus.AutoSize = true;
             this.lblUpdStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdStatus.Location = new System.Drawing.Point(603, 153);
+            this.lblUpdStatus.Location = new System.Drawing.Point(563, 131);
             this.lblUpdStatus.Name = "lblUpdStatus";
             this.lblUpdStatus.Size = new System.Drawing.Size(55, 21);
             this.lblUpdStatus.TabIndex = 43;
             this.lblUpdStatus.Text = "Status:";
             // 
-            // lblUpdSupplierID
-            // 
-            this.lblUpdSupplierID.AutoSize = true;
-            this.lblUpdSupplierID.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUpdSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdSupplierID.Location = new System.Drawing.Point(342, 99);
-            this.lblUpdSupplierID.Name = "lblUpdSupplierID";
-            this.lblUpdSupplierID.Size = new System.Drawing.Size(90, 21);
-            this.lblUpdSupplierID.TabIndex = 42;
-            this.lblUpdSupplierID.Text = "Supplier ID:";
-            // 
-            // lblUpdTotalCost
-            // 
-            this.lblUpdTotalCost.AutoSize = true;
-            this.lblUpdTotalCost.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUpdTotalCost.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdTotalCost.Location = new System.Drawing.Point(603, 45);
-            this.lblUpdTotalCost.Name = "lblUpdTotalCost";
-            this.lblUpdTotalCost.Size = new System.Drawing.Size(80, 21);
-            this.lblUpdTotalCost.TabIndex = 41;
-            this.lblUpdTotalCost.Text = "Total Cost:";
-            // 
-            // txtUpdUnitPrice
-            // 
-            this.txtUpdUnitPrice.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUpdUnitPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdUnitPrice.Location = new System.Drawing.Point(340, 177);
-            this.txtUpdUnitPrice.Name = "txtUpdUnitPrice";
-            this.txtUpdUnitPrice.Size = new System.Drawing.Size(242, 27);
-            this.txtUpdUnitPrice.TabIndex = 40;
-            // 
-            // txtUpdQuantity
-            // 
-            this.txtUpdQuantity.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUpdQuantity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdQuantity.Location = new System.Drawing.Point(340, 231);
-            this.txtUpdQuantity.Name = "txtUpdQuantity";
-            this.txtUpdQuantity.Size = new System.Drawing.Size(242, 27);
-            this.txtUpdQuantity.TabIndex = 39;
-            // 
             // txtUpdReorderLevel
             // 
             this.txtUpdReorderLevel.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdReorderLevel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdReorderLevel.Location = new System.Drawing.Point(340, 69);
+            this.txtUpdReorderLevel.Location = new System.Drawing.Point(300, 75);
             this.txtUpdReorderLevel.Name = "txtUpdReorderLevel";
             this.txtUpdReorderLevel.Size = new System.Drawing.Size(242, 27);
             this.txtUpdReorderLevel.TabIndex = 38;
@@ -192,57 +136,26 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdDescription.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdDescription.Location = new System.Drawing.Point(76, 177);
+            this.txtUpdDescription.Location = new System.Drawing.Point(300, 155);
             this.txtUpdDescription.Name = "txtUpdDescription";
             this.txtUpdDescription.Size = new System.Drawing.Size(242, 27);
             this.txtUpdDescription.TabIndex = 37;
-            // 
-            // txtUpdTotalCost
-            // 
-            this.txtUpdTotalCost.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUpdTotalCost.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdTotalCost.Location = new System.Drawing.Point(601, 69);
-            this.txtUpdTotalCost.Name = "txtUpdTotalCost";
-            this.txtUpdTotalCost.Size = new System.Drawing.Size(242, 27);
-            this.txtUpdTotalCost.TabIndex = 36;
             // 
             // txtUpdName
             // 
             this.txtUpdName.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdName.Location = new System.Drawing.Point(76, 123);
+            this.txtUpdName.Location = new System.Drawing.Point(30, 155);
             this.txtUpdName.Name = "txtUpdName";
             this.txtUpdName.Size = new System.Drawing.Size(242, 27);
             this.txtUpdName.TabIndex = 35;
-            // 
-            // lblUpdUnitPrice
-            // 
-            this.lblUpdUnitPrice.AutoSize = true;
-            this.lblUpdUnitPrice.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUpdUnitPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdUnitPrice.Location = new System.Drawing.Point(341, 153);
-            this.lblUpdUnitPrice.Name = "lblUpdUnitPrice";
-            this.lblUpdUnitPrice.Size = new System.Drawing.Size(80, 21);
-            this.lblUpdUnitPrice.TabIndex = 34;
-            this.lblUpdUnitPrice.Text = "Unit Price:";
-            // 
-            // lblUpdQuantity
-            // 
-            this.lblUpdQuantity.AutoSize = true;
-            this.lblUpdQuantity.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUpdQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdQuantity.Location = new System.Drawing.Point(342, 207);
-            this.lblUpdQuantity.Name = "lblUpdQuantity";
-            this.lblUpdQuantity.Size = new System.Drawing.Size(73, 21);
-            this.lblUpdQuantity.TabIndex = 33;
-            this.lblUpdQuantity.Text = "Quantity:";
             // 
             // lblUpdReorderLevel
             // 
             this.lblUpdReorderLevel.AutoSize = true;
             this.lblUpdReorderLevel.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdReorderLevel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdReorderLevel.Location = new System.Drawing.Point(342, 45);
+            this.lblUpdReorderLevel.Location = new System.Drawing.Point(302, 51);
             this.lblUpdReorderLevel.Name = "lblUpdReorderLevel";
             this.lblUpdReorderLevel.Size = new System.Drawing.Size(109, 21);
             this.lblUpdReorderLevel.TabIndex = 32;
@@ -253,7 +166,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdDescription.AutoSize = true;
             this.lblUpdDescription.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdDescription.Location = new System.Drawing.Point(78, 153);
+            this.lblUpdDescription.Location = new System.Drawing.Point(302, 131);
             this.lblUpdDescription.Name = "lblUpdDescription";
             this.lblUpdDescription.Size = new System.Drawing.Size(92, 21);
             this.lblUpdDescription.TabIndex = 31;
@@ -264,7 +177,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdName.AutoSize = true;
             this.lblUpdName.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdName.Location = new System.Drawing.Point(78, 99);
+            this.lblUpdName.Location = new System.Drawing.Point(32, 131);
             this.lblUpdName.Name = "lblUpdName";
             this.lblUpdName.Size = new System.Drawing.Size(55, 21);
             this.lblUpdName.TabIndex = 30;
@@ -274,7 +187,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtUpdItemID.BackColor = System.Drawing.SystemColors.Control;
             this.txtUpdItemID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdItemID.Location = new System.Drawing.Point(76, 69);
+            this.txtUpdItemID.Location = new System.Drawing.Point(30, 75);
             this.txtUpdItemID.Name = "txtUpdItemID";
             this.txtUpdItemID.Size = new System.Drawing.Size(242, 27);
             this.txtUpdItemID.TabIndex = 29;
@@ -284,7 +197,7 @@ namespace Inventory_Management_System.Forms
             this.lblUpdItemID.AutoSize = true;
             this.lblUpdItemID.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpdItemID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdItemID.Location = new System.Drawing.Point(78, 45);
+            this.lblUpdItemID.Location = new System.Drawing.Point(32, 51);
             this.lblUpdItemID.Name = "lblUpdItemID";
             this.lblUpdItemID.Size = new System.Drawing.Size(59, 21);
             this.lblUpdItemID.TabIndex = 28;
@@ -302,14 +215,14 @@ namespace Inventory_Management_System.Forms
             this.dgvItemList.Name = "dgvItemList";
             this.dgvItemList.ReadOnly = true;
             this.dgvItemList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvItemList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvItemList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvItemList.Size = new System.Drawing.Size(837, 185);
             this.dgvItemList.StandardTab = true;
             this.dgvItemList.TabIndex = 0;
@@ -370,6 +283,18 @@ namespace Inventory_Management_System.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.lblUpdDescription);
+            this.panel1.Controls.Add(this.txtUpdDescription);
+            this.panel1.Controls.Add(this.lblUpdReorderLevel);
+            this.panel1.Controls.Add(this.txtUpdReorderLevel);
+            this.panel1.Controls.Add(this.txtUpdWarehouseID);
+            this.panel1.Controls.Add(this.lblUpdWarehouseID);
+            this.panel1.Controls.Add(this.txtUpdItemID);
+            this.panel1.Controls.Add(this.lblUpdItemID);
+            this.panel1.Controls.Add(this.txtUpdName);
+            this.panel1.Controls.Add(this.txtUpdStatus);
+            this.panel1.Controls.Add(this.lblUpdName);
+            this.panel1.Controls.Add(this.lblUpdStatus);
             this.panel1.Location = new System.Drawing.Point(40, 35);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(837, 232);
@@ -387,26 +312,6 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtUpdWarehouseID);
-            this.Controls.Add(this.txtUpdStatus);
-            this.Controls.Add(this.txtUpdSupplierID);
-            this.Controls.Add(this.lblUpdWarehouseID);
-            this.Controls.Add(this.lblUpdStatus);
-            this.Controls.Add(this.lblUpdSupplierID);
-            this.Controls.Add(this.lblUpdTotalCost);
-            this.Controls.Add(this.txtUpdUnitPrice);
-            this.Controls.Add(this.txtUpdQuantity);
-            this.Controls.Add(this.txtUpdReorderLevel);
-            this.Controls.Add(this.txtUpdDescription);
-            this.Controls.Add(this.txtUpdTotalCost);
-            this.Controls.Add(this.txtUpdName);
-            this.Controls.Add(this.lblUpdUnitPrice);
-            this.Controls.Add(this.lblUpdQuantity);
-            this.Controls.Add(this.lblUpdReorderLevel);
-            this.Controls.Add(this.lblUpdDescription);
-            this.Controls.Add(this.lblUpdName);
-            this.Controls.Add(this.txtUpdItemID);
-            this.Controls.Add(this.lblUpdItemID);
             this.Controls.Add(this.dgvItemList);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -416,6 +321,8 @@ namespace Inventory_Management_System.Forms
             this.Text = "Item Setup";
             this.Load += new System.EventHandler(this.UpdateItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,19 +334,11 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtUpdWarehouseID;
         private System.Windows.Forms.TextBox txtUpdStatus;
-        private System.Windows.Forms.TextBox txtUpdSupplierID;
         private System.Windows.Forms.Label lblUpdWarehouseID;
         private System.Windows.Forms.Label lblUpdStatus;
-        private System.Windows.Forms.Label lblUpdSupplierID;
-        private System.Windows.Forms.Label lblUpdTotalCost;
-        private System.Windows.Forms.TextBox txtUpdUnitPrice;
-        private System.Windows.Forms.TextBox txtUpdQuantity;
         private System.Windows.Forms.TextBox txtUpdReorderLevel;
         private System.Windows.Forms.TextBox txtUpdDescription;
-        private System.Windows.Forms.TextBox txtUpdTotalCost;
         private System.Windows.Forms.TextBox txtUpdName;
-        private System.Windows.Forms.Label lblUpdUnitPrice;
-        private System.Windows.Forms.Label lblUpdQuantity;
         private System.Windows.Forms.Label lblUpdReorderLevel;
         private System.Windows.Forms.Label lblUpdDescription;
         private System.Windows.Forms.Label lblUpdName;

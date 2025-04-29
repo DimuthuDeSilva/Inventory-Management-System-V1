@@ -22,7 +22,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = "SELECT UserID, Username, FullName, Email, Role, IsActive, CreatedAt, LastLogin FROM Users";
+                    string sql = "SELECT UserID, Username, Password, FullName, Email, Role, IsActive, CreatedAt, LastLogin FROM Users";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -87,8 +87,7 @@ namespace Inventory_Management_System.Services
                                     FullName = @FullName,
                                     Email = @Email,
                                     Role = @Role,
-                                    IsActive = @IsActive,
-                                    LastLogin = @LastLogin
+                                    IsActive = @IsActive
                                 WHERE UserID = @UserID";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -100,7 +99,7 @@ namespace Inventory_Management_System.Services
                         cmd.Parameters.AddWithValue("@Email", user.Email ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Role", user.Role);
                         cmd.Parameters.AddWithValue("@IsActive", user.IsActive);
-                        cmd.Parameters.AddWithValue("@LastLogin", user.LastLogin ?? (object)DBNull.Value);
+                        //cmd.Parameters.AddWithValue("@LastLogin", user.LastLogin ?? (object)DBNull.Value);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         return rowsAffected > 0;
@@ -122,7 +121,10 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = "DELETE FROM Users WHERE UserID = @UserID";
+                    string sql = @"UPDATE users 
+                               SET Status = 'Deleted',
+                                   IsActive = 0
+                               WHERE UserID = @UserID";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

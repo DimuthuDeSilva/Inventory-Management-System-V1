@@ -113,7 +113,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = "DELETE FROM warehouses WHERE WarehouseID = @WarehouseID";
+                    string sql = "UPDATE warehouses SET IsActive = 0 WHERE WarehouseID = @WarehouseID";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

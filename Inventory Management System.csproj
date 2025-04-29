@@ -230,7 +230,7 @@
       <DependentUpon>ItemSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ApprovalFlowModel.cs" />
-    <Compile Include="Models\ApprovePO.cs" />
+    <Compile Include="Models\ApprovePOModel.cs" />
     <Compile Include="Models\ConfirmGRNmodel.cs" />
     <Compile Include="Models\ConfirmMRNmodel.cs" />
     <Compile Include="Models\ConfirmMRreturnModel.cs" />

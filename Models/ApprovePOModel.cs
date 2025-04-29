@@ -9,18 +9,19 @@ namespace Inventory_Management_System.Models
     public class ApprovePO
     {
         public int POID { get; set; }
-        public string PONumber { get; set; }
+        public int ItemID { get; set; }
+        public string ItemName { get; set; }
         public int SupplierID { get; set; }
-        public int NumberOfUnits { get; set; }
-        public decimal UnitPrice { get; set; }
+        public string SupplierName { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime? ExpectedDeliveryDate { get; set; }
-        public string Status { get; set; }
+        public decimal UnitPrice { get; set; }
         public decimal TotalAmount { get; set; }
         public int CreatedBy { get; set; }
         public int? ApprovedBy { get; set; }
         public string Notes { get; set; }
-        public DateTime CreatedAt { get; set; }
-        //public List<POItem> Items { get; set; } = new List<POItem>();
+        public string Status { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public int NumberOfUnits { get; set; }
     }
 }

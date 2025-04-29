@@ -129,8 +129,6 @@ namespace Inventory_Management_System.Forms
             txtAFSofName.Clear();
             txtAFSFunctionName.Clear();
 
-            txtAFSLevel.Enabled = false;
-            txtAFSofName.Enabled = false;
 
             // Reset button states
             //btnAFSAdd.Enabled = true;

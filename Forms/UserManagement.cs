@@ -164,7 +164,7 @@ namespace Inventory_Management_System.Forms
                 currentUser.IsActive = ParseStatusInput(txtumStatus.Text);
 
                 // Call the user service to create the user
-                userService.CreateUser(currentUser);
+                userService.UpdateUser(currentUser);
                 MessageBox.Show("User Updated Successfully!");
                 btnUMClear.PerformClick();
             }

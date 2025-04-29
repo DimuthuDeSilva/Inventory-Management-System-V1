@@ -8,6 +8,7 @@ using Inventory_Management_System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using Inventory_Management_System.Models;
+using Inventory_Management_System.Forms;
 
 namespace Inventory_Management_System.Services
 {
@@ -59,20 +60,24 @@ namespace Inventory_Management_System.Services
                     try
                     {
                         // 1. Insert into PurchaseOrders
-                        string poSql = @"INSERT INTO PurchaseOrders 
-                        (PONumber, SupplierID, OrderDate, ExpectedDeliveryDate, 
-                         UnitPrice, NumberOfUnits, TotalAmount, CreatedBy, 
-                         ApprovedBy, Notes, Status, CreatedAt)
+                        string poSql = @"INSERT INTO purchaseorders 
+                        (ItemID, ItemName, SupplierID, SupplierName, 
+                         UnitPrice, NumberOfUnits, TotalAmount, OrderDate, 
+                         ExpectedDeliveryDate, CreatedBy, ApprovedBy, 
+                         Notes, CreatedAt, Status)
                         VALUES 
-                        (@PONumber, @SupplierID, @OrderDate, @ExpectedDeliveryDate, 
-                         @UnitPrice, @NumberOfUnits, @TotalAmount, @CreatedBy, 
-                         @ApprovedBy, @Notes, @Status, @CreatedAt);
+                        (@ItemID, @ItemName, @SupplierID, @SupplierName, 
+                         @UnitPrice, @NumberOfUnits, @TotalAmount, @OrderDate, 
+                         @ExpectedDeliveryDate, @CreatedBy, @ApprovedBy, 
+                         @Notes, @CreatedAt, @Status);
                         SELECT LAST_INSERT_ID();";
 
                         int newPOID;
                         using (MySqlCommand cmd = new MySqlCommand(poSql, connection, transaction))
                         {
-                            cmd.Parameters.AddWithValue("@PONumber", myCreatePO.PONumber);
+                            cmd.Parameters.AddWithValue("@ItemID", myCreatePO.ItemID);
+                            cmd.Parameters.AddWithValue("@ItemName", myCreatePO.ItemName);
+                            cmd.Parameters.AddWithValue("@SupplierName", myCreatePO.SupplierName);
                             cmd.Parameters.AddWithValue("@SupplierID", myCreatePO.SupplierID);
                             cmd.Parameters.AddWithValue("@OrderDate", myCreatePO.OrderDate);
                             cmd.Parameters.AddWithValue("@ExpectedDeliveryDate", myCreatePO.ExpectedDeliveryDate);
@@ -108,18 +113,20 @@ namespace Inventory_Management_System.Services
 
                             // 3. Insert into goodsreceivednotes
                             string grnSql = @"INSERT INTO goodsreceivednotes
-                         (PONumber, SupplierID, SupplierName, UnitPrice, 
-                          NumberOfUnits, TotalCost, CreatedBy, DateOfDelivery, 
-                          CreatedAt, Status, ConfirmedBy, Notes)
-                         VALUES
-                         (@PONumber, @SupplierID, @SupplierName, @UnitPrice, 
-                          @NumberOfUnits, @TotalCost, @CreatedBy, @DateOfDelivery, 
-                          @CreatedAt, @Status, @ConfirmedBy, @Notes);
-                         SELECT LAST_INSERT_ID();";
+                              (POID, ItemID, ItemName, SupplierID, SupplierName, 
+                               UnitPrice, NumberOfUnits, TotalCost, CreatedBy, 
+                               DateOfDelivery, CreatedAt, Status, ConfirmedBy, Notes)
+                              VALUES
+                              (@GRNID, @POID, @ItemID, @ItemName, @SupplierID, @SupplierName, 
+                               @UnitPrice, @NumberOfUnits, @TotalCost, @CreatedBy, 
+                               @DateOfDelivery, @CreatedAt, @Status, @ConfirmedBy, @Notes);
+                              SELECT LAST_INSERT_ID();";
 
                             using (MySqlCommand cmd = new MySqlCommand(grnSql, connection, transaction))
                             {
-                                cmd.Parameters.AddWithValue("@PONumber", myCreatePO.PONumber);
+                                cmd.Parameters.AddWithValue("@POID", myCreatePO.POID);
+                                cmd.Parameters.AddWithValue("@ItemID", myCreatePO.ItemID);
+                                cmd.Parameters.AddWithValue("@ItemName", myCreatePO.ItemName);
                                 cmd.Parameters.AddWithValue("@SupplierID", myCreatePO.SupplierID);
                                 cmd.Parameters.AddWithValue("@SupplierName", supplierName);
                                 cmd.Parameters.AddWithValue("@UnitPrice", myCreatePO.UnitPrice);
@@ -167,9 +174,9 @@ namespace Inventory_Management_System.Services
                 }
 
                 // If status is Approved or Rejected, don't allow update
-                if (currentStatus == "Approved" || currentStatus == "Rejected")
+                if (currentStatus == "Approved" || currentStatus == "Rejected" || currentStatus == "Deleted")
                 {
-                    MessageBox.Show("Cannot update a Purchase Order that has been Approved or Rejected.");
+                    MessageBox.Show("Cannot update a Purchase Order that has been Approved, Rejected or Deleted.");
                     return false;
                 }
 
@@ -188,24 +195,28 @@ namespace Inventory_Management_System.Services
                     try
                     {
                         // Update PurchaseOrders table
-                        string poUpdateSql = @"UPDATE PurchaseOrders 
-                                   SET PONumber = @PONumber, 
-                                       SupplierID = @SupplierID, 
-                                       OrderDate = @OrderDate, 
-                                       ExpectedDeliveryDate = @ExpectedDeliveryDate, 
-                                       UnitPrice = @UnitPrice, 
-                                       NumberOfUnits = @NumberOfUnits, 
-                                       TotalAmount = @TotalAmount, 
-                                       CreatedBy = @CreatedBy, 
-                                       ApprovedBy = @ApprovedBy, 
-                                       Notes = @Notes, 
-                                       Status = @Status
-                                   WHERE POID = @POID";
+                        string poUpdateSql = @"UPDATE purchaseorders 
+                                                  SET ItemID = @ItemID,
+                                                      ItemName = @ItemName,
+                                                      SupplierID = @SupplierID,
+                                                      SupplierName = @SupplierName,
+                                                      UnitPrice = @UnitPrice,
+                                                      NumberOfUnits = @NumberOfUnits,
+                                                      TotalAmount = @TotalAmount,
+                                                      OrderDate = @OrderDate,
+                                                      ExpectedDeliveryDate = @ExpectedDeliveryDate,
+                                                      CreatedBy = @CreatedBy,
+                                                      ApprovedBy = @ApprovedBy,
+                                                      Notes = @Notes,
+                                                      Status = @Status
+                                                  WHERE POID = @POID";
 
                         using (MySqlCommand cmd = new MySqlCommand(poUpdateSql, connection, transaction))
                         {
                             cmd.Parameters.AddWithValue("@POID", myUpdatePO.POID);
-                            cmd.Parameters.AddWithValue("@PONumber", myUpdatePO.PONumber);
+                            cmd.Parameters.AddWithValue("@ItemID", myUpdatePO.ItemID);
+                            cmd.Parameters.AddWithValue("@ItemName", myUpdatePO.ItemName);
+                            cmd.Parameters.AddWithValue("@SupplierName", myUpdatePO.SupplierName);
                             cmd.Parameters.AddWithValue("@SupplierID", myUpdatePO.SupplierID);
                             cmd.Parameters.AddWithValue("@OrderDate", myUpdatePO.OrderDate);
                             cmd.Parameters.AddWithValue("@ExpectedDeliveryDate", myUpdatePO.ExpectedDeliveryDate);

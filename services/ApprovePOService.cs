@@ -93,23 +93,24 @@ namespace Inventory_Management_System.Services
                 {
                     try
                     {
-                        var ApprovedBy = Session.UserID;
+                        var approvedBy = Session.UserID;
 
-                        // 1. First update the PO status to Approved
+                        // 1. Update the PO status to Approved
                         string updateSql = @"
-                                            UPDATE purchaseorders 
-                                            SET 
-                                                Status = 'Approved',
-                                                ApprovedBy = @ApprovedBy
-                                            WHERE 
-                                                POID = @POID
-                                                AND Status = 'Pending'";
-                        
+                    UPDATE purchaseorders 
+                    SET 
+                        Status = 'Approved',
+                        ApprovedBy = @ApprovedBy,
+                        Notes = CASE WHEN @Notes IS NULL THEN Notes ELSE @Notes END
+                    WHERE 
+                        POID = @POID
+                        AND Status = 'Pending'";
 
                         using (MySqlCommand cmd = new MySqlCommand(updateSql, connection, transaction))
                         {
                             cmd.Parameters.AddWithValue("@POID", poID);
-                            cmd.Parameters.AddWithValue("@ApprovedBy", ApprovedBy);
+                            cmd.Parameters.AddWithValue("@ApprovedBy", approvedBy);
+                            cmd.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(notes) ? (object)DBNull.Value : notes);
 
                             int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -123,22 +124,22 @@ namespace Inventory_Management_System.Services
                         // 2. Get the approved PO details
                         string getPoSql = @"
                     SELECT 
-                        po.PONumber, po.SupplierID, po.UnitPrice, po.NumberOfUnits, 
-                        po.TotalAmount, po.CreatedBy, po.Notes, po.ExpectedDeliveryDate,
-                        s.Name AS SupplierName
+                        po.ItemID, po.ItemName, po.SupplierID, po.SupplierName,
+                        po.UnitPrice, po.NumberOfUnits, po.TotalAmount, 
+                        po.CreatedBy, po.Notes, po.ExpectedDeliveryDate
                     FROM purchaseorders po
-                    JOIN suppliers s ON po.SupplierID = s.SupplierID
                     WHERE po.POID = @POID";
 
-                        string poNumber = string.Empty;
+                        int itemID = 0;
+                        string itemName = string.Empty;
                         int supplierID = 0;
+                        string supplierName = string.Empty;
                         decimal unitPrice = 0;
                         int numberOfUnits = 0;
                         decimal totalAmount = 0;
                         int createdBy = 0;
-                        string note = string.Empty;
+                        string poNotes = string.Empty;
                         DateTime expectedDeliveryDate;
-                        string supplierName = string.Empty;
 
                         using (MySqlCommand cmd = new MySqlCommand(getPoSql, connection, transaction))
                         {
@@ -148,15 +149,16 @@ namespace Inventory_Management_System.Services
                             {
                                 if (reader.Read())
                                 {
-                                    poNumber = reader["PONumber"].ToString();
+                                    itemID = Convert.ToInt32(reader["ItemID"]);
+                                    itemName = reader["ItemName"].ToString();
                                     supplierID = Convert.ToInt32(reader["SupplierID"]);
+                                    supplierName = reader["SupplierName"].ToString();
                                     unitPrice = Convert.ToDecimal(reader["UnitPrice"]);
                                     numberOfUnits = Convert.ToInt32(reader["NumberOfUnits"]);
                                     totalAmount = Convert.ToDecimal(reader["TotalAmount"]);
                                     createdBy = Convert.ToInt32(reader["CreatedBy"]);
-                                    note = reader["Notes"].ToString();
+                                    poNotes = reader["Notes"] != DBNull.Value ? reader["Notes"].ToString() : string.Empty;
                                     expectedDeliveryDate = Convert.ToDateTime(reader["ExpectedDeliveryDate"]);
-                                    supplierName = reader["SupplierName"].ToString();
                                 }
                                 else
                                 {
@@ -169,31 +171,30 @@ namespace Inventory_Management_System.Services
                         // 3. Insert into goodsreceivednotes
                         string grnSql = @"
                     INSERT INTO goodsreceivednotes
-                    (PONumber, SupplierID, SupplierName, UnitPrice, 
-                     NumberOfUnits, TotalCost, CreatedBy, DateOfDelivery, 
-                     CreatedAt, Status, ConfirmedBy, Notes)
+                    (POID, ItemID, ItemName, SupplierID, SupplierName, 
+                     UnitPrice, NumberOfUnits, TotalCost, CreatedBy, 
+                     DateOfDelivery, CreatedAt, Status, ConfirmedBy, Notes)
                     VALUES
-                    (@PONumber, @SupplierID, @SupplierName, @UnitPrice, 
-                     @NumberOfUnits, @TotalCost, @CreatedBy, @DateOfDelivery, 
-                     @CreatedAt, @Status, @ConfirmedBy, @Notes);
+                    (@POID, @ItemID, @ItemName, @SupplierID, @SupplierName, 
+                     @UnitPrice, @NumberOfUnits, @TotalCost, @CreatedBy, 
+                     @DateOfDelivery, NOW(), 'Pending', NULL, @Notes);
                     SELECT LAST_INSERT_ID();";
 
                         int grnId = 0;
                         using (MySqlCommand cmd = new MySqlCommand(grnSql, connection, transaction))
                         {
-                            cmd.Parameters.AddWithValue("@PONumber", poNumber);
+                            cmd.Parameters.AddWithValue("@POID", poID);
+                            cmd.Parameters.AddWithValue("@ItemID", itemID);
+                            cmd.Parameters.AddWithValue("@ItemName", itemName);
                             cmd.Parameters.AddWithValue("@SupplierID", supplierID);
                             cmd.Parameters.AddWithValue("@SupplierName", supplierName);
                             cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
                             cmd.Parameters.AddWithValue("@NumberOfUnits", numberOfUnits);
                             cmd.Parameters.AddWithValue("@TotalCost", totalAmount);
                             cmd.Parameters.AddWithValue("@CreatedBy", createdBy);
-                            cmd.Parameters.AddWithValue("@DateOfDelivery", expectedDeliveryDate); // Using PO's expected delivery date
-                            cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
-                            cmd.Parameters.AddWithValue("@Status", "Pending"); // Initial GRN status
-                            cmd.Parameters.AddWithValue("@ConfirmedBy", DBNull.Value); // Not confirmed yet
-                            cmd.Parameters.AddWithValue("@Notes", notes);
-                                
+                            cmd.Parameters.AddWithValue("@DateOfDelivery", expectedDeliveryDate);
+                            cmd.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(notes) ? (object)DBNull.Value : notes);
+
                             grnId = Convert.ToInt32(cmd.ExecuteScalar());
                         }
 
@@ -208,7 +209,7 @@ namespace Inventory_Management_System.Services
                 }
             }
         }
-    
+
 
         public (bool IsSuccess, string Message) RejectPO(int poID)
         {
