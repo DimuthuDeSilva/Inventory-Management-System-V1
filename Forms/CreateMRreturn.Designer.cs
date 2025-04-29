@@ -278,7 +278,6 @@ namespace Inventory_Management_System.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CreateMRreturn";
             this.Text = "Create Material Request Note";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CreatePO_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMRRList)).EndInit();
             this.ResumeLayout(false);

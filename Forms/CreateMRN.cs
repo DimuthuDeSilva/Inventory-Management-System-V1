@@ -77,11 +77,7 @@ namespace Inventory_Management_System.Forms
                 return false;
             }
                 return true;
-        }
-
-
-
-        
+        }     
 
         private void btnCPOClear_Click(object sender, EventArgs e)
         {
@@ -95,35 +91,6 @@ namespace Inventory_Management_System.Forms
             //btnCPOUpdate.Enabled = false;
 
             dgvMRNList.DataSource = myMRNservice.GetAllMRN().Tables[0];
-        }
-
-        private void dgvMRNList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            DataRowView row = (DataRowView)dgvMRNList.Rows[e.RowIndex].DataBoundItem;
-
-            // Map data from row to createPayment object
-            myMRN.ItemID = Convert.ToInt32(row["ItemID"]);
-            myMRN.Name = row["Name"].ToString();
-            myMRN.Description = row["Description"].ToString();
-            myMRN.Quantity = Convert.ToInt32(row["NumberOfUnits"]);
-            myMRN.ReorderLevel = Convert.ToInt32(row["ReorderLevel"]);
-            myMRN.UnitPrice = Convert.ToDecimal(row["UnitPrice"]);
-            myMRN.TotalCost = Convert.ToDecimal(row["TotalCost"]);
-            myMRN.SupplierID = Convert.ToInt32(row["SupplierID"]);
-            myMRN.WarehouseID = Convert.ToInt32(row["WarehouseID"]);
-            myMRN.IsActive = Convert.ToBoolean(row["IsActive"]);
-
-            // Populate form fields
-            txtItemID.Text = myMRN.ItemID.ToString();
-            txtItemName.Text = myMRN.Name.ToString();
-            txtMRNdepartment.Text = myMRN.Department.ToString();
-            txtMRNNumberOfUnits.Text = myMRN.NumberOfUnits.ToString();
-            txtMRNNotes.Text = myMRN.Notes ?? "";
-
-            btnCPOAdd.Enabled = true;
-            btnCPOClear.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -140,6 +107,45 @@ namespace Inventory_Management_System.Forms
 
         private void txtItemID_KeyUp(object sender, KeyEventArgs e)
         {
+            
+        }
+
+        private void lblLoggedUser_Click(object sender, EventArgs e)
+        {
+            lblLoggedUser.Text = $"Current User : {Session.FullName}";
+            btnCPOClear.PerformClick();
+        }
+
+        private void dgvMRNList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataRowView row = (DataRowView)dgvMRNList.Rows[e.RowIndex].DataBoundItem;
+
+            // Map data from row to createPayment object
+            myMRN.ItemID = Convert.ToInt32(row["ItemID"]);
+            myMRN.MRNID = Convert.ToInt32(row["MRNID"]);
+            myMRN.NumberOfUnits = Convert.ToInt32(row["NumberOfUnits"]);
+            myMRN.ItemName = row["ItemName"].ToString();
+            myMRN.RequestedBy = row["RequestedBy"].ToString();
+            myMRN.Status = row["Status"].ToString();
+            myMRN.ApprovedBy = row["ApprovedBy"].ToString();
+            myMRN.Department = row["Department"].ToString();
+
+
+            // Populate form fields
+            txtItemID.Text = myMRN.ItemID.ToString();
+            txtItemName.Text = myMRN.ItemName.ToString();
+            txtMRNdepartment.Text = myMRN.Department.ToString();
+            txtMRNNumberOfUnits.Text = myMRN.NumberOfUnits.ToString();
+            txtMRNNotes.Text = myMRN.Notes ?? "";
+
+            btnCPOAdd.Enabled = true;
+            btnCPOClear.Enabled = true;
+        }
+
+        private void txtItemID_Leave(object sender, EventArgs e)
+        {
             var itemID = Convert.ToInt32(txtItemID.Text);
             bool check = myMRNservice.isExist(itemID);
             if (!check)
@@ -150,10 +156,34 @@ namespace Inventory_Management_System.Forms
             txtItemName.Text = itemName.ToString();
         }
 
-        private void lblLoggedUser_Click(object sender, EventArgs e)
+        private void btnCPOUpdate_Click(object sender, EventArgs e)
         {
-            lblLoggedUser.Text = $"Current User : {Session.FullName}";
+            if (myMRN.Status != "Pending")
+            {
+                MessageBox.Show("Cannot cancel a Material Request Note that has been Confirmed,Rejected or Stock Released.",
+                              "Operation Not Allowed",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var mrnID = myMRN.MRNID;
+                bool check = myMRNservice.CancelMRN(mrnID);
+
+                if (check)
+                {
+                    MessageBox.Show("MRN Cancelled Successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to cencael the MRN", 
+                            "Please contact administrator",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                }
+            }
             btnCPOClear.PerformClick();
+            
         }
     }
 }

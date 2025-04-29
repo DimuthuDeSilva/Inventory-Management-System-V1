@@ -31,7 +31,7 @@ namespace Inventory_Management_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCPOClear = new System.Windows.Forms.Button();
             this.txtMRNNumberOfUnits = new System.Windows.Forms.TextBox();
             this.txtMRNNotes = new System.Windows.Forms.TextBox();
@@ -135,6 +135,7 @@ namespace Inventory_Management_System.Forms
             this.txtItemID.Size = new System.Drawing.Size(242, 27);
             this.txtItemID.TabIndex = 29;
             this.txtItemID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtItemID_KeyUp);
+            this.txtItemID.Leave += new System.EventHandler(this.txtItemID_Leave);
             // 
             // lblMRNItemID
             // 
@@ -158,18 +159,18 @@ namespace Inventory_Management_System.Forms
             this.dgvMRNList.Name = "dgvMRNList";
             this.dgvMRNList.ReadOnly = true;
             this.dgvMRNList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvMRNList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvMRNList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMRNList.Size = new System.Drawing.Size(594, 181);
             this.dgvMRNList.StandardTab = true;
             this.dgvMRNList.TabIndex = 0;
-            this.dgvMRNList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMRNList_CellContentClick);
+            this.dgvMRNList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMRNList_CellDoubleClick);
             // 
             // btnCPOAdd
             // 
@@ -231,6 +232,7 @@ namespace Inventory_Management_System.Forms
             this.btnCPOUpdate.TabIndex = 50;
             this.btnCPOUpdate.Text = "CANCEL";
             this.btnCPOUpdate.UseVisualStyleBackColor = false;
+            this.btnCPOUpdate.Click += new System.EventHandler(this.btnCPOUpdate_Click);
             // 
             // panel1
             // 
@@ -278,7 +280,6 @@ namespace Inventory_Management_System.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CreateMRN";
             this.Text = "Create Material Request Note";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CreatePO_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMRNList)).EndInit();
             this.ResumeLayout(false);

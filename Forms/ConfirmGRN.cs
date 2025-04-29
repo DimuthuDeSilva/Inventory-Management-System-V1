@@ -16,7 +16,7 @@ namespace Inventory_Management_System.Forms
 {
     public partial class ConfirmGRN : Form
     {
-        ConfirmGRNmodel confirmGRN = new ConfirmGRNmodel();
+        ConfirmGRNmodel currentGRN = new ConfirmGRNmodel();
         ConfirmGRNservice confirmgrnService = new ConfirmGRNservice();
         public ConfirmGRN()
         {
@@ -30,8 +30,9 @@ namespace Inventory_Management_System.Forms
                 MessageBox.Show("Please Select a valid GRN ID", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            var result = confirmgrnService.ConfirmGRN(grnID);
+            var itemid = Convert.ToInt32(txtItemID.Text);
+            var quantity = Convert.ToInt32(txtcfmGRNNumberOfUnits.Text);
+            var result = confirmgrnService.ConfirmGRN(grnID, itemid, quantity);
 
             MessageBox.Show(
                 result.Message,
@@ -52,19 +53,22 @@ namespace Inventory_Management_System.Forms
         private void btncfmGRNClear_Click(object sender, EventArgs e)
         {      
             txtcfmGRNID.Clear();
-            txtcfmPONumber.Clear();
+            txtPOID.Clear();
+            txtItemID.Clear();
+            txtItemName.Clear();
+            //txtcfmPONumber.Clear();
             txtcfmGRNNotes.Clear();
             txtcfmSupplierID.Clear();
             txtcfmSupplierName.Clear();
             txtcfmGRNNumberOfUnits.Clear();
             txtcfmTotalCost.Clear();
-            txtcfmCreatedBy.Clear();
+            //txtcfmCreatedBy.Clear();
             txtcfmUnitPrice.Clear();
             dtpcfmDateOfDelivery.Value = DateTime.Now.AddDays(7);
 
 
             //btnAPOAdd.Enabled = true;
-            btncfmGRNConfirm.Enabled = false;
+            btncfmGRNConfirm.Enabled = true;
 
             // Load data and handle access
             var grns = confirmgrnService.GetAllGRN();
@@ -89,34 +93,44 @@ namespace Inventory_Management_System.Forms
         {
             if (e.RowIndex < 0) return;
 
+            // Scroll to and select the row
+            dgvcfmGRNList.CurrentCell = dgvcfmGRNList.Rows[e.RowIndex].Cells[0];
+
             DataRowView row = (DataRowView)dgvcfmGRNList.Rows[e.RowIndex].DataBoundItem;
 
-            confirmGRN.GRNID = row["GRNID"] != DBNull.Value ? Convert.ToInt32(row["GRNID"]) : 0;
-            confirmGRN.PONumber = row["PONumber"] != DBNull.Value ? row["PONumber"].ToString() : string.Empty;
-            confirmGRN.SupplierID = row["SupplierID"] != DBNull.Value ? Convert.ToInt32(row["SupplierID"]) : 0;
-            confirmGRN.SupplierName = row["SupplierName"] != DBNull.Value ? row["SupplierName"].ToString() : string.Empty;
-            confirmGRN.DateOfDelivery = Convert.ToDateTime(row["DateOfDelivery"]);
-            confirmGRN.UnitPrice = row["UnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["UnitPrice"]) : 0;
-            confirmGRN.NumberOfUnits = row["NumberOfUnits"] != DBNull.Value ? Convert.ToInt32(row["NumberOfUnits"]) : 0;
-            confirmGRN.TotalCost = row["TotalCost"] != DBNull.Value ? Convert.ToDecimal(row["TotalCost"]) : 0;
-            confirmGRN.CreatedBy = Convert.ToInt32(row["CreatedBy"]);
-            confirmGRN.Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : null;
-
+            // Load data into GRN model
+            currentGRN.GRNID = row["GRNID"] != DBNull.Value ? Convert.ToInt32(row["GRNID"]) : 0;
+            currentGRN.POID = row["POID"] != DBNull.Value ? Convert.ToInt32(row["POID"]) : 0;
+            currentGRN.ItemID = row["ItemID"] != DBNull.Value ? Convert.ToInt32(row["ItemID"]) : 0;
+            currentGRN.ItemName = row["ItemName"] != DBNull.Value ? row["ItemName"].ToString() : string.Empty;
+            currentGRN.SupplierID = row["SupplierID"] != DBNull.Value ? Convert.ToInt32(row["SupplierID"]) : 0;
+            currentGRN.SupplierName = row["SupplierName"] != DBNull.Value ? row["SupplierName"].ToString() : string.Empty;
+            currentGRN.UnitPrice = row["UnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["UnitPrice"]) : 0;
+            currentGRN.NumberOfUnits = row["NumberOfUnits"] != DBNull.Value ? Convert.ToInt32(row["NumberOfUnits"]) : 0;
+            currentGRN.TotalCost = row["TotalCost"] != DBNull.Value ? Convert.ToDecimal(row["TotalCost"]) : 0;
+            //currentGRN.CreatedBy = row["CreatedBy"] != DBNull.Value ? row["CreatedBy"].ToString() : string.Empty;
+            currentGRN.DateOfDelivery = row["DateOfDelivery"] != DBNull.Value ? Convert.ToDateTime(row["DateOfDelivery"]) : DateTime.Now;
+            currentGRN.CreatedAt = row["CreatedAt"] != DBNull.Value ? Convert.ToDateTime(row["CreatedAt"]) : DateTime.Now;
+            currentGRN.Status = row["Status"] != DBNull.Value ? row["Status"].ToString() : string.Empty;
+            currentGRN.Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : string.Empty;
 
             // Populate form fields
-            txtcfmGRNID.Text = confirmGRN.GRNID.ToString();
-            txtcfmPONumber.Text = confirmGRN.PONumber;
-            txtcfmSupplierID.Text = confirmGRN.SupplierID.ToString();
-            txtcfmSupplierName.Text = confirmGRN.SupplierName;
-            dtpcfmDateOfDelivery.Value = confirmGRN.DateOfDelivery;
-            txtcfmUnitPrice.Text = confirmGRN.UnitPrice.ToString("0.00");
-            txtcfmGRNNumberOfUnits.Text = confirmGRN.NumberOfUnits.ToString();
-            txtcfmTotalCost.Text = confirmGRN.TotalCost.ToString("0.00");
-            txtcfmGRNNotes.Text = confirmGRN.Notes ?? "";
-            txtcfmCreatedBy.Text = confirmGRN.CreatedBy.ToString();
+            txtcfmGRNID.Text = currentGRN.GRNID.ToString();
+            txtPOID.Text = currentGRN.POID.ToString();
+            txtItemID.Text = currentGRN.ItemID.ToString();
+            txtItemName.Text = currentGRN.ItemName;
+            txtcfmSupplierID.Text = currentGRN.SupplierID.ToString();
+            txtcfmSupplierName.Text = currentGRN.SupplierName;
+            txtcfmUnitPrice.Text = currentGRN.UnitPrice.ToString("0.00");
+            txtcfmGRNNumberOfUnits.Text = currentGRN.NumberOfUnits.ToString();
+            txtcfmTotalCost.Text = currentGRN.TotalCost.ToString("0.00");
+            dtpcfmDateOfDelivery.Value = currentGRN.DateOfDelivery;
+            txtcfmGRNNotes.Text = currentGRN.Notes;
 
-            //btnAPOAdd.Enabled = false;
+            // Update button states
             btncfmGRNConfirm.Enabled = true;
+            btncfmGRNReject.Enabled = true;
+            btncfmGRNClear.Enabled = true;
         }
 
         private void btncfmGRNReject_Click (object sender, EventArgs e)

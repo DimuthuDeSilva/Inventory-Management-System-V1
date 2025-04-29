@@ -23,26 +23,24 @@ namespace Inventory_Management_System.Services
                 using (MySqlConnection connection = new MySqlConnection(SqlHelper.connectionstring()))
                 {
                     connection.Open();
-                    string sql = @"SELECT 
-                            po.`POID`, 
-                            po.`PONumber`, 
-                            po.`SupplierID`,
-                            s.`Name` AS SupplierName,
-                            s.`Address` AS SupplierAddress,
-                            po.`ItemName`,
-                            po.`UnitPrice`,
-                            po.`NumberOfUnits` AS Quantity,
-                            (po.`UnitPrice` * po.`NumberOfUnits`) AS TotalCost,
-                            po.`OrderDate`, 
-                            po.`ExpectedDeliveryDate`, 
-                            po.`CreatedBy`, 
-                            po.`ApprovedBy`, 
-                            po.`Notes`, 
-                            po.`CreatedAt`, 
-                            po.`Status`
-                        FROM `purchaseorders` po
-                        JOIN `suppliers` s ON po.`SupplierID` = s.`SupplierID`
-                        WHERE po.`POID` = @poID";
+                        string sql = @"SELECT 
+                        `POID`, 
+                        `ItemID`,
+                        `ItemName`,
+                        `SupplierID`,
+                        `SupplierName`,
+                        `UnitPrice`,
+                        `NumberOfUnits`,
+                        `TotalAmount`,
+                        `OrderDate`, 
+                        `ExpectedDeliveryDate`, 
+                        `CreatedBy`, 
+                        `ApprovedBy`, 
+                        `Notes`, 
+                        `CreatedAt`, 
+                        `Status`
+                    FROM `purchaseorders` 
+                    WHERE `POID` = @poID";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -60,7 +58,7 @@ namespace Inventory_Management_System.Services
         }
         public void ExportPoInvoiceToPdf(int poID, string filePath)
         {
-            // Get the data from database
+            // Get the data from database using the modified query
             DataSet ds = GetPoInvoice(poID);
 
             if (ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
@@ -88,16 +86,16 @@ namespace Inventory_Management_System.Services
             doc.Add(issuedTo);
 
             Paragraph supplierInfo = new Paragraph(
-                $"{poData["SupplierName"]}\n{poData["SupplierAddress"]}",
+                $"{poData["SupplierName"]}",
                 FontFactory.GetFont("Arial", 10, Font.NORMAL));
             doc.Add(supplierInfo);
             doc.Add(new Paragraph(" "));
 
             // Add PO Information
             Paragraph poInfo = new Paragraph();
-            poInfo.Add(new Chunk("PO NUMBER: ",
+            poInfo.Add(new Chunk("PO ID: ",
                 FontFactory.GetFont("Arial", 12, Font.BOLD)));
-            poInfo.Add(new Chunk($"{poData["PONumber"]}\n",
+            poInfo.Add(new Chunk($"{poData["POID"]}\n",
                 FontFactory.GetFont("Arial", 10, Font.NORMAL)));
             poInfo.Add(new Chunk("ORDER DATE: ",
                 FontFactory.GetFont("Arial", 12, Font.BOLD)));
@@ -135,9 +133,10 @@ namespace Inventory_Management_System.Services
             {
                 string itemName = row["ItemName"].ToString();
                 string unitPrice = Convert.ToDecimal(row["UnitPrice"]).ToString("C");
-                string quantity = row["Quantity"].ToString();
-                string total = Convert.ToDecimal(row["TotalCost"]).ToString("C");
-                subtotal += Convert.ToDecimal(row["TotalCost"]);
+                string quantity = row["NumberOfUnits"].ToString();
+                decimal rowTotal = Convert.ToDecimal(row["UnitPrice"]) * Convert.ToDecimal(row["NumberOfUnits"]);
+                string total = rowTotal.ToString("C");
+                subtotal += rowTotal;
 
                 AddItemRow(table, itemName, unitPrice, quantity, total);
             }
@@ -170,37 +169,63 @@ namespace Inventory_Management_System.Services
             doc.Close();
         }
 
-        // Helper methods (same as previous example)
+        // Helper methods (keep these the same as in your original code)
         private void AddHeaderCell(PdfPTable table, string text)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text,
-                FontFactory.GetFont("Arial", 10, Font.BOLD)));
-            cell.BackgroundColor = new BaseColor(240, 240, 240);
-            cell.BorderWidth = 0.5f;
-            cell.Padding = 5;
+            PdfPCell cell = new PdfPCell(new Phrase(text, FontFactory.GetFont("Arial", 10, Font.BOLD)));
+            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            cell.BackgroundColor = new BaseColor(220, 220, 220);
             table.AddCell(cell);
         }
 
-        private void AddItemRow(PdfPTable table, string description, string unitPrice, string qty, string total)
+        private void AddItemRow(PdfPTable table, string item, string unitPrice, string quantity, string total)
         {
-            table.AddCell(new PdfPCell(new Phrase(description,
-                FontFactory.GetFont("Arial", 10, Font.NORMAL))));
-            table.AddCell(new PdfPCell(new Phrase(unitPrice,
-                FontFactory.GetFont("Arial", 10, Font.NORMAL))));
-            table.AddCell(new PdfPCell(new Phrase(qty,
-                FontFactory.GetFont("Arial", 10, Font.NORMAL))));
-            table.AddCell(new PdfPCell(new Phrase(total,
-                FontFactory.GetFont("Arial", 10, Font.NORMAL))));
+            table.AddCell(new Phrase(item, FontFactory.GetFont("Arial", 10, Font.NORMAL)));
+            table.AddCell(new Phrase(unitPrice, FontFactory.GetFont("Arial", 10, Font.NORMAL)));
+            table.AddCell(new Phrase(quantity, FontFactory.GetFont("Arial", 10, Font.NORMAL)));
+            table.AddCell(new Phrase(total, FontFactory.GetFont("Arial", 10, Font.NORMAL)));
         }
 
-        private void AddSubtotalCell(PdfPTable table, string text, int alignment, bool isHeader)
+        private void AddSubtotalCell(PdfPTable table, string text, int alignment, bool isBold)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text,
-                FontFactory.GetFont("Arial", isHeader ? 12 : 10, isHeader ? Font.BOLD : Font.NORMAL)));
-            cell.Border = PdfPCell.NO_BORDER;
+            Font font = isBold ? FontFactory.GetFont("Arial", 10, Font.BOLD) : FontFactory.GetFont("Arial", 10, Font.NORMAL);
+            PdfPCell cell = new PdfPCell(new Phrase(text, font));
             cell.HorizontalAlignment = alignment;
-            cell.Padding = 5;
+            cell.Border = PdfPCell.NO_BORDER;
             table.AddCell(cell);
         }
+
+        // Helper methods (same as previous example)
+        //private void AddHeaderCell(PdfPTable table, string text)
+        //{
+        //    PdfPCell cell = new PdfPCell(new Phrase(text,
+        //        FontFactory.GetFont("Arial", 10, Font.BOLD)));
+        //    cell.BackgroundColor = new BaseColor(240, 240, 240);
+        //    cell.BorderWidth = 0.5f;
+        //    cell.Padding = 5;
+        //    table.AddCell(cell);
+        //}
+
+        //private void AddItemRow(PdfPTable table, string description, string unitPrice, string qty, string total)
+        //{
+        //    table.AddCell(new PdfPCell(new Phrase(description,
+        //        FontFactory.GetFont("Arial", 10, Font.NORMAL))));
+        //    table.AddCell(new PdfPCell(new Phrase(unitPrice,
+        //        FontFactory.GetFont("Arial", 10, Font.NORMAL))));
+        //    table.AddCell(new PdfPCell(new Phrase(qty,
+        //        FontFactory.GetFont("Arial", 10, Font.NORMAL))));
+        //    table.AddCell(new PdfPCell(new Phrase(total,
+        //        FontFactory.GetFont("Arial", 10, Font.NORMAL))));
+        //}
+
+        //private void AddSubtotalCell(PdfPTable table, string text, int alignment, bool isHeader)
+        //{
+        //    PdfPCell cell = new PdfPCell(new Phrase(text,
+        //        FontFactory.GetFont("Arial", isHeader ? 12 : 10, isHeader ? Font.BOLD : Font.NORMAL)));
+        //    cell.Border = PdfPCell.NO_BORDER;
+        //    cell.HorizontalAlignment = alignment;
+        //    cell.Padding = 5;
+        //    table.AddCell(cell);
+        //}
     }
 }

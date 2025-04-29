@@ -60,10 +60,9 @@ namespace Inventory_Management_System.Services
                         int newMRNID;
                         using (MySqlCommand cmd = new MySqlCommand(mrnSql, connection, transaction))
                         {
-                            string requestedBy = Session.Username?.ToString() ?? "System";
 
                             cmd.Parameters.AddWithValue("@Department", myCreateMRN.Department);
-                            cmd.Parameters.AddWithValue("@RequestedBy", myCreateMRN.RequestedBy);
+                            cmd.Parameters.AddWithValue("@RequestedBy", Session.Username);
                             cmd.Parameters.AddWithValue("@ItemID", myCreateMRN.ItemID);
                             cmd.Parameters.AddWithValue("@ItemName", myCreateMRN.ItemName);
                             cmd.Parameters.AddWithValue("@NumberOfUnits", myCreateMRN.NumberOfUnits);
@@ -111,28 +110,11 @@ namespace Inventory_Management_System.Services
 
         }
 
-        public bool CancelMRN(CreateMRNmodel myCancelMRN)
+        public bool CancelMRN(int myMRNID)
         {
             using (MySqlConnection connection = new MySqlConnection(SqlHelper.connectionstring()))
             {
                 connection.Open();
-
-                // First check the current status of the PO
-                string statusCheckSql = "SELECT Status FROM materialrequestnotes WHERE MRNID  = @MRNID";
-                string currentStatus;
-
-                using (MySqlCommand cmd = new MySqlCommand(statusCheckSql, connection))
-                {
-                    cmd.Parameters.AddWithValue("@MRNID ", myCancelMRN.MRNID);
-                    currentStatus = cmd.ExecuteScalar()?.ToString() ?? string.Empty;
-                }
-
-                // If status is Approved or Rejected, don't allow update
-                if (currentStatus == "Confirmed" || currentStatus == "Rejected")
-                {
-                    MessageBox.Show("Cannot cancel a Material Request Note that has been Confirmed or Rejected.");
-                    return false;
-                }
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
@@ -140,13 +122,13 @@ namespace Inventory_Management_System.Services
                     {
                         // Update PurchaseOrders table
                         string mrnUpdateSql = @"UPDATE materialrequestnotes 
-                                   SET Status = @Status
+                                   SET Status = 'Cancelled'
                                    WHERE MRNID = @MRNID";
 
                         using (MySqlCommand cmd = new MySqlCommand(mrnUpdateSql, connection, transaction))
                         {
                          
-                            cmd.Parameters.AddWithValue("@Status", myCancelMRN.Status);
+                            cmd.Parameters.AddWithValue("@MRNID", myMRNID);
 
                             int rowsAffected = cmd.ExecuteNonQuery();
                             if (rowsAffected == 0)

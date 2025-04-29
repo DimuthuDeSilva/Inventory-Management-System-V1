@@ -82,47 +82,67 @@ namespace Inventory_Management_System.Services
                 return new DataSet(); // Return empty dataset on error
             }
         }
-        public (bool IsSuccess, string Message) ConfirmGRN (int grnID)
+        public (bool IsSuccess, string Message) ConfirmGRN(int grnID, int itemID, int quantity)
         {
-            try
+            using (MySqlConnection connection = new MySqlConnection(SqlHelper.connectionstring()))
             {
-                using (MySqlConnection connection = new MySqlConnection(SqlHelper.connectionstring()))
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
                 {
-                    connection.Open();
-
-                    var ConfirmedBy = Session.UserID;
-
-                    string sql = @"UPDATE goodsreceivednotes 
-                                SET 
-                                    Status = 'Confirmed',
-                                    ConfirmedBy = @ConfirmedBy
-                                WHERE 
-                                    GRNID  = @GRNID 
-                                    AND Status = 'Pending'";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    try
                     {
-                        cmd.Parameters.AddWithValue("@GRNID ", grnID);
-                        cmd.Parameters.AddWithValue("@ConfirmedBy", ConfirmedBy);
+                        var confirmedBy = Session.Username;
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                        // 1. First update the GRN status
+                        string updateGRNSql = @"UPDATE goodsreceivednotes 
+                                      SET Status = 'Confirmed',
+                                          ConfirmedBy = @ConfirmedBy
+                                      WHERE GRNID = @GRNID 
+                                      AND Status = 'Pending'";
 
-                        if (rowsAffected == 0)
+                        using (MySqlCommand cmd = new MySqlCommand(updateGRNSql, connection, transaction))
                         {
-                            return (false, "GRN not found or already Confirmed");
+                            cmd.Parameters.AddWithValue("@GRNID", grnID);
+                            cmd.Parameters.AddWithValue("@ConfirmedBy", confirmedBy);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected == 0)
+                            {
+                                transaction.Rollback();
+                                return (false, "GRN not found or already confirmed");
+                            }
                         }
 
-                        return (true, $"PO #{grnID} Confirmed successfully");
+                        // 2. Update inventory stock
+                        string updateInventorySql = @"UPDATE inventorystocks 
+                                           SET AvailableQuantity = AvailableQuantity + @Quantity
+                                           WHERE ItemID = @ItemID";
+
+                        using (MySqlCommand cmd = new MySqlCommand(updateInventorySql, connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@ItemID", itemID);
+                            cmd.Parameters.AddWithValue("@Quantity", quantity);
+
+                            int inventoryRows = cmd.ExecuteNonQuery();
+                            if (inventoryRows == 0)
+                            {
+                                transaction.Rollback();
+                                return (false, "Item not found in inventory");
+                            }
+                        }
+
+                        transaction.Commit();
+                        return (true, $"GRN #{grnID} confirmed and inventory updated successfully");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return (false, $"Failed to confirm GRN: {ex.Message}");
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                // Log error here (e.g., using your logging system)
-                return (false, $"Failed to confirm GRN: {ex.Message}");
-            }
         }
-        public (bool IsSuccess, string Message) RejectGRN (int grnID)
+        public (bool IsSuccess, string Message) RejectGRN(int grnID)
         {
             try
             {
@@ -130,7 +150,7 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    var ConfirmedBy = Session.UserID;
+                    var rejectedBy = Session.Username;  // More accurate variable name
 
                     string sql = @"
                 UPDATE goodsreceivednotes 
@@ -138,19 +158,20 @@ namespace Inventory_Management_System.Services
                     Status = 'Rejected',
                     ConfirmedBy = @ConfirmedBy
                 WHERE 
-                    GRNID  = @GRNID 
+                    GRNID = @GRNID 
                     AND Status = 'Pending'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@GRNID ", grnID);
-                        cmd.Parameters.AddWithValue("@ConfirmedBy",ConfirmedBy);
+                        // Fixed: Removed space after "@GRNID" in parameter name
+                        cmd.Parameters.AddWithValue("@GRNID", grnID);
+                        cmd.Parameters.AddWithValue("@ConfirmedBy", rejectedBy);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected == 0)
                         {
-                            return (false, "GRN not found or already rejected");
+                            return (false, "GRN not found or already rejected/processed");
                         }
 
                         return (true, $"GRN #{grnID} rejected successfully");
@@ -159,7 +180,7 @@ namespace Inventory_Management_System.Services
             }
             catch (Exception ex)
             {
-                // Log error here (e.g., using your logging system)
+                // Added missing catch block
                 return (false, $"Failed to reject GRN: {ex.Message}");
             }
         }

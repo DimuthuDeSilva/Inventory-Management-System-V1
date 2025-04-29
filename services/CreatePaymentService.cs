@@ -26,15 +26,25 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    string sql = @"SELECT grn.GRNID, grn.PONumber, po.POID, 
-                                 grn.SupplierID, grn.SupplierName, 
-                                 grn.UnitPrice, grn.NumberOfUnits, 
-                                 grn.TotalCost, grn.CreatedBy, 
-                                 grn.DateOfDelivery, grn.CreatedAt, 
-                                 grn.Status, grn.ConfirmedBy, grn.Notes
-                          FROM goodsreceivednotes grn
-                          INNER JOIN purchaseorders po ON grn.PONumber = po.PONumber
-                          WHERE grn.Status = 'Approved'";
+                    string sql = @"SELECT 
+                            GRNID, 
+                            POID, 
+                            ItemID, 
+                            ItemName, 
+                            SupplierID, 
+                            SupplierName, 
+                            UnitPrice, 
+                            NumberOfUnits, 
+                            TotalCost, 
+                            CreatedBy, 
+                            DateOfDelivery, 
+                            CreatedAt, 
+                            Status, 
+                            ConfirmedBy, 
+                            Notes
+                          FROM goodsreceivednotes
+                          WHERE Status IN ('Approved', 'Completed')
+                          ORDER BY DateOfDelivery DESC";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -45,7 +55,7 @@ namespace Inventory_Management_System.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error retrieving approved GRNs with POID: {ex.Message}",
+                MessageBox.Show($"Error retrieving approved GRNs: {ex.Message}",
                                "Database Error",
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
@@ -69,23 +79,26 @@ namespace Inventory_Management_System.Services
 
                             // 1. Insert payment record
                             string sql = @"INSERT INTO payments 
-                        (PaymentID, PaymentReference, POID, Amount, PaymentMethod, 
-                        Status, PaymentDate, ProcessedBy, Notes)
-                        VALUES 
-                        (@PaymentID, @PaymentReference, @POID, @Amount, @PaymentMethod, 
-                        @Status, @PaymentDate, @ProcessedBy, @Notes)";
+                                       (PaymentID, PaymentReference, POID, Amount, 
+                                        PaymentMethod, Status, PaymentDate, 
+                                        ProcessedBy, Notes)
+                                       VALUES 
+                                       (@PaymentID, @PaymentReference, @POID, @Amount, 
+                                        @PaymentMethod, @Status, @PaymentDate, 
+                                        @ProcessedBy, @Notes)";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection, transaction))
                             {
+                                //cmd.Parameters.AddWithValue("@PaymentID", myPayment.PaymentID);
                                 cmd.Parameters.AddWithValue("@PaymentID", myPayment.PaymentID);
-                                cmd.Parameters.AddWithValue("@PaymentReference", myPayment.PaymentReference ?? string.Empty);
+                                cmd.Parameters.AddWithValue("@PaymentReference", myPayment.PaymentReference);
                                 cmd.Parameters.AddWithValue("@POID", myPayment.POID);
                                 cmd.Parameters.AddWithValue("@Amount", myPayment.Amount);
-                                cmd.Parameters.AddWithValue("@PaymentMethod", myPayment.PaymentMethod ?? "Unknown");
-                                cmd.Parameters.AddWithValue("@Status", myPayment.Status ?? "Processed");
+                                cmd.Parameters.AddWithValue("@PaymentMethod", myPayment.PaymentMethod);
+                                cmd.Parameters.AddWithValue("@Status", myPayment.Status);
                                 cmd.Parameters.AddWithValue("@PaymentDate", myPayment.PaymentDate);
-                                cmd.Parameters.AddWithValue("@ProcessedBy", processedBy);
-                                cmd.Parameters.AddWithValue("@Notes", myPayment.Notes ?? string.Empty);
+                                cmd.Parameters.AddWithValue("@ProcessedBy", myPayment.ProcessedBy);
+                                cmd.Parameters.AddWithValue("@Notes", myPayment.Notes ?? (object)DBNull.Value);
 
                                 int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -98,18 +111,19 @@ namespace Inventory_Management_System.Services
 
                             // 2. Update goods received notes status
                             string updateGrnSql = @"UPDATE goodsreceivednotes 
-                                          SET Status = 'Paid', 
-                                              
-                                          WHERE POID = @POID";
+                                                   SET Status = 'Paid',
+                                                       ConfirmedBy = @ConfirmedBy,
+                                                   WHERE GRNID = @GRNID
+                                                   AND Status = 'Approved'";  // Only update if currently confirmed
 
-                            using (MySqlCommand updateCmd = new MySqlCommand(updateGrnSql, connection, transaction))
+                            using (MySqlCommand cmd = new MySqlCommand(updateGrnSql, connection, transaction))
                             {
-                                updateCmd.Parameters.AddWithValue("@POID", myPayment.POID);
-                                
+                                cmd.Parameters.AddWithValue("@GRNID", myPayment.GRNID);
+                                cmd.Parameters.AddWithValue("@ConfirmedBy", Session.Username);
 
-                                int grnRowsAffected = updateCmd.ExecuteNonQuery();
 
-                                if (grnRowsAffected == 0)
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected == 0)
                                 {
                                     transaction.Rollback();
                                     return (false, "Payment processed but failed to update Goods Received Notes status");

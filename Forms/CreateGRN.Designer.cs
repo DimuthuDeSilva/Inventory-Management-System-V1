@@ -38,10 +38,8 @@ namespace Inventory_Management_System.Forms
             this.txtGRNNumberOfUnits = new System.Windows.Forms.TextBox();
             this.txtGRNUnitPrice = new System.Windows.Forms.TextBox();
             this.txtGRNTotalCost = new System.Windows.Forms.TextBox();
-            this.txtGRNPONumber = new System.Windows.Forms.TextBox();
             this.lblNumberOfUnits = new System.Windows.Forms.Label();
             this.lblGRNUnitPrice = new System.Windows.Forms.Label();
-            this.lblGRNPONumber = new System.Windows.Forms.Label();
             this.txtGRNID = new System.Windows.Forms.TextBox();
             this.lblGRNID = new System.Windows.Forms.Label();
             this.dgvGRNList = new System.Windows.Forms.DataGridView();
@@ -54,7 +52,16 @@ namespace Inventory_Management_System.Forms
             this.btnGRNUpdate = new System.Windows.Forms.Button();
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCPONotes = new System.Windows.Forms.TextBox();
+            this.lblCPONotes = new System.Windows.Forms.Label();
+            this.txtPOID = new System.Windows.Forms.TextBox();
+            this.lblItemName = new System.Windows.Forms.Label();
+            this.lblPOID = new System.Windows.Forms.Label();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.lblItemID = new System.Windows.Forms.Label();
+            this.txtItemID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGRNList)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGRNReset
@@ -77,10 +84,8 @@ namespace Inventory_Management_System.Forms
             this.txtGRNSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGRNSupplierID.Location = new System.Drawing.Point(90, 210);
             this.txtGRNSupplierID.Name = "txtGRNSupplierID";
-            this.txtGRNSupplierID.ReadOnly = true;
             this.txtGRNSupplierID.Size = new System.Drawing.Size(242, 27);
             this.txtGRNSupplierID.TabIndex = 46;
-            this.txtGRNSupplierID.TabStop = false;
             // 
             // lblGRNSupplierID
             // 
@@ -133,15 +138,6 @@ namespace Inventory_Management_System.Forms
             this.txtGRNTotalCost.TabIndex = 36;
             this.txtGRNTotalCost.TabStop = false;
             // 
-            // txtGRNPONumber
-            // 
-            this.txtGRNPONumber.BackColor = System.Drawing.SystemColors.Control;
-            this.txtGRNPONumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGRNPONumber.Location = new System.Drawing.Point(90, 156);
-            this.txtGRNPONumber.Name = "txtGRNPONumber";
-            this.txtGRNPONumber.Size = new System.Drawing.Size(242, 27);
-            this.txtGRNPONumber.TabIndex = 35;
-            // 
             // lblNumberOfUnits
             // 
             this.lblNumberOfUnits.AutoSize = true;
@@ -164,22 +160,11 @@ namespace Inventory_Management_System.Forms
             this.lblGRNUnitPrice.TabIndex = 33;
             this.lblGRNUnitPrice.Text = "Unit Price:";
             // 
-            // lblGRNPONumber
-            // 
-            this.lblGRNPONumber.AutoSize = true;
-            this.lblGRNPONumber.BackColor = System.Drawing.SystemColors.Control;
-            this.lblGRNPONumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGRNPONumber.Location = new System.Drawing.Point(92, 132);
-            this.lblGRNPONumber.Name = "lblGRNPONumber";
-            this.lblGRNPONumber.Size = new System.Drawing.Size(96, 21);
-            this.lblGRNPONumber.TabIndex = 30;
-            this.lblGRNPONumber.Text = "PO Number:";
-            // 
             // txtGRNID
             // 
             this.txtGRNID.BackColor = System.Drawing.SystemColors.Control;
             this.txtGRNID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGRNID.Location = new System.Drawing.Point(90, 102);
+            this.txtGRNID.Location = new System.Drawing.Point(19, 36);
             this.txtGRNID.Name = "txtGRNID";
             this.txtGRNID.ReadOnly = true;
             this.txtGRNID.Size = new System.Drawing.Size(242, 27);
@@ -191,7 +176,7 @@ namespace Inventory_Management_System.Forms
             this.lblGRNID.AutoSize = true;
             this.lblGRNID.BackColor = System.Drawing.SystemColors.Control;
             this.lblGRNID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGRNID.Location = new System.Drawing.Point(92, 78);
+            this.lblGRNID.Location = new System.Drawing.Point(21, 12);
             this.lblGRNID.Name = "lblGRNID";
             this.lblGRNID.Size = new System.Drawing.Size(65, 21);
             this.lblGRNID.TabIndex = 28;
@@ -207,7 +192,7 @@ namespace Inventory_Management_System.Forms
             this.dgvGRNList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvGRNList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGRNList.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvGRNList.Location = new System.Drawing.Point(71, 283);
+            this.dgvGRNList.Location = new System.Drawing.Point(71, 357);
             this.dgvGRNList.Name = "dgvGRNList";
             this.dgvGRNList.ReadOnly = true;
             this.dgvGRNList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -219,7 +204,7 @@ namespace Inventory_Management_System.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvGRNList.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvGRNList.Size = new System.Drawing.Size(787, 181);
+            this.dgvGRNList.Size = new System.Drawing.Size(787, 107);
             this.dgvGRNList.StandardTab = true;
             this.dgvGRNList.TabIndex = 0;
             this.dgvGRNList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGRNList_CellDoubleClick);
@@ -277,7 +262,7 @@ namespace Inventory_Management_System.Forms
             this.lblGRNsupplierName.AutoSize = true;
             this.lblGRNsupplierName.BackColor = System.Drawing.SystemColors.Control;
             this.lblGRNsupplierName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGRNsupplierName.Location = new System.Drawing.Point(342, 103);
+            this.lblGRNsupplierName.Location = new System.Drawing.Point(265, 24);
             this.lblGRNsupplierName.Name = "lblGRNsupplierName";
             this.lblGRNsupplierName.Size = new System.Drawing.Size(117, 21);
             this.lblGRNsupplierName.TabIndex = 62;
@@ -287,12 +272,10 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtGRNSupplierName.BackColor = System.Drawing.SystemColors.Control;
             this.txtGRNSupplierName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGRNSupplierName.Location = new System.Drawing.Point(340, 128);
+            this.txtGRNSupplierName.Location = new System.Drawing.Point(267, 60);
             this.txtGRNSupplierName.Name = "txtGRNSupplierName";
-            this.txtGRNSupplierName.ReadOnly = true;
             this.txtGRNSupplierName.Size = new System.Drawing.Size(242, 27);
             this.txtGRNSupplierName.TabIndex = 63;
-            this.txtGRNSupplierName.TabStop = false;
             // 
             // btnGRNUpdate
             // 
@@ -321,10 +304,103 @@ namespace Inventory_Management_System.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Location = new System.Drawing.Point(71, 63);
+            this.panel1.Controls.Add(this.txtCPONotes);
+            this.panel1.Controls.Add(this.lblCPONotes);
+            this.panel1.Controls.Add(this.txtPOID);
+            this.panel1.Controls.Add(this.lblItemName);
+            this.panel1.Controls.Add(this.lblGRNsupplierName);
+            this.panel1.Controls.Add(this.txtGRNSupplierName);
+            this.panel1.Controls.Add(this.lblPOID);
+            this.panel1.Controls.Add(this.txtItemName);
+            this.panel1.Controls.Add(this.lblItemID);
+            this.panel1.Controls.Add(this.txtItemID);
+            this.panel1.Controls.Add(this.lblGRNID);
+            this.panel1.Controls.Add(this.txtGRNID);
+            this.panel1.Location = new System.Drawing.Point(71, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 200);
+            this.panel1.Size = new System.Drawing.Size(787, 303);
             this.panel1.TabIndex = 67;
+            // 
+            // txtCPONotes
+            // 
+            this.txtCPONotes.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCPONotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPONotes.Location = new System.Drawing.Point(280, 252);
+            this.txtCPONotes.Name = "txtCPONotes";
+            this.txtCPONotes.Size = new System.Drawing.Size(242, 27);
+            this.txtCPONotes.TabIndex = 71;
+            // 
+            // lblCPONotes
+            // 
+            this.lblCPONotes.AutoSize = true;
+            this.lblCPONotes.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCPONotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPONotes.Location = new System.Drawing.Point(282, 228);
+            this.lblCPONotes.Name = "lblCPONotes";
+            this.lblCPONotes.Size = new System.Drawing.Size(54, 21);
+            this.lblCPONotes.TabIndex = 70;
+            this.lblCPONotes.Text = "Notes:";
+            // 
+            // txtPOID
+            // 
+            this.txtPOID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPOID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOID.Location = new System.Drawing.Point(13, 93);
+            this.txtPOID.Name = "txtPOID";
+            this.txtPOID.Size = new System.Drawing.Size(242, 27);
+            this.txtPOID.TabIndex = 69;
+            this.txtPOID.Leave += new System.EventHandler(this.txtPOID_Leave);
+            // 
+            // lblItemName
+            // 
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.BackColor = System.Drawing.SystemColors.Control;
+            this.lblItemName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemName.Location = new System.Drawing.Point(21, 228);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(90, 21);
+            this.lblItemName.TabIndex = 64;
+            this.lblItemName.Text = "Item Name:";
+            // 
+            // lblPOID
+            // 
+            this.lblPOID.AutoSize = true;
+            this.lblPOID.BackColor = System.Drawing.SystemColors.Control;
+            this.lblPOID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPOID.Location = new System.Drawing.Point(15, 69);
+            this.lblPOID.Name = "lblPOID";
+            this.lblPOID.Size = new System.Drawing.Size(53, 21);
+            this.lblPOID.TabIndex = 68;
+            this.lblPOID.Text = "PO ID:";
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtItemName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Location = new System.Drawing.Point(19, 252);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(242, 27);
+            this.txtItemName.TabIndex = 65;
+            // 
+            // lblItemID
+            // 
+            this.lblItemID.AutoSize = true;
+            this.lblItemID.BackColor = System.Drawing.SystemColors.Control;
+            this.lblItemID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemID.Location = new System.Drawing.Point(15, 120);
+            this.lblItemID.Name = "lblItemID";
+            this.lblItemID.Size = new System.Drawing.Size(63, 21);
+            this.lblItemID.TabIndex = 62;
+            this.lblItemID.Text = "Item ID:";
+            // 
+            // txtItemID
+            // 
+            this.txtItemID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtItemID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemID.Location = new System.Drawing.Point(13, 144);
+            this.txtItemID.Name = "txtItemID";
+            this.txtItemID.Size = new System.Drawing.Size(242, 27);
+            this.txtItemID.TabIndex = 63;
             // 
             // CreateGRN
             // 
@@ -334,8 +410,6 @@ namespace Inventory_Management_System.Forms
             this.ClientSize = new System.Drawing.Size(919, 544);
             this.Controls.Add(this.lblLoggedUser);
             this.Controls.Add(this.btnGRNUpdate);
-            this.Controls.Add(this.txtGRNSupplierName);
-            this.Controls.Add(this.lblGRNsupplierName);
             this.Controls.Add(this.btnGRNAdd);
             this.Controls.Add(this.btnGRNReset);
             this.Controls.Add(this.btnGRNHome);
@@ -347,12 +421,8 @@ namespace Inventory_Management_System.Forms
             this.Controls.Add(this.txtGRNNumberOfUnits);
             this.Controls.Add(this.txtGRNUnitPrice);
             this.Controls.Add(this.txtGRNTotalCost);
-            this.Controls.Add(this.txtGRNPONumber);
             this.Controls.Add(this.lblNumberOfUnits);
             this.Controls.Add(this.lblGRNUnitPrice);
-            this.Controls.Add(this.lblGRNPONumber);
-            this.Controls.Add(this.txtGRNID);
-            this.Controls.Add(this.lblGRNID);
             this.Controls.Add(this.dgvGRNList);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -360,8 +430,10 @@ namespace Inventory_Management_System.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CreateGRN";
             this.Text = "Create Good Received Note";
-            this.Load += new System.EventHandler(this.CreateGRN_Load);
+            this.Load += new System.EventHandler(this.CreateGRN_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGRNList)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,10 +448,8 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.TextBox txtGRNNumberOfUnits;
         private System.Windows.Forms.TextBox txtGRNUnitPrice;
         private System.Windows.Forms.TextBox txtGRNTotalCost;
-        private System.Windows.Forms.TextBox txtGRNPONumber;
         private System.Windows.Forms.Label lblNumberOfUnits;
         private System.Windows.Forms.Label lblGRNUnitPrice;
-        private System.Windows.Forms.Label lblGRNPONumber;
         private System.Windows.Forms.TextBox txtGRNID;
         private System.Windows.Forms.Label lblGRNID;
         private System.Windows.Forms.DataGridView dgvGRNList;
@@ -392,5 +462,13 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Button btnGRNUpdate;
         private System.Windows.Forms.Label lblLoggedUser;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblItemName;
+        private System.Windows.Forms.TextBox txtItemName;
+        private System.Windows.Forms.Label lblItemID;
+        private System.Windows.Forms.TextBox txtItemID;
+        private System.Windows.Forms.TextBox txtPOID;
+        private System.Windows.Forms.Label lblPOID;
+        private System.Windows.Forms.TextBox txtCPONotes;
+        private System.Windows.Forms.Label lblCPONotes;
     }
 }

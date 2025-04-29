@@ -102,7 +102,7 @@ namespace Inventory_Management_System.Forms
 
             // Map data from row to createPayment object
             myitems.ItemID = Convert.ToInt32(row["ItemID"]);
-            myitems.Name = row["Name"].ToString();
+            myitems.ItemName = row["ItemName"].ToString();
             myitems.Description = row["Description"].ToString();
             myitems.Quantity = Convert.ToInt32(row["Quantity"]);
             myitems.ReorderLevel = Convert.ToInt32(row["ReorderLevel"]);

@@ -30,7 +30,7 @@ namespace Inventory_Management_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPmntReset = new System.Windows.Forms.Button();
             this.btnPmntProcess = new System.Windows.Forms.Button();
             this.txtpmntNotes = new System.Windows.Forms.TextBox();
@@ -40,9 +40,7 @@ namespace Inventory_Management_System.Forms
             this.lblpmntReference = new System.Windows.Forms.Label();
             this.txtpmntStatus = new System.Windows.Forms.TextBox();
             this.txtpmntReference = new System.Windows.Forms.TextBox();
-            this.txtpmntNumber = new System.Windows.Forms.TextBox();
             this.lblpmntStatus = new System.Windows.Forms.Label();
-            this.lblAPONumber = new System.Windows.Forms.Label();
             this.txtPOID = new System.Windows.Forms.TextBox();
             this.lblPOID = new System.Windows.Forms.Label();
             this.dgvpmntList = new System.Windows.Forms.DataGridView();
@@ -56,6 +54,7 @@ namespace Inventory_Management_System.Forms
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpmntList)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPmntReset
@@ -88,7 +87,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtpmntNotes.BackColor = System.Drawing.SystemColors.Control;
             this.txtpmntNotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpmntNotes.Location = new System.Drawing.Point(615, 435);
+            this.txtpmntNotes.Location = new System.Drawing.Point(589, 97);
             this.txtpmntNotes.Name = "txtpmntNotes";
             this.txtpmntNotes.Size = new System.Drawing.Size(242, 27);
             this.txtpmntNotes.TabIndex = 48;
@@ -97,7 +96,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtpmntSupplierID.BackColor = System.Drawing.SystemColors.Control;
             this.txtpmntSupplierID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpmntSupplierID.Location = new System.Drawing.Point(47, 434);
+            this.txtpmntSupplierID.Location = new System.Drawing.Point(21, 96);
             this.txtpmntSupplierID.Name = "txtpmntSupplierID";
             this.txtpmntSupplierID.ReadOnly = true;
             this.txtpmntSupplierID.Size = new System.Drawing.Size(242, 27);
@@ -109,7 +108,7 @@ namespace Inventory_Management_System.Forms
             this.lblAPONotes.AutoSize = true;
             this.lblAPONotes.BackColor = System.Drawing.SystemColors.Control;
             this.lblAPONotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPONotes.Location = new System.Drawing.Point(617, 410);
+            this.lblAPONotes.Location = new System.Drawing.Point(591, 72);
             this.lblAPONotes.Name = "lblAPONotes";
             this.lblAPONotes.Size = new System.Drawing.Size(54, 21);
             this.lblAPONotes.TabIndex = 43;
@@ -120,7 +119,7 @@ namespace Inventory_Management_System.Forms
             this.lblAPOSupplierID.AutoSize = true;
             this.lblAPOSupplierID.BackColor = System.Drawing.SystemColors.Control;
             this.lblAPOSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPOSupplierID.Location = new System.Drawing.Point(49, 410);
+            this.lblAPOSupplierID.Location = new System.Drawing.Point(23, 72);
             this.lblAPOSupplierID.Name = "lblAPOSupplierID";
             this.lblAPOSupplierID.Size = new System.Drawing.Size(90, 21);
             this.lblAPOSupplierID.TabIndex = 42;
@@ -131,7 +130,7 @@ namespace Inventory_Management_System.Forms
             this.lblpmntReference.AutoSize = true;
             this.lblpmntReference.BackColor = System.Drawing.SystemColors.Control;
             this.lblpmntReference.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpmntReference.Location = new System.Drawing.Point(617, 302);
+            this.lblpmntReference.Location = new System.Drawing.Point(308, 72);
             this.lblpmntReference.Name = "lblpmntReference";
             this.lblpmntReference.Size = new System.Drawing.Size(146, 21);
             this.lblpmntReference.TabIndex = 41;
@@ -141,7 +140,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtpmntStatus.BackColor = System.Drawing.SystemColors.Control;
             this.txtpmntStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpmntStatus.Location = new System.Drawing.Point(615, 380);
+            this.txtpmntStatus.Location = new System.Drawing.Point(589, 42);
             this.txtpmntStatus.Name = "txtpmntStatus";
             this.txtpmntStatus.Size = new System.Drawing.Size(242, 27);
             this.txtpmntStatus.TabIndex = 40;
@@ -150,43 +149,21 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtpmntReference.BackColor = System.Drawing.SystemColors.Control;
             this.txtpmntReference.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpmntReference.Location = new System.Drawing.Point(615, 326);
+            this.txtpmntReference.Location = new System.Drawing.Point(306, 96);
             this.txtpmntReference.Name = "txtpmntReference";
             this.txtpmntReference.Size = new System.Drawing.Size(242, 27);
             this.txtpmntReference.TabIndex = 36;
-            // 
-            // txtpmntNumber
-            // 
-            this.txtpmntNumber.BackColor = System.Drawing.SystemColors.Control;
-            this.txtpmntNumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpmntNumber.Location = new System.Drawing.Point(47, 380);
-            this.txtpmntNumber.Name = "txtpmntNumber";
-            this.txtpmntNumber.ReadOnly = true;
-            this.txtpmntNumber.Size = new System.Drawing.Size(242, 27);
-            this.txtpmntNumber.TabIndex = 35;
-            this.txtpmntNumber.TabStop = false;
             // 
             // lblpmntStatus
             // 
             this.lblpmntStatus.AutoSize = true;
             this.lblpmntStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblpmntStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpmntStatus.Location = new System.Drawing.Point(617, 356);
+            this.lblpmntStatus.Location = new System.Drawing.Point(591, 18);
             this.lblpmntStatus.Name = "lblpmntStatus";
             this.lblpmntStatus.Size = new System.Drawing.Size(92, 21);
             this.lblpmntStatus.TabIndex = 34;
             this.lblpmntStatus.Text = "GRN Status:";
-            // 
-            // lblAPONumber
-            // 
-            this.lblAPONumber.AutoSize = true;
-            this.lblAPONumber.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAPONumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPONumber.Location = new System.Drawing.Point(49, 356);
-            this.lblAPONumber.Name = "lblAPONumber";
-            this.lblAPONumber.Size = new System.Drawing.Size(96, 21);
-            this.lblAPONumber.TabIndex = 30;
-            this.lblAPONumber.Text = "PO Number:";
             // 
             // txtPOID
             // 
@@ -224,14 +201,14 @@ namespace Inventory_Management_System.Forms
             this.dgvpmntList.Name = "dgvpmntList";
             this.dgvpmntList.ReadOnly = true;
             this.dgvpmntList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvpmntList.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvpmntList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvpmntList.Size = new System.Drawing.Size(857, 229);
             this.dgvpmntList.StandardTab = true;
             this.dgvpmntList.TabIndex = 0;
@@ -241,7 +218,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtxpmntAmount.BackColor = System.Drawing.SystemColors.Control;
             this.txtxpmntAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtxpmntAmount.Location = new System.Drawing.Point(332, 326);
+            this.txtxpmntAmount.Location = new System.Drawing.Point(21, 150);
             this.txtxpmntAmount.Name = "txtxpmntAmount";
             this.txtxpmntAmount.ReadOnly = true;
             this.txtxpmntAmount.Size = new System.Drawing.Size(242, 27);
@@ -253,7 +230,7 @@ namespace Inventory_Management_System.Forms
             this.lblpmntAmount.AutoSize = true;
             this.lblpmntAmount.BackColor = System.Drawing.SystemColors.Control;
             this.lblpmntAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpmntAmount.Location = new System.Drawing.Point(334, 302);
+            this.lblpmntAmount.Location = new System.Drawing.Point(23, 126);
             this.lblpmntAmount.Name = "lblpmntAmount";
             this.lblpmntAmount.Size = new System.Drawing.Size(69, 21);
             this.lblpmntAmount.TabIndex = 45;
@@ -277,7 +254,7 @@ namespace Inventory_Management_System.Forms
             // 
             this.txtpmntMethod.BackColor = System.Drawing.SystemColors.Control;
             this.txtpmntMethod.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpmntMethod.Location = new System.Drawing.Point(332, 380);
+            this.txtpmntMethod.Location = new System.Drawing.Point(306, 42);
             this.txtpmntMethod.Name = "txtpmntMethod";
             this.txtpmntMethod.Size = new System.Drawing.Size(242, 27);
             this.txtpmntMethod.TabIndex = 64;
@@ -287,7 +264,7 @@ namespace Inventory_Management_System.Forms
             this.lblpmntPaymentMethod.AutoSize = true;
             this.lblpmntPaymentMethod.BackColor = System.Drawing.SystemColors.Control;
             this.lblpmntPaymentMethod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpmntPaymentMethod.Location = new System.Drawing.Point(334, 356);
+            this.lblpmntPaymentMethod.Location = new System.Drawing.Point(308, 18);
             this.lblpmntPaymentMethod.Name = "lblpmntPaymentMethod";
             this.lblpmntPaymentMethod.Size = new System.Drawing.Size(131, 21);
             this.lblpmntPaymentMethod.TabIndex = 63;
@@ -327,6 +304,18 @@ namespace Inventory_Management_System.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.lblAPOSupplierID);
+            this.panel1.Controls.Add(this.txtpmntMethod);
+            this.panel1.Controls.Add(this.lblpmntPaymentMethod);
+            this.panel1.Controls.Add(this.txtpmntSupplierID);
+            this.panel1.Controls.Add(this.lblpmntAmount);
+            this.panel1.Controls.Add(this.txtpmntNotes);
+            this.panel1.Controls.Add(this.txtxpmntAmount);
+            this.panel1.Controls.Add(this.lblAPONotes);
+            this.panel1.Controls.Add(this.lblpmntReference);
+            this.panel1.Controls.Add(this.txtpmntStatus);
+            this.panel1.Controls.Add(this.txtpmntReference);
+            this.panel1.Controls.Add(this.lblpmntStatus);
             this.panel1.Location = new System.Drawing.Point(26, 284);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(857, 248);
@@ -339,25 +328,11 @@ namespace Inventory_Management_System.Forms
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(919, 544);
             this.Controls.Add(this.lblLoggedUser);
-            this.Controls.Add(this.txtpmntMethod);
-            this.Controls.Add(this.lblpmntPaymentMethod);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dtpAPOOrderDate);
             this.Controls.Add(this.btnPmntReset);
             this.Controls.Add(this.btnPmntProcess);
-            this.Controls.Add(this.txtxpmntAmount);
-            this.Controls.Add(this.txtpmntNotes);
-            this.Controls.Add(this.txtpmntSupplierID);
-            this.Controls.Add(this.lblpmntAmount);
-            this.Controls.Add(this.lblAPONotes);
-            this.Controls.Add(this.lblAPOSupplierID);
-            this.Controls.Add(this.lblpmntReference);
-            this.Controls.Add(this.txtpmntStatus);
-            this.Controls.Add(this.txtpmntReference);
-            this.Controls.Add(this.txtpmntNumber);
-            this.Controls.Add(this.lblpmntStatus);
             this.Controls.Add(this.lblAPOOrderDate);
-            this.Controls.Add(this.lblAPONumber);
             this.Controls.Add(this.txtPOID);
             this.Controls.Add(this.lblPOID);
             this.Controls.Add(this.dgvpmntList);
@@ -369,6 +344,8 @@ namespace Inventory_Management_System.Forms
             this.Text = "Create Payment ";
             this.Load += new System.EventHandler(this.ApprovePOForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpmntList)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,9 +362,7 @@ namespace Inventory_Management_System.Forms
         private System.Windows.Forms.Label lblpmntReference;
         private System.Windows.Forms.TextBox txtpmntStatus;
         private System.Windows.Forms.TextBox txtpmntReference;
-        private System.Windows.Forms.TextBox txtpmntNumber;
         private System.Windows.Forms.Label lblpmntStatus;
-        private System.Windows.Forms.Label lblAPONumber;
         private System.Windows.Forms.TextBox txtPOID;
         private System.Windows.Forms.Label lblPOID;
         private System.Windows.Forms.DataGridView dgvpmntList;

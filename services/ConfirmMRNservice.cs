@@ -93,19 +93,19 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    var ApprovedBy = Session.Username;
+                    var approvedBy = Session.Username;
 
                     string sql = @"UPDATE materialrequestnotes 
-                                SET Status = 'Confirmed',
-                                    ApprovedBy = @ApprovedBy
-                                WHERE 
-                                    MRNID  = @MRNID 
-                                    AND Status = 'Pending'";
+                                  SET Status = 'Confirmed',
+                                      ApprovedBy = @ApprovedBy
+                                  WHERE MRNID = @MRNID 
+                                  AND Status = 'Pending'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@MRNID ", mrnID);
-                        cmd.Parameters.AddWithValue("@ApprovedBy", ApprovedBy);
+                        // Fixed: Removed space after "@MRNID" in parameter name
+                        cmd.Parameters.AddWithValue("@MRNID", mrnID);
+                        cmd.Parameters.AddWithValue("@ApprovedBy", approvedBy);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -114,14 +114,14 @@ namespace Inventory_Management_System.Services
                             return (false, "MRN not found or already confirmed");
                         }
 
-                        return (true, $"MRN #{mrnID} Confirmed successfully");
+                        return (true, $"MRN #{mrnID} confirmed successfully");
                     }
                 }
             }
             catch (Exception ex)
             {
                 // Log error here (e.g., using your logging system)
-                return (false, $"Failed to Confirm MRN: {ex.Message}");
+                return (false, $"Failed to confirm MRN: {ex.Message}");
             }
         }
 
@@ -133,25 +133,25 @@ namespace Inventory_Management_System.Services
                 {
                     connection.Open();
 
-                    var ApprovedBy = Session.Username;
+                    var approvedBy = Session.Username;
 
                     string sql = @"UPDATE materialrequestnotes 
-                                SET Status = 'Rejected',
-                                    ApprovedBy = @ApprovedBy
-                                WHERE 
-                                    MRNID  = @MRNID 
-                                    AND Status = 'Pending'";
+                                  SET Status = 'Rejected',
+                                      ApprovedBy = @ApprovedBy
+                                  WHERE MRNID = @MRNID 
+                                  AND Status = 'Pending'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@MRNID ", mrnID);
-                        cmd.Parameters.AddWithValue("@ApprovedBy", ApprovedBy);
+                        // Fixed: Removed space after "@MRNID" in parameter name
+                        cmd.Parameters.AddWithValue("@MRNID", mrnID);
+                        cmd.Parameters.AddWithValue("@ApprovedBy", approvedBy);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected == 0)
                         {
-                            return (false, "MRN not found or already rejected");
+                            return (false, "MRN not found or already Rejected");
                         }
 
                         return (true, $"MRN #{mrnID} Rejected successfully");
@@ -161,7 +161,7 @@ namespace Inventory_Management_System.Services
             catch (Exception ex)
             {
                 // Log error here (e.g., using your logging system)
-                return (false, $"Failed to Reject MRN: {ex.Message}");
+                return (false, $"Failed to reject MRN: {ex.Message}");
             }
         }
     }

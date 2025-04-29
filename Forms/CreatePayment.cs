@@ -18,7 +18,6 @@ namespace Inventory_Management_System.Forms
     {
         CreatePaymentModel createPayment = new CreatePaymentModel();
         CreatePaymentService createPaymentService = new CreatePaymentService();
-        GRNtoCreatePaymentmodel confirmGRNmodel = new GRNtoCreatePaymentmodel();
 
         public CreatePayment()
         {
@@ -37,6 +36,7 @@ namespace Inventory_Management_System.Forms
                 createPayment.PaymentMethod = txtpmntMethod.Text.ToString();
                 createPayment.Status = txtpmntStatus.Text.ToString();
                 createPayment.Notes = txtpmntNotes.Text.ToString();
+                createPayment.ProcessedBy = Session.Username;
 
                 createPaymentService.PaymentProcess(createPayment);
                 MessageBox.Show("Payment processed Successfully!");
@@ -52,7 +52,6 @@ namespace Inventory_Management_System.Forms
         private void btnPmntReset_Click(object sender, EventArgs e)
         {
          
-            txtpmntNumber.Clear();
             txtpmntNotes.Clear();
             txtpmntSupplierID.Clear();
             txtpmntReference.Clear();
@@ -62,7 +61,6 @@ namespace Inventory_Management_System.Forms
             dtpAPOOrderDate.Value = DateTime.Now;
             txtPOID.Clear();
 
-            txtpmntNumber.Enabled = false;
             txtpmntSupplierID.Enabled = false;
             txtxpmntAmount.Enabled = false;
             txtPOID.Enabled = false;
@@ -76,12 +74,7 @@ namespace Inventory_Management_System.Forms
 
         private bool ValidatePMNTinputs()
         {
-            if (String.IsNullOrWhiteSpace(txtpmntNumber.Text))
-            {
-                MessageBox.Show("PO Number is required");
-                txtpmntNumber.Focus();
-                return false;
-            }
+           
             if (String.IsNullOrWhiteSpace(txtpmntMethod.Text))
             {
                 MessageBox.Show("Payment method is required", "Validation Error",
@@ -162,46 +155,46 @@ namespace Inventory_Management_System.Forms
         {
             if (e.RowIndex < 0) return;
 
-            DataRowView row = (DataRowView)dgvpmntList.Rows[e.RowIndex].DataBoundItem;
+            try
+            {
+                // Scroll to and select the row
+                dgvpmntList.CurrentCell = dgvpmntList.Rows[e.RowIndex].Cells[0];
 
-            // Map data from row to createPayment object
-            createPayment.POID = Convert.ToInt32(row["POID"]);
-            confirmGRNmodel.PONumber = row["PONumber"].ToString();
-            confirmGRNmodel.SupplierID = Convert.ToInt32(row["SupplierID"]);
-            confirmGRNmodel.OrderDate = Convert.ToDateTime(row["DateOfDelivery"]);
+                DataRowView row = (DataRowView)dgvpmntList.Rows[e.RowIndex].DataBoundItem;
+                createPayment.GRNID = row["GRNID"] != DBNull.Value ? Convert.ToInt32(row["GRNID"]) : 0;
+                createPayment.POID = row["POID"] != DBNull.Value ? Convert.ToInt32(row["POID"]) : 0;
+                createPayment.ItemID = row["ItemID"] != DBNull.Value ? Convert.ToInt32(row["ItemID"]) : 0;
+                createPayment.ItemName = row["ItemName"] != DBNull.Value ? row["ItemName"].ToString() : string.Empty;
+                createPayment.SupplierID = row["SupplierID"] != DBNull.Value ? Convert.ToInt32(row["SupplierID"]) : 0;
+                createPayment.SupplierName = row["SupplierName"] != DBNull.Value ? row["SupplierName"].ToString() : string.Empty;
+                createPayment.UnitPrice = row["UnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["UnitPrice"]) : 0;
+                createPayment.NumberOfUnits = row["NumberOfUnits"] != DBNull.Value ? Convert.ToInt32(row["NumberOfUnits"]) : 0;
+                createPayment.TotalCost = row["TotalCost"] != DBNull.Value ? Convert.ToDecimal(row["TotalCost"]) : 0;
+                //currentGRN.CreatedBy = row["CreatedBy"] != DBNull.Value ? row["CreatedBy"].ToString() : string.Empty;
+                createPayment.DateOfDelivery = row["DateOfDelivery"] != DBNull.Value ? Convert.ToDateTime(row["DateOfDelivery"]) : DateTime.Now;
+                createPayment.CreatedAt = row["CreatedAt"] != DBNull.Value ? Convert.ToDateTime(row["CreatedAt"]) : DateTime.Now;
+                createPayment.Status = row["Status"] != DBNull.Value ? row["Status"].ToString() : string.Empty;
+                createPayment.Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : string.Empty;
 
-            confirmGRNmodel.Status = row["Status"].ToString();
-            confirmGRNmodel.UnitPrice = Convert.ToDecimal(row["UnitPrice"]);
-            confirmGRNmodel.NumberOfUnits = Convert.ToInt32(row["NumberOfUnits"]);
-            createPayment.Amount = Convert.ToDecimal(row["TotalCost"]);
-            confirmGRNmodel.CreatedBy = Convert.ToInt32(row["CreatedBy"]);
-            confirmGRNmodel.ConfirmedBy = row["ConfirmedBy"] != DBNull.Value ?
-                                     Convert.ToInt32(row["ConfirmedBy"]) : (int?)null;
-            confirmGRNmodel.Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : null;
+                // Populate form fields
+                txtPOID.Text = createPayment.POID.ToString();
+                txtpmntStatus.Text = createPayment.Status.ToString();
+                txtpmntSupplierID.Text = createPayment.SupplierID.ToString();
+                txtxpmntAmount.Text = createPayment.TotalCost.ToString("0.00");
+                dtpAPOOrderDate.Value = createPayment.DateOfDelivery;
+                txtpmntNotes.Text = createPayment.Notes;
 
-            // Map to UI controls
-            txtpmntNumber.Text = confirmGRNmodel.PONumber;
-            txtpmntNotes.Text = confirmGRNmodel.Notes ?? string.Empty;
-            txtpmntSupplierID.Text = confirmGRNmodel.SupplierID.ToString();
-            txtpmntReference.Text = createPayment.PaymentReference; // Or payment reference if different
-            txtpmntStatus.Text = confirmGRNmodel.Status;
-            txtxpmntAmount.Text = createPayment.Amount.ToString("N2"); // Formatted with 2 decimal places
-            txtpmntMethod.Text = string.Empty; // Clear payment method
-            dtpAPOOrderDate.Value = confirmGRNmodel.OrderDate;
 
-            // Populate form fields
-            txtPOID.Text = createPayment.POID.ToString();
-            txtpmntNumber.Text = confirmGRNmodel.PONumber;
-            txtpmntSupplierID.Text = confirmGRNmodel.SupplierID.ToString();
-            dtpAPOOrderDate.Value = confirmGRNmodel.OrderDate;
-            txtxpmntAmount.Text = createPayment.Amount.ToString("N2");
-            //txtpmntReference.Text = createPayment.PaymentReference.ToString();
-            txtpmntStatus.Text = confirmGRNmodel.Status.ToString();
-            txtpmntNotes.Text = confirmGRNmodel.Notes ?? "";
-            //txtpmntPaymentMethod.Text = createPayment.PaymentMethod.ToString();
-
-            //btnAPOAdd.Enabled = false;
-            btnPmntProcess.Enabled = true;
+                // Update button states
+                btnPmntProcess.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading payment details: {ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
     }
